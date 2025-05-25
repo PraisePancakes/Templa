@@ -60,4 +60,19 @@ namespace templa
         using popped = U;
     };
 
+    template <typename... Ts>
+    struct type_list_pop_back;
+
+    template <typename Head, typename Tail>
+    struct type_list_pop_back<Head, Tail>
+    {
+        using type = std::tuple<Head>;
+    };
+
+    template <typename Head, typename Mid, typename... Tail>
+    struct type_list_pop_back<Head, Mid, Tail...>
+    {
+        using type = type_list_prepend<typename type_list_pop_back<Mid, Tail...>::type, Head>::type;
+    };
+
 };
