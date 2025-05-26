@@ -17,9 +17,9 @@ int main(int argc, char **argv)
     using t9 = type_list_prepend<t1, bool>::type;
     using t10 = type_list_pop_back<int, char, bool>::type;
     using t11 = type_list_pop_back<t1>::type;
-    static_assert(type_list_index_of<int, char, int, bool>::index == 1);
-    static_assert(type_list_index_of<int, t1>::index == 0);
-    static_assert(type_list_index_of<short, t2>::index == 0);
+    static_assert(type_list_index_from_type<int, char, int, bool>::index == 1);
+    static_assert(type_list_index_from_type<int, t1>::index == 0);
+    static_assert(type_list_index_from_type<short, t2>::index == 0);
     static_assert(ctti::hash_t<int>::id != ctti::hash_t<char>::id);
 
     return 0;

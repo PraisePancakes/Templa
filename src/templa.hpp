@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <tuple>
 
 namespace templa
 {
@@ -93,24 +94,36 @@ namespace templa
     };
 
     template <typename T, typename... List>
-    struct type_list_index_of;
+    struct type_list_index_from_type;
 
     template <typename T, typename... List>
-    struct type_list_index_of<T, T, List...>
+    struct type_list_index_from_type<T, T, List...> : internal::tupler_t<List...>
     {
         constexpr static size_t index = 0;
     };
 
     template <typename T, typename U, typename... List>
-    struct type_list_index_of<T, U, List...>
+    struct type_list_index_from_type<T, U, List...> : internal::tupler_t<List...>
     {
-        constexpr static size_t index = 1 + type_list_index_of<T, List...>::index;
+        constexpr static size_t index = 1 + type_list_index_from_type<T, List...>::index;
     };
 
     template <typename T, template <typename...> class U, typename... Ts>
-    struct type_list_index_of<T, U<Ts...>>
+    struct type_list_index_from_type<T, U<Ts...>> : internal::tupler_t<Ts...>
     {
-        constexpr static size_t index = type_list_index_of<T, Ts...>::index;
+        constexpr static size_t index = type_list_index_from_type<T, Ts...>::index;
+    };
+
+    template <std::size_t N, typename... List>
+    struct type_list_type_from_index : internal::tupler_t<List...>
+    {
+        using type_at_index = std::tuple_element<N, List...>::type;
+    };
+
+    template <std::size_t N, template <typename...> class TList, typename... Ts>
+    struct type_list_type_from_index<N, TList<Ts...>> : internal::tupler_t<Ts...>
+    {
+        using type_at_index = std::tuple_element<N, Ts...>::type;
     };
 
     namespace ctti
