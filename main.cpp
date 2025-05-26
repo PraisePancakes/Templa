@@ -15,8 +15,8 @@ int main(int argc, char **argv)
     using t6 = type_list_prepend<int, char, short>::type;
     using t8 = type_list_prepend<t1, t2>::type;
     using t9 = type_list_prepend<t1, bool>::type;
-    using t10 = type_list_pop_back<int, char, bool>::type;
-    using t11 = type_list_pop_back<t1>::type;
+    using t10 = type_list_pop_back<int, char, bool>::popped;
+    using t11 = type_list_pop_back<t1>::popped;
 
     return 0;
 }

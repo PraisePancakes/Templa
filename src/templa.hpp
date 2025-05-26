@@ -66,18 +66,25 @@ namespace templa
     template <typename Head, typename Tail>
     struct type_list_pop_back<Head, Tail> : internal::tupler_t<Head>
     {
+        using popped = Tail;
     };
 
     template <typename Head, typename Mid, typename... Tail>
     struct type_list_pop_back<Head, Mid, Tail...>
     {
         using type = type_list_prepend<typename type_list_pop_back<Mid, Tail...>::type, Head>::type;
+        using popped = typename type_list_pop_back<Mid, Tail...>::popped;
     };
 
     template <template <typename...> class Tlist, typename... Ts>
     struct type_list_pop_back<Tlist<Ts...>>
     {
-        using type = type_list_pop_back<Ts...>::type;
+    private:
+        using type_list = type_list_pop_back<Ts...>;
+
+    public:
+        using type = type_list::type;
+        using popped = type_list::popped;
     };
 
 };
