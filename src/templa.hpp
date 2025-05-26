@@ -72,7 +72,12 @@ namespace templa
     template <typename Head, typename Mid, typename... Tail>
     struct type_list_pop_back<Head, Mid, Tail...>
     {
-        using type = type_list_prepend<typename type_list_pop_back<Mid, Tail...>::type, Head>::type;
+
+    private:
+        using type_list = type_list_prepend<typename type_list_pop_back<Mid, Tail...>::type, Head>;
+
+    public:
+        using type = type_list::type;
         using popped = typename type_list_pop_back<Mid, Tail...>::popped;
     };
 
@@ -86,5 +91,39 @@ namespace templa
         using type = type_list::type;
         using popped = type_list::popped;
     };
+
+    template <typename T, typename... List>
+    struct type_list_index_of;
+
+    template <typename T, typename... List>
+    struct type_list_index_of<T, T, List...>
+    {
+        constexpr static size_t index = 0;
+    };
+
+    template <typename T, typename U, typename... List>
+    struct type_list_index_of<T, U, List...>
+    {
+        constexpr static size_t index = 1 + type_list_index_of<T, List...>::index;
+    };
+
+    template <typename T, template <typename...> class U, typename... Ts>
+    struct type_list_index_of<T, U<Ts...>>
+    {
+        constexpr static size_t index = type_list_index_of<T, Ts...>::index;
+    };
+
+    namespace ctti
+    {
+        template <typename C>
+        struct hash_t
+        {
+        private:
+            constexpr static int _var{0};
+
+        public:
+            constexpr static auto id{&_var};
+        };
+    }
 
 };
