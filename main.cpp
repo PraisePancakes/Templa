@@ -21,6 +21,7 @@ int main(int argc, char **argv)
     static_assert(type_list_index_from_type<int, t1>::index == 0);
     static_assert(type_list_index_from_type<short, t2>::index == 0);
     static_assert(ctti::hash_t<int>::id != ctti::hash_t<char>::id);
+    static_assert(std::is_same_v<int, type_list_type_from_index<0, t1>::type_at_index>);
 
     return 0;
 }
