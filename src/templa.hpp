@@ -18,6 +18,7 @@ namespace templa
         struct type_list
         {
             using type = hidden::pack<Ts...>;
+            constexpr static size_t size = sizeof...(Ts);
         };
 
         template <template <typename...> class T, typename... Ts>
@@ -31,7 +32,10 @@ namespace templa
     namespace convert
     {
         template <typename... Ts>
-        struct convert_to_variant;
+        struct convert_to_variant
+        {
+            using type = std::variant<Ts...>;
+        };
 
         template <template <typename...> class From, typename... Ts>
         struct convert_to_variant<From<Ts...>>
@@ -40,7 +44,10 @@ namespace templa
         };
 
         template <typename... Ts>
-        struct convert_to_tuple;
+        struct convert_to_tuple
+        {
+            using type = std::tuple<Ts...>;
+        };
 
         template <template <typename...> class From, typename... Ts>
         struct convert_to_tuple<From<Ts...>>
@@ -113,6 +120,7 @@ namespace templa
 
     public:
         using type = type_list::type;
+        constexpr static size_t size = type::size;
         using popped = typename type_list_pop_back<Mid, Tail...>::popped;
     };
 
@@ -124,6 +132,7 @@ namespace templa
 
     public:
         using type = type_list::type;
+        constexpr static size_t size = type::size;
         using popped = type_list::popped;
     };
 

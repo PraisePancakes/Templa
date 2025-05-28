@@ -1,5 +1,6 @@
 #include <iostream>
 #include "src/templa.hpp"
+#include <array>
 
 int main(int argc, char **argv)
 {
