@@ -194,6 +194,33 @@ namespace templa
             return new_arr;
         };
 
+        template <std::string_view const &...Strs>
+        struct join
+        {
+        private:
+            constexpr static auto impl()
+            {
+                constexpr std::size_t length = (Strs.size() + ... + 0);
+                std::array<char, length + 1> arr;
+                auto Joiner = [i = 0, &arr](const std::string_view &s) mutable
+                {
+                    for (auto &c : s)
+                    {
+                        arr[i++] = c;
+                    }
+                };
+                (Joiner(Strs), ...);
+                return arr;
+            };
+
+        public:
+            constexpr static auto arr = impl();
+            constexpr static std::string_view value = {arr.data(), arr.size() - 1};
+        };
+
+        template <std::string_view const &...Strs>
+        constexpr static std::string_view join_v = join<Strs...>::value;
+
     };
 
     namespace ctti
