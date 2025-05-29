@@ -2,6 +2,7 @@
 #include <iostream>
 #include <tuple>
 #include <variant>
+#include <array>
 
 namespace templa
 {
@@ -187,6 +188,7 @@ namespace templa
             for (size_t j = 0; j < M; j++)
             {
                 new_arr[new_index] = rhs[j];
+                new_index++;
             }
 
             return new_arr;

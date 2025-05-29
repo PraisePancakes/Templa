@@ -1,6 +1,5 @@
 #include <iostream>
 #include "src/templa.hpp"
-#include <array>
 
 int main(int argc, char **argv)
 {
@@ -29,7 +28,11 @@ int main(int argc, char **argv)
 
     constexpr auto narr = algorithms::concat(lhs, rhs);
 
+    static_assert(narr[0] == 1);
     static_assert(narr[1] == 2);
+    static_assert(narr[2] == 1);
+    static_assert(narr[3] == 2);
+    static_assert(narr[4] == 3);
 
     return 0;
 }
