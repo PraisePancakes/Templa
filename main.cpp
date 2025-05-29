@@ -24,5 +24,12 @@ int main(int argc, char **argv)
     static_assert(ctti::hash_t<int>::id != ctti::hash_t<char>::id);
     static_assert(std::is_same_v<int, type_list_type_from_index<0, t1>::type_at_index>);
 
+    constexpr std::array<int, 2> lhs{1, 2};
+    constexpr std::array<int, 3> rhs{1, 2, 3};
+
+    constexpr auto narr = algorithms::concat(lhs, rhs);
+
+    static_assert(narr[1] == 2);
+
     return 0;
 }

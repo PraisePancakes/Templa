@@ -170,6 +170,30 @@ namespace templa
         using type_at_index = std::tuple_element<N, tuple_t>::type;
     };
 
+    namespace algorithms
+    {
+
+        template <typename T, std::size_t N, std::size_t M>
+        constexpr static auto concat(const std::array<T, N> &lhs, const std::array<T, M> &rhs)
+        {
+            std::array<T, N + M> new_arr;
+            size_t new_index = 0;
+            for (size_t i = 0; i < N; i++)
+            {
+                new_arr[new_index] = lhs[i];
+                new_index++;
+            }
+
+            for (size_t j = 0; j < M; j++)
+            {
+                new_arr[new_index] = rhs[j];
+            }
+
+            return new_arr;
+        };
+
+    };
+
     namespace ctti
     {
         template <typename C>
