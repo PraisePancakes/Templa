@@ -171,6 +171,12 @@ namespace templa
         using type_at_index = std::tuple_element<N, tuple_t>::type;
     };
 
+    template <typename T>
+    struct strip_t
+    {
+        using type = std::remove_pointer_t<std::decay_t<T>>;
+    };
+
     namespace algorithms
     {
 
@@ -194,7 +200,7 @@ namespace templa
             return new_arr;
         };
 
-        template <std::string_view const &...Strs>
+        template <const std::string_view &...Strs>
         struct join
         {
         private:
@@ -210,6 +216,7 @@ namespace templa
                     }
                 };
                 (Joiner(Strs), ...);
+                arr[length] = 0;
                 return arr;
             };
 
@@ -221,6 +228,27 @@ namespace templa
         template <std::string_view const &...Strs>
         constexpr static std::string_view join_v = join<Strs...>::value;
 
+    };
+
+    namespace utils
+    {
+        template <typename T>
+        struct name_of;
+
+        template <>
+        struct name_of<int>
+        {
+            constexpr static std::string_view value = "int";
+        };
+
+        template <typename T>
+        struct type_descriptor
+        {
+            constexpr static std::string_view pointer = "* ";
+            constexpr static std::string_view reference = "& ";
+            constexpr static std::string_view cnst = "const ";
+            constexpr static std::string_view vola = "volatile ";
+        };
     };
 
     namespace ctti

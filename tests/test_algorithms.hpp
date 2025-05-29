@@ -14,10 +14,10 @@ namespace templa::test
     static_assert(narr[2] == 1);
     static_assert(narr[3] == 2);
     static_assert(narr[4] == 3);
+    
+    constexpr static std::string_view str1 = "hi";
+    constexpr static std::string_view str2 = "bob";
 
-    constexpr std::string_view str1 = "hi";
-    constexpr std::string_view str2 = "bob";
-
-    constexpr std::string_view s = algorithms::join_v<str1, str2>;
+    constexpr static std::string_view s = algorithms::join_v<str1, str2>;
     static_assert(s == "hibob");
 };
