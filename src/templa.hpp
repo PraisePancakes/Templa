@@ -172,10 +172,55 @@ namespace templa
     };
 
     template <typename T>
-    struct strip_t
+    struct strip
     {
-        using type = std::remove_pointer_t<std::decay_t<T>>;
+        using type = T;
     };
+
+    template <typename T>
+    struct strip<const T>
+    {
+        using type = strip<T>::type;
+    };
+
+    template <typename T>
+    struct strip<volatile T>
+    {
+        using type = strip<T>::type;
+    };
+
+    template <typename T>
+    struct strip<const volatile T>
+    {
+        using type = strip<T>::type;
+    };
+
+    template <typename T>
+    struct strip<T *>
+    {
+        using type = strip<T>::type;
+    };
+
+    template <typename T>
+    struct strip<const T *>
+    {
+        using type = strip<T>::type;
+    };
+
+    template <typename T>
+    struct strip<volatile T *>
+    {
+        using type = strip<T>::type;
+    };
+
+    template <typename T>
+    struct strip<const volatile T *>
+    {
+        using type = strip<T>::type;
+    };
+
+    template <typename T>
+    using strip_t = strip<T>::type;
 
     namespace algorithms
     {
@@ -227,28 +272,6 @@ namespace templa
 
         template <std::string_view const &...Strs>
         constexpr static std::string_view join_v = join<Strs...>::value;
-
-    };
-
-    namespace utils
-    {
-        template <typename T>
-        struct name_of;
-
-        template <>
-        struct name_of<int>
-        {
-            constexpr static std::string_view value = "int";
-        };
-
-        template <typename T>
-        struct type_descriptor
-        {
-            constexpr static std::string_view pointer = "* ";
-            constexpr static std::string_view reference = "& ";
-            constexpr static std::string_view cnst = "const ";
-            constexpr static std::string_view vola = "volatile ";
-        };
     };
 
     namespace ctti
