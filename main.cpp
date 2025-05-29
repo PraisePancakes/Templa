@@ -7,6 +7,6 @@
 int main(int argc, char **argv)
 {
     using namespace templa;
-    static_assert(std::is_same_v<strip_t<const volatile int **>, int>);
+    std::cout << utils::type_descriptor<const int **>::stringify();
     return 0;
 }
