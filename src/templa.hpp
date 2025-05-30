@@ -275,7 +275,7 @@ namespace templa
         constexpr static std::string_view join_v = join<Strs...>::value;
     };
 
-    namespace utils
+    namespace type_info
     {
 
         template <typename T>
@@ -315,6 +315,18 @@ namespace templa
         };
 
         template <>
+        struct name_of<std::uint8_t>
+        {
+            static constexpr auto value = "uint8_t";
+        };
+
+        template <>
+        struct name_of<std::uint16_t>
+        {
+            static constexpr auto value = "uint16_t";
+        };
+
+        template <>
         struct name_of<std::uint64_t>
         {
             static constexpr auto value = "uint64_t";
@@ -351,6 +363,31 @@ namespace templa
 
     }
 
+    template <typename T>
+    concept Hashable = requires(T x) {
+        { std::hash<T>{}(x) } -> std::convertible_to<std::size_t>;
+    };
+
+    template <typename T>
+    concept Iterable = requires(T x) {
+        { x++ } -> std::convertible_to<T>;
+    };
+
+    template <typename T>
+    struct is_template : std::false_type
+    {
+    };
+
+    template <typename T>
+    struct is_iterator : std::false_type
+    {
+    };
+
+    template <Iterable T>
+    struct is_iterator<T> : std::true_type
+    {
+    };
+
     namespace ctti
     {
         template <typename C>
@@ -363,5 +400,4 @@ namespace templa
             constexpr static auto id{&_var};
         };
     }
-
 };
