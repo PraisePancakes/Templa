@@ -8,8 +8,12 @@
 int main(int argc, char **argv)
 {
     using namespace templa;
+    int x = 3;
+    int y = 3;
+    std::string z = "z";
 
-    static_assert(is_callable<decltype([](int, int) {}), int, int>::value);
+    try_call([](int a, int b)
+             { std::cout << a + b; }, x, y);
 
     return 0;
 }

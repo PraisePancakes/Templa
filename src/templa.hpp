@@ -223,58 +223,6 @@ namespace templa
     template <typename T>
     using strip_t = strip<T>::type;
 
-    namespace algorithms
-    {
-
-        template <typename T, std::size_t N, std::size_t M>
-        constexpr static auto concat(const std::array<T, N> &lhs, const std::array<T, M> &rhs)
-        {
-            std::array<T, N + M> new_arr;
-            size_t new_index = 0;
-            for (size_t i = 0; i < N; i++)
-            {
-                new_arr[new_index] = lhs[i];
-                new_index++;
-            }
-
-            for (size_t j = 0; j < M; j++)
-            {
-                new_arr[new_index] = rhs[j];
-                new_index++;
-            }
-
-            return new_arr;
-        };
-
-        template <const std::string_view &...Strs>
-        struct join
-        {
-        private:
-            constexpr static auto impl()
-            {
-                constexpr std::size_t length = (Strs.size() + ... + 0);
-                std::array<char, length + 1> arr;
-                auto Joiner = [i = 0, &arr](const std::string_view &s) mutable
-                {
-                    for (auto &c : s)
-                    {
-                        arr[i++] = c;
-                    }
-                };
-                (Joiner(Strs), ...);
-                arr[length] = 0;
-                return arr;
-            };
-
-        public:
-            constexpr static auto arr = impl();
-            constexpr static std::string_view value = {arr.data(), arr.size() - 1};
-        };
-
-        template <std::string_view const &...Strs>
-        constexpr static std::string_view join_v = join<Strs...>::value;
-    };
-
     namespace type_info
     {
 
@@ -389,42 +337,104 @@ namespace templa
         concept CallableWith = requires(F f, T &&...t) {
             { f(std::forward<T>(t)...) };
         };
+
+        template <typename T>
+        concept UnsignedIntegral = std::is_unsigned_v<T> && std::is_integral_v<T>;
+
+        template <typename T>
+        concept SignedIntegral = std::is_signed_v<T> && std::is_integral_v<T>;
+
+        template <typename T>
+        concept Addable = requires(T a, T b) {
+            { a + b };
+            { a += b };
+        };
+
+        template <typename T>
+        concept Subtractable = requires(T a, T b) {
+            { a - b };
+            { a -= b };
+        };
+
+        template <typename T>
+        concept Multipliable = requires(T a, T b) {
+            { a * b };
+            { a *= b };
+        };
+
+        template <typename T>
+        concept Divisible = requires(T a, T b) {
+            { a / b };
+            { a /= b };
+        };
+
+        template <typename T>
+        concept Arithmetical = Subtractable<T> && Multipliable<T> && Divisible<T> && Addable<T>;
     }
 
-    template <typename T>
-    struct is_template : std::false_type
+    namespace algorithms
     {
-    };
 
-    template <typename T>
-    struct is_iterator : std::false_type
-    {
-    };
+        template <typename T, std::size_t N, std::size_t M>
+        constexpr static auto concat(const std::array<T, N> &lhs, const std::array<T, M> &rhs)
+        {
+            std::array<T, N + M> new_arr;
+            size_t new_index = 0;
+            for (size_t i = 0; i < N; i++)
+            {
+                new_arr[new_index] = lhs[i];
+                new_index++;
+            }
 
-    template <concepts::Iterator T>
-    struct is_iterator<T> : std::true_type
-    {
-    };
+            for (size_t j = 0; j < M; j++)
+            {
+                new_arr[new_index] = rhs[j];
+                new_index++;
+            }
 
-    template <typename T>
-    struct is_iterable : std::false_type
-    {
-    };
+            return new_arr;
+        };
 
-    template <concepts::Iterable T>
-    struct is_iterable<T> : std::true_type
-    {
-    };
+        template <const std::string_view &...Strs>
+        struct join
+        {
+        private:
+            constexpr static auto impl()
+            {
+                constexpr std::size_t length = (Strs.size() + ... + 0);
+                std::array<char, length + 1> arr;
+                auto Joiner = [i = 0, &arr](const std::string_view &s) mutable
+                {
+                    for (auto &c : s)
+                    {
+                        arr[i++] = c;
+                    }
+                };
+                (Joiner(Strs), ...);
+                arr[length] = 0;
+                return arr;
+            };
 
-    template <typename F, typename... Args>
-    struct is_callable : std::false_type
-    {
+        public:
+            constexpr static auto arr = impl();
+            constexpr static std::string_view value = {arr.data(), arr.size() - 1};
+        };
+
+        template <std::string_view const &...Strs>
+        constexpr static std::string_view join_v = join<Strs...>::value;
     };
 
     template <typename F, typename... Args>
         requires concepts::CallableWith<F, Args...>
-    struct is_callable<F, Args...> : std::true_type
+    constexpr static void try_call(F f, Args &&...args)
     {
+        f(std::forward<Args>(args)...);
+    };
+
+    template <typename F, typename... Args>
+    constexpr static void try_call(F, Args &&...)
+    {
+        throw std::runtime_error("try_call failure");
     };
 
     namespace ctti
