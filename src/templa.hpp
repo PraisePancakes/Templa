@@ -320,19 +320,6 @@ namespace templa
         };
 
         template <typename T>
-        concept Iterable = requires(T x) {
-            { ++x } -> std::same_as<T &>;
-            { x++ } -> std::convertible_to<T>;
-        };
-
-        template <typename T>
-        concept Iterator = Iterable<T> && requires(T x) {
-            { *x };
-            { x == x } -> std::convertible_to<bool>;
-            { x != x } -> std::convertible_to<bool>;
-        };
-
-        template <typename T>
         concept Integral = std::is_integral_v<T>;
 
         template <typename F, typename... T>
@@ -427,7 +414,7 @@ namespace templa
         constexpr static std::string_view join_v = join<Strs...>::value;
 
         template <typename T>
-            requires concepts::Iterator<T>
+            requires std::input_or_output_iterator<T>
         void reverse(T begin, T end)
         {
             if (begin == end)
@@ -494,7 +481,6 @@ namespace templa
     template <typename T, typename U, typename... Args>
     constexpr static bool is_same_return_type_callable_v = is_same_return_type_callable<T, U, Args...>::value;
 
-   
     namespace ctti
     {
         template <typename C>
