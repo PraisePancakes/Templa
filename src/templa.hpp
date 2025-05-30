@@ -362,16 +362,26 @@ namespace templa
         };
 
     }
+    namespace concepts
+    {
+        template <typename T>
+        concept Hashable = requires(T x) {
+            { std::hash<T>{}(x) } -> std::convertible_to<std::size_t>;
+        };
 
-    template <typename T>
-    concept Hashable = requires(T x) {
-        { std::hash<T>{}(x) } -> std::convertible_to<std::size_t>;
-    };
+        template <typename T>
+        concept Iterable = requires(T x) {
+            { x++ } -> std::convertible_to<T>;
+        };
 
-    template <typename T>
-    concept Iterable = requires(T x) {
-        { x++ } -> std::convertible_to<T>;
-    };
+        template <typename T>
+        concept Integral = std::is_integral_v<T>;
+
+        template <typename F, typename T>
+        concept CallableWith = requires(F f, T t) {
+            { f(t) };
+        };
+    }
 
     template <typename T>
     struct is_template : std::false_type
@@ -383,7 +393,7 @@ namespace templa
     {
     };
 
-    template <Iterable T>
+    template <concepts::Iterable T>
     struct is_iterator<T> : std::true_type
     {
     };
