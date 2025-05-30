@@ -456,6 +456,18 @@ namespace templa
 
     };
 
+    template <typename>
+    struct return_type;
+
+    template <typename R, typename... Args>
+    struct return_type<R(Args...)>
+    {
+        using type = R;
+    };
+
+    template <typename T>
+    using return_type_t = return_type<T>::type;
+
     template <typename F, typename... Args>
         requires concepts::CallableWith<F, Args...>
     constexpr static void try_call(F f, Args &&...args)

@@ -4,20 +4,18 @@
 #include "tests/test_type_list.hpp"
 #include "tests/test_ctti.hpp"
 #include <vector>
+#include <functional>
+
+int test_f(int x, int y) { return 4; };
 
 int main(int argc, char **argv)
 {
     using namespace templa;
-    std::vector<int> arr{0, 1, 2, 3};
 
-    std::vector<std::vector<std::vector<int>>> v{{{0, 1, 2}, {1, 2}}};
-    std::vector<int> v2;
-    algorithms::flatten(v, v2);
+    std::function<int(int, int)> f = [](int x, int y)
+    { return x + y; };
 
-    for (const auto &e : v2)
-    {
-        std::cout << e;
-    }
-
+    using t = return_type_t<decltype(test_f)>;
+    static_assert(std::is_same_v<t, int>);
     return 0;
 }
