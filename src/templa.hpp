@@ -4,6 +4,7 @@
 #include <variant>
 #include <array>
 #include <cstdint>
+#include <vector>
 
 namespace templa
 {
@@ -422,6 +423,37 @@ namespace templa
 
         template <std::string_view const &...Strs>
         constexpr static std::string_view join_v = join<Strs...>::value;
+
+        template <typename T>
+            requires concepts::Iterator<T>
+        void reverse(T begin, T end)
+        {
+            if (begin == end)
+                return;
+            end--;
+            while (begin < end)
+            {
+                std::swap(*begin, *end);
+                begin++;
+                end--;
+            }
+        };
+
+        template <typename T, typename O>
+        void flatten(const std::vector<T> &in, std::vector<O> &out)
+        {
+            out.insert(out.end(), in.begin(), in.end());
+        };
+
+        template <typename T, typename O>
+        void flatten(const std::vector<std::vector<T>> &in, std::vector<O> &out)
+        {
+            for (const auto &e : in)
+            {
+                flatten(e, out);
+            };
+        };
+
     };
 
     template <typename F, typename... Args>

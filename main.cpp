@@ -8,12 +8,16 @@
 int main(int argc, char **argv)
 {
     using namespace templa;
-    int x = 3;
-    int y = 3;
-    std::string z = "z";
+    std::vector<int> arr{0, 1, 2, 3};
 
-    try_call([](int a, int b)
-             { std::cout << a + b; }, x, y);
+    std::vector<std::vector<std::vector<int>>> v{{{0, 1, 2}, {1, 2}}};
+    std::vector<int> v2;
+    algorithms::flatten(v, v2);
+
+    for (const auto &e : v2)
+    {
+        std::cout << e;
+    }
 
     return 0;
 }
