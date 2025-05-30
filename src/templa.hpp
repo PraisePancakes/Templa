@@ -371,7 +371,15 @@ namespace templa
 
         template <typename T>
         concept Iterable = requires(T x) {
+            { ++x } -> std::same_as<T &>;
             { x++ } -> std::convertible_to<T>;
+        };
+
+        template <typename T>
+        concept Iterator = Iterable<T> && requires(T x) {
+            { *x };
+            { x == x } -> std::convertible_to<bool>;
+            { x != x } -> std::convertible_to<bool>;
         };
 
         template <typename T>
@@ -393,8 +401,18 @@ namespace templa
     {
     };
 
-    template <concepts::Iterable T>
+    template <concepts::Iterator T>
     struct is_iterator<T> : std::true_type
+    {
+    };
+
+    template <typename T>
+    struct is_iterable : std::false_type
+    {
+    };
+
+    template <concepts::Iterable T>
+    struct is_iterable<T> : std::true_type
     {
     };
 
