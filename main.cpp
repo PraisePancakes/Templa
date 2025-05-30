@@ -9,6 +9,7 @@ int main(int argc, char **argv)
 {
     using namespace templa;
 
+    static_assert(is_callable<decltype([](int, int) {}), int, int>::value);
 
     return 0;
 }

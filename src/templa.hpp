@@ -385,9 +385,9 @@ namespace templa
         template <typename T>
         concept Integral = std::is_integral_v<T>;
 
-        template <typename F, typename T>
-        concept CallableWith = requires(F f, T t) {
-            { f(t) };
+        template <typename F, typename... T>
+        concept CallableWith = requires(F f, T &&...t) {
+            { f(std::forward<T>(t)...) };
         };
     }
 
@@ -413,6 +413,17 @@ namespace templa
 
     template <concepts::Iterable T>
     struct is_iterable<T> : std::true_type
+    {
+    };
+
+    template <typename F, typename... Args>
+    struct is_callable : std::false_type
+    {
+    };
+
+    template <typename F, typename... Args>
+        requires concepts::CallableWith<F, Args...>
+    struct is_callable<F, Args...> : std::true_type
     {
     };
 
