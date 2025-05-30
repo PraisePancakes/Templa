@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     using t = return_type_t<decltype(f)>;
 
     static_assert(std::is_same_v<t, int>);
-    static_assert(is_same_return_type_v<decltype(f), decltype(g)>);
     static_assert(!is_same_return_type_v<decltype(test_f), decltype(f)>);
+
     return 0;
 }

@@ -457,8 +457,11 @@ namespace templa
 
     };
 
-    template <typename>
-    struct return_type;
+    template <typename R, typename... Args>
+    struct return_type
+    {
+        using type = std::invoke_result_t<R, Args...>;
+    };
 
     template <typename R, typename... Args>
     struct return_type<R(Args...)>
