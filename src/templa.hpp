@@ -5,6 +5,7 @@
 #include <array>
 #include <cstdint>
 #include <vector>
+#include <functional>
 
 namespace templa
 {
@@ -465,8 +466,17 @@ namespace templa
         using type = R;
     };
 
+    template <typename R, typename... Args>
+    struct return_type<std::function<R(Args...)>>
+    {
+        using type = R;
+    };
+
     template <typename T>
     using return_type_t = return_type<T>::type;
+
+    template <typename T, typename U>
+    constexpr static bool is_same_return_type_v = std::is_same_v<return_type_t<T>, return_type_t<U>>;
 
     template <typename F, typename... Args>
         requires concepts::CallableWith<F, Args...>

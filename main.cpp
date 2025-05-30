@@ -6,7 +6,7 @@
 #include <vector>
 #include <functional>
 
-int test_f(int x, int y) { return 4; };
+char test_f(int x, int y) { return 4; };
 
 int main(int argc, char **argv)
 {
@@ -15,7 +15,13 @@ int main(int argc, char **argv)
     std::function<int(int, int)> f = [](int x, int y)
     { return x + y; };
 
-    using t = return_type_t<decltype(test_f)>;
+    std::function<int(int, int)> g = [](int x, int y)
+    { return x + y; };
+
+    using t = return_type_t<decltype(f)>;
+
     static_assert(std::is_same_v<t, int>);
+    static_assert(is_same_return_type_v<decltype(f), decltype(g)>);
+    static_assert(!is_same_return_type_v<decltype(test_f), decltype(f)>);
     return 0;
 }
