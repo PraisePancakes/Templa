@@ -372,6 +372,7 @@ namespace templa
 
         template <typename T>
         concept Arithmetical = Subtractable<T> && Multipliable<T> && Divisible<T> && Addable<T>;
+
     }
 
     namespace algorithms
@@ -493,25 +494,7 @@ namespace templa
     template <typename T, typename U, typename... Args>
     constexpr static bool is_same_return_type_callable_v = is_same_return_type_callable<T, U, Args...>::value;
 
-    template <typename T, typename U, typename... Args>
-    struct is_same_signature
-    {
-        constexpr static bool value = is_same_return_type_v<T, U> && std::is_same_v<std::invoke_result_t<T, Args...>, std::invoke_result_t<U, Args...>>;
-    };
-
-    template <typename F, typename... Args>
-        requires concepts::CallableWith<F, Args...>
-    constexpr static void try_call(F f, Args &&...args)
-    {
-        f(std::forward<Args>(args)...);
-    };
-
-    template <typename F, typename... Args>
-    constexpr static void try_call(F, Args &&...)
-    {
-        throw std::runtime_error("try_call failure");
-    };
-
+   
     namespace ctti
     {
         template <typename C>

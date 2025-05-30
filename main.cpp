@@ -12,14 +12,14 @@ int main(int argc, char **argv)
 {
     using namespace templa;
 
-    std::function<int(int, int)> f = [](int x, int y)
-    { return x + y; };
-
     std::function<int(int, int)> g = [](int x, int y)
     { return x + y; };
 
-    std::function<char(int, char)> l = [](int x, char y)
-    { return 'a'; };
+    std::function<int(int, int)> f = [](int x, int y)
+    { return x + y; };
+
+    std::function<int(int, char)> l = [](int x, char y)
+    { return 4; };
 
     using t = return_type_t<decltype(f)>;
 
@@ -36,8 +36,6 @@ int main(int argc, char **argv)
     static_assert(std::is_same_v<t, int>);
     static_assert(!is_same_return_type_v<decltype(test_f), decltype(f)>);
     static_assert(is_same_return_type_callable_v<decltype(lam1), decltype(lam2), int, int>);
-    static_assert(is_same_signature<decltype(f), decltype(g), int, int>::value);
-    static_assert(!is_same_signature<decltype(f), decltype(l), int, int>::value);
 
     return 0;
 }
