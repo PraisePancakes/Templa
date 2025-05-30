@@ -20,8 +20,19 @@ int main(int argc, char **argv)
 
     using t = return_type_t<decltype(f)>;
 
+    constexpr auto lam1 = [](int x, int y) -> int
+    {
+        return 3;
+    };
+
+    constexpr auto lam2 = [](int a, int b) -> int
+    {
+        return 4;
+    };
+
     static_assert(std::is_same_v<t, int>);
     static_assert(!is_same_return_type_v<decltype(test_f), decltype(f)>);
+    static_assert(is_same_return_type_callable_v<decltype(lam1), decltype(lam2), int, int>);
 
     return 0;
 }

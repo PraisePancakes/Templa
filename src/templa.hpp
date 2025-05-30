@@ -478,8 +478,20 @@ namespace templa
     template <typename T>
     using return_type_t = return_type<T>::type;
 
+    template <typename T, typename U, typename... Args>
+    struct is_same_return_type_callable;
+
+    template <typename T, typename U, typename... Args>
+    struct is_same_return_type_callable
+    {
+        constexpr static bool value = std::is_same_v<std::invoke_result_t<T, Args...>, std::invoke_result_t<U, Args...>>;
+    };
+
     template <typename T, typename U>
     constexpr static bool is_same_return_type_v = std::is_same_v<return_type_t<T>, return_type_t<U>>;
+
+    template <typename T, typename U, typename... Args>
+    constexpr static bool is_same_return_type_callable_v = is_same_return_type_callable<T, U, Args...>::value;
 
     template <typename F, typename... Args>
         requires concepts::CallableWith<F, Args...>
