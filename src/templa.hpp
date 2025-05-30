@@ -157,18 +157,34 @@ namespace templa
         constexpr static size_t index = type_list_index_from_type<T, Ts...>::index;
     };
 
-    template <std::size_t N, typename... List>
-    struct type_list_type_from_index
+    template <typename... Fns>
+    struct visitor : Fns...
     {
-        using type_at_index = std::tuple_element<N, typename internal::type_list<List...>::type>::type;
+        using Fns::operator()...;
     };
 
-    template <std::size_t N, template <typename...> class TList, typename... Ts>
-    struct type_list_type_from_index<N, TList<Ts...>>
+    template <std::size_t x>
+    using value = std::integral_constant<std::size_t, x>;
+
+    template <std::size_t idx, typename... Ts>
+    struct type_at_index
     {
-        using tuple_t = convert::convert_to_tuple<internal::type_list<Ts...>>::type;
-        using type_at_index = std::tuple_element<N, tuple_t>::type;
+        using type = decltype([]<std::size_t... i>(std::index_sequence<i...>)
+                              { return visitor{
+                                    [](value<i>)
+                                    {
+                                        return std::type_identity<Ts>();
+                                    }...}(value<idx>()); }(std::index_sequence_for<Ts...>()))::type;
     };
+
+    template <std::size_t idx, template <typename...> class T, typename... Ts>
+    struct type_at_index<idx, T<Ts...>>
+    {
+        using type = type_at_index<idx, Ts...>::type;
+    };
+
+    template <std::size_t idx, typename... Ts>
+    using type_at_index_t = type_at_index<idx, Ts...>::type;
 
     template <typename T>
     struct strip

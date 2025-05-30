@@ -18,5 +18,6 @@ namespace templa::test
     static_assert(type_list_index_from_type<int, char, int, bool>::index == 1);
     static_assert(type_list_index_from_type<int, t1>::index == 0);
     static_assert(type_list_index_from_type<short, t2>::index == 0);
-    static_assert(std::is_same_v<int, type_list_type_from_index<0, t1>::type_at_index>);
+    static_assert(std::is_same_v<int, type_at_index_t<0, t1>>);
+    static_assert(!std::is_same_v<int, type_at_index_t<1, t1>>);
 };
