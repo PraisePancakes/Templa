@@ -23,6 +23,7 @@ namespace templa::test
         static_assert(index_at_type_v<short, t2> == 0);
         static_assert(std::is_same_v<int, type_at_index_t<0, t1>>);
         static_assert(templa::index_at_type<int, char, int>::index == 1);
+        static_assert(templa::index_at_type_v<int, int, int> == 0);
         static_assert(!std::is_same_v<int, type_at_index_t<1, t1>>);
     };
 

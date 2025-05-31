@@ -174,16 +174,11 @@ namespace templa
     template <typename T, typename... List>
     struct index_at_type
     {
-        constexpr static std::size_t index = []()
+        constexpr static std::size_t index = []
         {
-            return []<std::size_t... i>(std::index_sequence<i...>)
-            {
-                return internal::visitor{
-                    [](std::type_identity<List>)
-                    {
-                        return value<i>();
-                    }...}(std::type_identity<T>{});
-            }(std::index_sequence_for<List...>{});
+            std::size_t i = 0;
+            (... && (!std::is_same_v<T, List> && i++));
+            return i;
         }();
     };
 
