@@ -136,31 +136,14 @@ namespace templa
         using popped = type_list::popped;
     };
 
-    template <typename T, typename... List>
-    struct type_list_index_from_type;
-
-    template <typename T, typename... List>
-    struct type_list_index_from_type<T, T, List...>
+    namespace internal
     {
-        constexpr static size_t index = 0;
-    };
 
-    template <typename T, typename U, typename... List>
-    struct type_list_index_from_type<T, U, List...>
-    {
-        constexpr static size_t index = 1 + type_list_index_from_type<T, List...>::index;
-    };
-
-    template <typename T, template <typename...> class U, typename... Ts>
-    struct type_list_index_from_type<T, U<Ts...>>
-    {
-        constexpr static size_t index = type_list_index_from_type<T, Ts...>::index;
-    };
-
-    template <typename... Fns>
-    struct visitor : Fns...
-    {
-        using Fns::operator()...;
+        template <typename... Fns>
+        struct visitor : Fns...
+        {
+            using Fns::operator()...;
+        };
     };
 
     template <std::size_t x>
@@ -169,12 +152,14 @@ namespace templa
     template <std::size_t idx, typename... Ts>
     struct type_at_index
     {
+        static_assert(idx <= sizeof...(Ts) && idx >= 0);
+
         using type = decltype([]<std::size_t... i>(std::index_sequence<i...>)
-                              { return visitor{
+                              { return internal::visitor{
                                     [](value<i>)
                                     {
                                         return std::type_identity<Ts>();
-                                    }...}(value<idx>()); }(std::index_sequence_for<Ts...>()))::type;
+                                    }...}(value<idx>{}); }(std::index_sequence_for<Ts...>()))::type;
     };
 
     template <std::size_t idx, template <typename...> class T, typename... Ts>
@@ -185,6 +170,31 @@ namespace templa
 
     template <std::size_t idx, typename... Ts>
     using type_at_index_t = type_at_index<idx, Ts...>::type;
+
+    template <typename T, typename... List>
+    struct index_at_type
+    {
+        constexpr static std::size_t index = []()
+        {
+            return []<std::size_t... i>(std::index_sequence<i...>)
+            {
+                return internal::visitor{
+                    [](std::type_identity<List>)
+                    {
+                        return value<i>();
+                    }...}(std::type_identity<T>{});
+            }(std::index_sequence_for<List...>{});
+        }();
+    };
+
+    template <typename T, template <typename...> class U, typename... List>
+    struct index_at_type<T, U<List...>>
+    {
+        constexpr static std::size_t index = index_at_type<T, List...>::index;
+    };
+
+    template <typename T, typename... List>
+    constexpr static std::size_t index_at_type_v = index_at_type<T, List...>::index;
 
     template <typename T>
     struct strip
