@@ -3,8 +3,8 @@
 
 namespace templa::test
 {
-    static_assert(ctti::hash_t<int>::id != ctti::hash_t<char>::id);
+    static_assert(type_info::ctti::hash_t<int>::id != type_info::ctti::hash_t<char>::id);
 
     // autological
-    static_assert(ctti::hash_t<int>::id == ctti::hash_t<int>::id);
+    static_assert(type_info::ctti::hash_t<int>::id == type_info::ctti::hash_t<int>::id);
 };
