@@ -19,6 +19,19 @@ namespace templa
             return as_tuple<Formats...>(arr, std::make_index_sequence<N>{});
         };
 
+        template <typename T1, typename T2, std::size_t... I>
+        constexpr static auto zip(T1 const &t1, T2 const &t2, std::index_sequence<I...>)
+        {
+            return std::make_tuple((std::pair{std::get<I>(t1), std::get<I>(t2)})...);
+        };
+
+        template <typename... Ts, typename... Us>
+            requires(sizeof...(Ts) == sizeof...(Us))
+        constexpr static auto zip(std::tuple<Ts...> const &t1, std::tuple<Us...> const &t2)
+        {
+            return zip(t1, t2, std::make_index_sequence<sizeof...(Ts)>{});
+        };
+
         namespace internal
         {
             template <typename T, std::size_t N, std::size_t M, std::size_t... I, std::size_t... J>

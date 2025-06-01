@@ -19,21 +19,12 @@ int main(int argc, char **argv)
     using namespace templa;
     templa::test::TEST();
 
-    constexpr std::array<A, 2> arr1{A(1, 2), A(2, 3)};
-    constexpr std::array<A, 1> arr2{A(3, 4)};
+    constexpr std::tuple<int, char, double> t1 = {1, 'a', 3.14};
+    constexpr std::tuple<float, bool, const char *> t2 = {2.5f, true, "hello"};
 
-    constexpr auto c1 = templa::algorithms::concat(arr1, arr2);
+    constexpr auto zipped = templa::algorithms::zip(t1, t2);
 
-    static_assert(c1[0].x == 1);
-    static_assert(c1[1].x == 2);
-
-    constexpr std::array<int, 2> arr3{1, 2};
-    constexpr std::array<int, 1> arr4{3};
-
-    constexpr auto c2 = templa::algorithms::concat(arr3, arr4);
-
-    static_assert(c2[0] == 1);
-    static_assert(c2[1] == 2);
+    static_assert(std::get<0>(zipped).first == 1);
 
     return 0;
 }
