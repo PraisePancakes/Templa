@@ -87,6 +87,13 @@ namespace templa
             };
         };
 
+        template <typename Callable, typename... Ts>
+        constexpr static void apply_to_tuple_cat(Callable &&c, Ts &&...tuples)
+        {
+            auto cat = std::tuple_cat<Ts...>(std::forward<Ts>(tuples)...);
+            std::apply(std::forward<Callable>(c), cat);
+        };
+
     };
 
 }
