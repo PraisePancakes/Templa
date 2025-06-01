@@ -7,26 +7,31 @@ namespace templa
 {
     namespace algorithms
     {
+        template <typename T, typename... Formats, std::size_t N, std::size_t... Is>
+        std::tuple<Formats...> as_tuple(std::array<T, N> const &arr, std::index_sequence<Is...>)
+        {
+            return std::make_tuple(Formats{arr[Is]}...);
+        };
+
+        template <typename T, typename... Formats, std::size_t N>
+        std::tuple<Formats...> as_tuple(std::array<T, N> const &arr)
+        {
+            return as_tuple<Formats...>(arr, std::make_index_sequence<N>{});
+        };
+
+        namespace internal
+        {
+            template <typename T, std::size_t N, std::size_t M, std::size_t... I, std::size_t... J>
+            constexpr auto concat_impl(std::array<T, N> const &lhs, std::array<T, M> const &rhs, std::index_sequence<I...>, std::index_sequence<J...>)
+            {
+                return std::array<T, N + M>{lhs[I]..., rhs[J]...};
+            };
+        };
 
         template <typename T, std::size_t N, std::size_t M>
         constexpr static auto concat(const std::array<T, N> &lhs, const std::array<T, M> &rhs)
         {
-            std::array<T, N + M> new_arr;
-            size_t new_index = 0;
-
-            for (size_t i = 0; i < N; i++)
-            {
-                new_arr[new_index] = lhs[i];
-                new_index++;
-            }
-
-            for (size_t j = 0; j < M; j++)
-            {
-                new_arr[new_index] = rhs[j];
-                new_index++;
-            }
-
-            return new_arr;
+            return internal::concat_impl(lhs, rhs, std::make_index_sequence<N>{}, std::make_index_sequence<M>{});
         };
 
         template <const std::string_view &...Strs>
