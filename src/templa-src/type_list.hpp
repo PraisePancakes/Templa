@@ -118,7 +118,20 @@ namespace templa
     template <std::size_t idx, typename... Ts>
     using type_at_index_t = type_at_index<idx, Ts...>::type;
 
+    template <typename T, typename... Ts>
+    struct type_list_contains
+    {
+        constexpr static bool value = (std::is_same_v<T, Ts> || ...);
+    };
+
+    template <typename T, template <typename...> class U, typename... Ts>
+    struct type_list_contains<T, U<Ts...>>
+    {
+        constexpr static bool value = type_list_contains<T, Ts...>::value;
+    };
+
     template <typename T, typename... List>
+        requires(type_list_contains<T, List...>::value)
     struct index_at_type
     {
         constexpr static std::size_t index = []()
@@ -130,11 +143,14 @@ namespace templa
     };
 
     template <typename T, template <typename...> class U, typename... List>
+        requires(type_list_contains<T, List...>::value)
     struct index_at_type<T, U<List...>>
     {
         constexpr static std::size_t index = index_at_type<T, List...>::index;
     };
 
     template <typename T, typename... List>
+        requires(type_list_contains<T, List...>::value)
     constexpr static std::size_t index_at_type_v = index_at_type<T, List...>::index;
+
 };

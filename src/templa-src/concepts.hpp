@@ -51,5 +51,9 @@ namespace templa
         template <typename T>
         concept Arithmetical = Subtractable<T> && Multipliable<T> && Divisible<T> && Addable<T>;
 
+        template <typename T>
+        concept Streamable = requires(std::ostream &os, T t) {
+            { os << t };
+        };
     }
 }
