@@ -40,6 +40,48 @@ namespace templa
             {
                 return std::array<T, N + M>{lhs[I]..., rhs[J]...};
             };
+
+        };
+
+        template <typename T, std::size_t N>
+        consteval static bool exists(std::array<T, N> const &arr, const T &elem)
+        {
+            for (std::size_t i = 0; i < N; i++)
+            {
+                if (arr[i] == elem)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        template <typename T, std::size_t N>
+        consteval static bool exists_until(std::array<T, N> const &arr, const T &elem, std::size_t until)
+        {
+            for (std::size_t i = 0; i < until; i++)
+            {
+                if (arr[i] == elem)
+                    return true;
+            }
+            return false;
+        };
+
+        template <typename T, std::size_t N>
+        consteval static std::size_t count_unique(std::array<T, N> const &arr)
+        {
+            std::size_t cnt = 0;
+            for (std::size_t i = 0; i < N; i++)
+            {
+                if (!exists_until(arr, arr[i], i - 1))
+                    cnt++;
+            }
+            return cnt;
+        };
+
+        template <typename T, std::size_t N>
+        constexpr static auto unique(std::array<T, N> const &arr) {
+
         };
 
         template <typename T, std::size_t N, std::size_t M>
@@ -110,7 +152,7 @@ namespace templa
         constexpr static void apply_to_tuple_cat(Callable &&c, Ts &&...tuples)
         {
             auto cat = std::tuple_cat<Ts...>(std::forward<Ts>(tuples)...);
-            std::apply(std::forward<Callable>(c), cat);
+            std::apply(std::forward<Callable>(c), std::move(cat));
         };
 
     };

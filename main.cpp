@@ -6,7 +6,10 @@
 
 int main(int argc, char **argv)
 {
-    constexpr std::array<int, 3> arr{0, 1, 2};
+  constexpr std::array<int, 5> arr{0, 0, 1, 2, 1};
 
-      return 0;
+  static_assert(templa::algorithms::exists_until(arr, 1, 3));
+  static_assert(templa::algorithms::count_unique(arr) == 3);
+
+  return 0;
 }
