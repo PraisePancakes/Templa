@@ -79,9 +79,26 @@ namespace templa
             return cnt;
         };
 
-        template <typename T, std::size_t N>
-        constexpr static auto unique(std::array<T, N> const &arr) {
+        template <typename T, std::size_t N, T... elems>
+        struct unique
+        {
+        private:
+            constexpr static std::array<T, N> arr{elems...};
 
+        public:
+            constexpr static auto array = [](std::array<T, N> old) consteval
+            {
+                std::array<T, count_unique(arr)> new_arr{};
+                std::size_t idx = 0;
+                for (std::size_t i = 0; i < N; i++)
+                {
+                    if (!exists_until(old, old[i], i))
+                    {
+                        new_arr[idx++] = old[i];
+                    };
+                };
+                return new_arr;
+            }(arr);
         };
 
         template <typename T, std::size_t N, std::size_t M>
