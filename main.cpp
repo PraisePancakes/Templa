@@ -23,5 +23,19 @@ int main(int argc, char **argv)
   static_assert(a1[1] == 1);
   static_assert(a1[2] == 2);
 
+  constexpr auto a2 = templa::algorithms::reverse<int, 3, 1, 2, 3>::array;
+
+  static_assert(a2[0] == 3);
+  static_assert(a2[1] == 2);
+  static_assert(a2[2] == 1);
+
+  constexpr auto a3 = templa::algorithms::reverse_from<int, 5, arr>::array;
+
+  static_assert(a3[0] == 1);
+  static_assert(a3[1] == 2);
+  static_assert(a3[2] == 1);
+  static_assert(a3[3] == 0);
+  static_assert(a3[4] == 0);
+
   return 0;
 }

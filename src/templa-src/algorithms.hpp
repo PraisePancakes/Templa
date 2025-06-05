@@ -80,10 +80,27 @@ namespace templa
         };
 
         template <typename T, std::size_t N, T... elems>
+        struct forward_elements
+        {
+            constexpr static std::array<T, N> array = {elems...};
+            constexpr static std::size_t size = N;
+            using type = T;
+        };
+
+        template <typename T, std::size_t N, std::array<T, N> A>
+        struct forward_elements_from
+        {
+            constexpr static std::array<T, N> array = []<std::size_t... I>(std::index_sequence<I...>) consteval
+            {
+                return std::array<T, N>{A[I]...};
+            }(std::make_index_sequence<N>{});
+        };
+
+        template <typename T, std::size_t N, T... elems>
         struct unique
         {
         private:
-            constexpr static std::array<T, N> arr{elems...};
+            constexpr static std::array<T, N> arr = forward_elements<T, N, elems...>::array;
             constexpr static auto impl = [](std::array<T, N> old) consteval
             {
                 std::array<T, count_unique(arr)> new_arr{};
@@ -106,25 +123,50 @@ namespace templa
         struct unique_from
         {
         private:
-            constexpr static std::array<T, N> old = []<std::size_t... I>(std::index_sequence<I...>) consteval
-            {
-                return std::array<T, N>{A[I]...};
-            }(std::make_index_sequence<N>{});
+            constexpr static std::array<T, N> old = forward_elements_from<T, N, A>::array;
 
         public:
-            constexpr static auto array = [](std::array<T, N> const &o) consteval
+            constexpr static auto array = []() consteval
             {
                 std::array<T, count_unique(old)> new_arr{};
                 std::size_t idx = 0;
                 for (std::size_t i = 0; i < N; i++)
                 {
-                    if (!exists_until(o, o[i], i))
+                    if (!exists_until(old, old[i], i))
                     {
-                        new_arr[idx++] = o[i];
+                        new_arr[idx++] = old[i];
                     };
                 };
                 return new_arr;
-            }(old);
+            }();
+        };
+
+        template <typename T, std::size_t N, T... elems>
+        struct reverse
+        {
+        private:
+            constexpr static std::array<T, N> old = forward_elements<T, N, elems...>::array;
+
+        public:
+            constexpr static std::array<T, N> array = []<std::size_t... I>(std::index_sequence<I...>)
+            {
+                constexpr std::array<T, N> ret{old[N - I - 1]...};
+                return ret;
+            }(std::make_index_sequence<N>{});
+        };
+
+        template <typename T, std::size_t N, std::array<T, N> A>
+        struct reverse_from
+        {
+        private:
+            constexpr static std::array<T, N> old = forward_elements_from<T, N, A>::array;
+
+        public:
+            constexpr static std::array<T, N> array = []<std::size_t... I>(std::index_sequence<I...>)
+            {
+                constexpr std::array<T, N> ret{old[N - I - 1]...};
+                return ret;
+            }(std::make_index_sequence<N>{});
         };
 
         template <typename T, std::size_t N, std::size_t M>
@@ -160,21 +202,6 @@ namespace templa
 
         template <std::string_view const &...Strs>
         constexpr static std::string_view join_v = join<Strs...>::value;
-
-        template <typename T>
-            requires std::input_or_output_iterator<T>
-        void reverse(T begin, T end)
-        {
-            if (begin == end)
-                return;
-            end--;
-            while (begin < end)
-            {
-                std::swap(*begin, *end);
-                begin++;
-                end--;
-            }
-        };
 
         template <typename T, typename O>
         void flatten(const std::vector<T> &in, std::vector<O> &out)
