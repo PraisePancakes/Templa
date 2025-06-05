@@ -84,9 +84,7 @@ namespace templa
         {
         private:
             constexpr static std::array<T, N> arr{elems...};
-
-        public:
-            constexpr static auto array = [](std::array<T, N> old) consteval
+            constexpr static auto impl = [](std::array<T, N> old) consteval
             {
                 std::array<T, count_unique(arr)> new_arr{};
                 std::size_t idx = 0;
@@ -98,7 +96,35 @@ namespace templa
                     };
                 };
                 return new_arr;
-            }(arr);
+            };
+
+        public:
+            constexpr static auto array = impl(arr);
+        };
+
+        template <typename T, std::size_t N, std::array<T, N> A>
+        struct unique_from
+        {
+        private:
+            constexpr static std::array<T, N> old = []<std::size_t... I>(std::index_sequence<I...>) consteval
+            {
+                return std::array<T, N>{A[I]...};
+            }(std::make_index_sequence<N>{});
+
+        public:
+            constexpr static auto array = [](std::array<T, N> const &o) consteval
+            {
+                std::array<T, count_unique(old)> new_arr{};
+                std::size_t idx = 0;
+                for (std::size_t i = 0; i < N; i++)
+                {
+                    if (!exists_until(o, o[i], i))
+                    {
+                        new_arr[idx++] = o[i];
+                    };
+                };
+                return new_arr;
+            }(old);
         };
 
         template <typename T, std::size_t N, std::size_t M>

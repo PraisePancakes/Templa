@@ -15,6 +15,13 @@ int main(int argc, char **argv)
 
   static_assert(a[0] == 1);
   static_assert(a[1] == 2);
-  
+  static_assert(a.size() == 2);
+
+  constexpr auto a1 = templa::algorithms::unique_from<int, arr.size(), arr>::array;
+
+  static_assert(a1[0] == 0);
+  static_assert(a1[1] == 1);
+  static_assert(a1[2] == 2);
+
   return 0;
 }
