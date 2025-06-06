@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <set>
+#include "concepts.hpp"
 
 namespace templa
 {
@@ -87,13 +88,14 @@ namespace templa
             using type = T;
         };
 
-        template <typename T, std::size_t N, std::array<T, N> A>
+        template <auto a>
+            requires(concepts::Container<std::remove_cv_t<decltype(a)>>)
         struct forward_elements_from
         {
-            constexpr static std::array<T, N> array = []<std::size_t... I>(std::index_sequence<I...>) consteval
+            constexpr static auto value = []<std::size_t... I>(std::index_sequence<I...>) consteval
             {
-                return std::array<T, N>{A[I]...};
-            }(std::make_index_sequence<N>{});
+                return decltype(a){a[I]...};
+            }(std::make_index_sequence<a.size()>{});
         };
 
         template <typename T, std::size_t N, T... elems>
@@ -119,18 +121,19 @@ namespace templa
             constexpr static auto array = impl(arr);
         };
 
-        template <typename T, std::size_t N, std::array<T, N> A>
+        template <auto a>
+            requires(concepts::Container<std::remove_cv_t<decltype(a)>>)
         struct unique_from
         {
         private:
-            constexpr static std::array<T, N> old = forward_elements_from<T, N, A>::array;
+            constexpr static auto old = forward_elements_from<a>::value;
 
         public:
-            constexpr static auto array = []() consteval
+            constexpr static auto value = []() consteval
             {
-                std::array<T, count_unique(old)> new_arr{};
+                std::array<typename decltype(a)::value_type, count_unique(old)> new_arr{};
                 std::size_t idx = 0;
-                for (std::size_t i = 0; i < N; i++)
+                for (std::size_t i = 0; i < old.size(); i++)
                 {
                     if (!exists_until(old, old[i], i))
                     {
@@ -155,18 +158,19 @@ namespace templa
             }(std::make_index_sequence<N>{});
         };
 
-        template <typename T, std::size_t N, std::array<T, N> A>
+        template <auto a>
+            requires(concepts::Container<std::remove_cv_t<decltype(a)>>)
         struct reverse_from
         {
         private:
-            constexpr static std::array<T, N> old = forward_elements_from<T, N, A>::array;
+            constexpr static auto old = forward_elements_from<a>::value;
 
         public:
-            constexpr static std::array<T, N> array = []<std::size_t... I>(std::index_sequence<I...>)
+            constexpr static auto value = []<std::size_t... I>(std::index_sequence<I...>)
             {
-                constexpr std::array<T, N> ret{old[N - I - 1]...};
+                constexpr decltype(a) ret{old[a.size() - I - 1]...};
                 return ret;
-            }(std::make_index_sequence<N>{});
+            }(std::make_index_sequence<a.size()>{});
         };
 
         template <typename T, std::size_t N, std::size_t M>

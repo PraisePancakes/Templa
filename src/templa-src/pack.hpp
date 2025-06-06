@@ -9,6 +9,9 @@ namespace templa
         {
             template <typename... Ts>
             struct pack;
+
+            template <typename T, T... elems>
+            struct element_pack;
         }
 
         template <typename... Ts>
@@ -22,6 +25,14 @@ namespace templa
         struct type_list<T<Ts...>>
         {
             using type = type_list<Ts...>;
+        };
+
+        template <typename T, T... elems>
+        struct element_list
+        {
+            constexpr static std::size_t size = sizeof...(elems);
+            using underlying = T;
+            using type = hidden::element_pack<T, elems...>;
         };
 
     }

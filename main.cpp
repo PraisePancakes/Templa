@@ -8,6 +8,12 @@ int main(int argc, char **argv)
 {
   using namespace templa;
 
-  static_assert(concepts::Container<std::vector<int>>);
+  constexpr std::array<int, 3> arr{0, 1, 1};
+
+  (void)templa::algorithms::forward_elements_from<arr>::value;
+
+  (void)templa::algorithms::unique_from<arr>::value;
+  (void)templa::algorithms::reverse_from<arr>::value;
+
   return 0;
 }
