@@ -75,7 +75,7 @@ namespace templa
             std::size_t cnt = 0;
             for (std::size_t i = 0; i < N; i++)
             {
-                if (!exists_until(arr, arr[i], i - 1))
+                if (!exists_until(arr, arr[i], i))
                     cnt++;
             }
             return cnt;
@@ -134,16 +134,17 @@ namespace templa
             }(std::make_index_sequence<size>{});
         };
 
-        template <typename T, std::size_t N, T... elems>
-        struct unique
+        template <auto... Es>
+        struct unique : templa::internal::uniform_element_identity<Es...>
         {
+            using identity_type = typename templa::internal::uniform_element_identity<Es...>;
+
         private:
-            constexpr static std::array<T, N> arr = forward_elements<T, N, elems...>::array;
-            constexpr static auto impl = [](std::array<T, N> old) consteval
+            constexpr static auto impl = [](identity_type::uniform_type old) consteval
             {
-                std::array<T, count_unique(arr)> new_arr{};
+                std::array<typename identity_type::value_type, count_unique(identity_type::value)> new_arr{};
                 std::size_t idx = 0;
-                for (std::size_t i = 0; i < N; i++)
+                for (std::size_t i = 0; i < old.size(); i++)
                 {
                     if (!exists_until(old, old[i], i))
                     {
@@ -154,7 +155,7 @@ namespace templa
             };
 
         public:
-            constexpr static auto array = impl(arr);
+            constexpr static auto unique_array = impl(identity_type::value);
         };
 
         template <auto a>

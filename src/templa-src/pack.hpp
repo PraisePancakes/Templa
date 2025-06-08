@@ -42,14 +42,13 @@ namespace templa
                 constexpr std::tuple<decltype(elems)...> tup{elems...};
                 return std::get<0>(tup);
             };
+
+        public:
             using uniform_type =
                 typename std::array<decltype(lambda(std::make_index_sequence<size>{})),
                                     size>;
-
-        public:
             using value_type = typename uniform_type::value_type;
             constexpr static bool valid = (std::is_same_v<value_type, decltype(elems)> && ...);
-
             static_assert(valid && (concepts::Comparable<decltype(elems)> && ...),
                           "elements must be of uniform type");
             constexpr static uniform_type value{elems...};

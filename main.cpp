@@ -8,5 +8,7 @@ int main(int argc, char **argv)
 {
   using namespace templa;
 
+  (void)algorithms::unique<1, 1, 3>::unique_array;
+
   return 0;
 }
