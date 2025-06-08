@@ -6,3 +6,4 @@
 #include "templa-src/traits.hpp"
 #include "templa-src/type_info.hpp"
 #include "templa-src/type_list.hpp"
+#include "templa-src/flagnum.hpp"
