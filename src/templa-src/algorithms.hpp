@@ -5,6 +5,7 @@
 #include <set>
 #include "concepts.hpp"
 #include "pack.hpp"
+#include <algorithm>
 
 namespace templa
 {
@@ -102,22 +103,17 @@ namespace templa
         template <auto... Es>
         struct max : templa::internal::uniform_element_identity<Es...>
         {
-            using typename templa::internal::uniform_element_identity<Es...>::uniform_type;
-            using typename templa::internal::uniform_element_identity<Es...>::value_type;
+            using identity_type = typename templa::internal::uniform_element_identity<Es...>;
+            using typename identity_type::value_type;
 
             constexpr static auto lambda = []() consteval noexcept
             {
-                value_type max{};
-                for (std::size_t i = 0; i < uniform_type::size; i++)
-                {
-                    if (uniform_type::value[i] > max)
-                    {
-                        max = uniform_type::value[i];
-                    }
-                }
-                return max;
+                auto it = std::max_element(identity_type::value.begin(), identity_type::value.end(), [](const value_type &a, const value_type &b)
+                                           { return a < b; });
+                return *it;
             };
-            constexpr static typename uniform_type::type value = lambda();
+
+            constexpr static value_type value = lambda();
         };
 
         template <auto e>

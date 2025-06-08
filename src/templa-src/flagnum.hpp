@@ -2,53 +2,52 @@
 
 namespace templa
 {
-    template <typename E>
+    template <typename ENUM>
     struct FlagEnum
     {
-        static_assert(std::is_enum<E>::value, "E must be enum type");
-        using _UTY = typename std::underlying_type<E>::type;
-        _UTY mask = 0x000;
+        static_assert(std::is_enum<ENUM>::value, "E must be enum type");
+        using underlying_t = typename std::underlying_type<ENUM>::type;
+        underlying_t mask = 0x000;
 
-        constexpr FlagEnum<E>  &operator|=(E f)
+        FlagEnum() : mask{0} {};
+        FlagEnum(ENUM single_flag) : mask(single_flag) {};
+        FlagEnum(const FlagEnum &o) : mask(o.mask) {};
+        ~FlagEnum() = default;
+
+        FlagEnum &operator|=(ENUM addValue)
         {
-            mask |= static_cast<_UTY>(f);
+            mask |= static_cast<underlying_t>(addValue);
             return *this;
+        }
+        FlagEnum operator|(ENUM addValue)
+        {
+            FlagEnum result(*this);
+            result |= addValue;
+            return result;
+        }
+        FlagEnum &operator&=(ENUM maskValue)
+        {
+            mask &= maskValue;
+            return *this;
+        }
+        FlagEnum operator&(ENUM maskValue)
+        {
+            FlagEnum result(*this);
+            result &= maskValue;
+            return result;
+        }
+
+        bool operator==(ENUM maskValue)
+        {
+            return ((this->mask & maskValue) == maskValue);
         };
 
-        constexpr FlagEnum<E> &operator&=(E f)
+        FlagEnum operator~()
         {
-            mask &= static_cast<_UTY>(f);
-            return *this;
+            FlagEnum result(*this);
+            result.mask = ~result.mask;
+            return result;
         }
-
-        constexpr bool operator&(E f) const
-        {
-            return (mask & static_cast<_UTY>(f)) == static_cast<_UTY>(f);
-        }
-        constexpr FlagEnum<E>  & operator|(E f) 
-        {
-             mask |= static_cast<_UTY>(f);
-            return *this;
-        }
-
-        template <typename U>
-        constexpr bool operator==(const FlagEnum<U> &o) const
-        {
-            if constexpr (std::is_same<_UTY, typename FlagEnum<U>::_UTY>::value &&
-                          std::is_same<E, U>::value)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        template <typename U>
-        constexpr bool operator!=(const FlagEnum<U> &o) const
-        {
-            return !(*this == o);
-        }
-
-        constexpr void SetFlag(E f) { *this |= f; };
-        constexpr bool HasFlag(E f) { return *this & f; };
+        explicit operator bool() { return mask != 0; }
     };
 };

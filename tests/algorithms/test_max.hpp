@@ -14,7 +14,8 @@ namespace templa::test
         constexpr bool operator>(const A &o) const { return this->val > o.val; };
         constexpr bool operator<=(const A &o) const { return this->val <= o.val; };
         constexpr bool operator>=(const A &o) const { return this->val >= o.val; };
-        constexpr ~A() {};
+        constexpr int operator*() const { return val; };
+        ~A() = default;
     };
 
     void test_max()
@@ -25,6 +26,6 @@ namespace templa::test
 
         constexpr std::array<A, 3> arr{a, b, c};
 
-        static_assert(max_from<arr>::value == c);
+        static_assert(templa::algorithms::max_from<arr>::value == c);
     };
 };
