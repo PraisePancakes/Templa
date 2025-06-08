@@ -5,6 +5,6 @@
 
 int main(int argc, char **argv)
 {
-
+  templa::test::test_min();
   return 0;
 }

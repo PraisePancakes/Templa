@@ -4,5 +4,6 @@
 #include "algorithms/test_max.hpp"
 #include "algorithms/test_unique.hpp"
 #include "algorithms/test_reverse.hpp"
+#include "algorithms/test_min.hpp"
 #include "ctti/test_ctti.hpp"
 #include "type_list/test_type_list.hpp"

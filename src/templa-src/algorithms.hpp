@@ -101,6 +101,28 @@ namespace templa
         };
 
         template <auto... Es>
+        struct min : templa::internal::uniform_element_identity<Es...>
+        {
+            using identity_type = typename templa::internal::uniform_element_identity<Es...>;
+            using typename identity_type::value_type;
+            constexpr static value_type value = *std::min_element(identity_type::identity_value.begin(), identity_type::identity_value.end());
+        };
+
+        template <auto e>
+            requires(concepts::Container<std::remove_cv_t<decltype(e)>>)
+        struct min_from
+        {
+        public:
+            using type = typename decltype(e)::value_type;
+            constexpr static std::size_t size = e.size();
+            constexpr static auto value =
+                []<std::size_t... I>(std::index_sequence<I...>) consteval noexcept
+            {
+                return min<e[I]...>::value;
+            }(std::make_index_sequence<size>{});
+        };
+
+        template <auto... Es>
         struct max : templa::internal::uniform_element_identity<Es...>
         {
             using identity_type = typename templa::internal::uniform_element_identity<Es...>;
