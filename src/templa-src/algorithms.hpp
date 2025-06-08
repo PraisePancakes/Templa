@@ -204,11 +204,10 @@ namespace templa
         struct join
         {
         private:
-            constexpr static auto impl()
-            {
-                constexpr std::size_t length = (Strs.size() + ... + 0);
+            constexpr static auto arr = []() consteval
+            { constexpr std::size_t length = (Strs.size() + ... + 0);
                 std::array<char, length + 1> arr;
-                auto Joiner = [i = 0, &arr](const std::string_view &s) mutable
+                auto Joiner = [i = 0, &arr](const std::string_view &s) consteval mutable
                 {
                     for (auto c : s)
                     {
@@ -217,11 +216,9 @@ namespace templa
                 };
                 (Joiner(Strs), ...);
                 arr[length] = 0;
-                return arr;
-            };
+                return arr; }();
 
         public:
-            constexpr static auto arr = impl();
             constexpr static std::string_view value = {arr.data(), arr.size() - 1};
         };
 
