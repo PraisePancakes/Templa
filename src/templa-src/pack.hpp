@@ -47,8 +47,8 @@ namespace templa
                                     size>;
 
         public:
-            using type = typename uniform_type::value_type;
-            constexpr static bool valid = (std::is_same_v<type, decltype(elems)> && ...);
+            using value_type = typename uniform_type::value_type;
+            constexpr static bool valid = (std::is_same_v<value_type, decltype(elems)> && ...);
 
             static_assert(valid && (concepts::Comparable<decltype(elems)> && ...),
                           "elements must be of uniform type");

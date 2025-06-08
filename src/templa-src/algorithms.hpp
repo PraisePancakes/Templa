@@ -100,12 +100,14 @@ namespace templa
         };
 
         template <auto... Es>
-        struct max
+        struct max : templa::internal::uniform_element_identity<Es...>
         {
-            using uniform_type = templa::internal::uniform_element_identity<Es...>;
+            using typename templa::internal::uniform_element_identity<Es...>::uniform_type;
+            using typename templa::internal::uniform_element_identity<Es...>::value_type;
+
             constexpr static auto lambda = []() consteval noexcept
             {
-                typename uniform_type::type max{};
+                value_type max{};
                 for (std::size_t i = 0; i < uniform_type::size; i++)
                 {
                     if (uniform_type::value[i] > max)
@@ -119,6 +121,7 @@ namespace templa
         };
 
         template <auto e>
+            requires(concepts::Container<std::remove_cv_t<decltype(e)>>)
         struct max_from
         {
         public:

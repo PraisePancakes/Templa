@@ -40,13 +40,13 @@ namespace templa
                 return true;
             }
             return false;
-        };
+        }
 
         template <typename U>
         constexpr bool operator!=(const FlagEnum<U> &o) const
         {
             return !(*this == o);
-        };
+        }
 
         constexpr void SetFlag(E f) { *this |= f; };
         constexpr bool HasFlag(E f) { return *this & f; };
