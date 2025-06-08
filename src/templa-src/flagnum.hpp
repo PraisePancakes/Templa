@@ -9,13 +9,13 @@ namespace templa
         using _UTY = typename std::underlying_type<E>::type;
         _UTY mask = 0x000;
 
-        constexpr FlagEnum &operator|=(E f)
+        constexpr FlagEnum<E>  &operator|=(E f)
         {
             mask |= static_cast<_UTY>(f);
             return *this;
         };
 
-        constexpr FlagEnum &operator&=(E f)
+        constexpr FlagEnum<E> &operator&=(E f)
         {
             mask &= static_cast<_UTY>(f);
             return *this;
@@ -25,10 +25,10 @@ namespace templa
         {
             return (mask & static_cast<_UTY>(f)) == static_cast<_UTY>(f);
         }
-        constexpr E operator|(E f) const
+        constexpr FlagEnum<E>  & operator|(E f) 
         {
-            auto val = mask | static_cast<_UTY>(f);
-            return static_cast<E>(val);
+             mask |= static_cast<_UTY>(f);
+            return *this;
         }
 
         template <typename U>
