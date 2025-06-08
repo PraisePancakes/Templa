@@ -105,15 +105,9 @@ namespace templa
         {
             using identity_type = typename templa::internal::uniform_element_identity<Es...>;
             using typename identity_type::value_type;
-
-            constexpr static auto lambda = []() consteval noexcept
-            {
-                auto it = std::max_element(identity_type::identity_value.begin(), identity_type::identity_value.end(), [](const value_type &a, const value_type &b)
-                                           { return a < b; });
-                return *it;
-            };
-
-            constexpr static value_type value = lambda();
+            constexpr static value_type value = *std::max_element(identity_type::identity_value.begin(), identity_type::identity_value.end(),
+                                                                  [](const value_type &a, const value_type &b)
+                                                                  { return a < b; });
         };
 
         template <auto e>
