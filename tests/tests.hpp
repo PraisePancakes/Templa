@@ -1,0 +1,8 @@
+#pragma once
+#include "algorithms/test_concat.hpp"
+#include "algorithms/test_join.hpp"
+#include "algorithms/test_max.hpp"
+#include "algorithms/test_unique.hpp"
+#include "algorithms/test_reverse.hpp"
+#include "ctti/test_ctti.hpp"
+#include "type_list/test_type_list.hpp"

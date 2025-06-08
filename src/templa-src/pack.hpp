@@ -51,7 +51,7 @@ namespace templa
             constexpr static bool valid = (std::is_same_v<std::decay_t<decltype(elems)>, std::decay_t<decltype(std::get<0>(std::tuple{elems...}))>> && ...);
             static_assert(valid && (concepts::Comparable<decltype(elems)> && ...),
                           "elements must be of uniform type");
-            constexpr static uniform_type value{elems...};
+            constexpr static uniform_type identity_value{elems...};
         };
 
     }

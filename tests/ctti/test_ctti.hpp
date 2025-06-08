@@ -1,5 +1,5 @@
 #pragma once
-#include "../src/templa.hpp"
+#include "../../src/templa.hpp"
 
 namespace templa::test
 {
