@@ -19,6 +19,16 @@ namespace templa
         };
 
         template <typename T>
+        concept Comparable = requires(T a, T b) {
+            { a < b };
+            { a == b };
+            { a > b };
+            { a != b };
+            { a >= b };
+            { a <= b };
+        };
+
+        template <typename T>
         concept UnsignedIntegral = std::is_unsigned_v<T> && std::is_integral_v<T>;
 
         template <typename T>

@@ -3,6 +3,11 @@ cmake_minimum_required(VERSION 3.0...3.28.0)
 set(PROJECT_NAME TEMPLA)
 
 project(${PROJECT_NAME} VERSION 0.0.1 DESCRIPTION "TEMPLA : C++ metaprogramming utilities" LANGUAGES CXX)
+
+message("Your C++ compiler supports these C++ features:")
+foreach(i ${CMAKE_CXX_COMPILE_FEATURES})
+  message("${i}")
+endforeach()
 # Define the executable
 add_executable(${PROJECT_NAME} 
     main.cpp

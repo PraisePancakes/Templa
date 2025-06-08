@@ -1,4 +1,6 @@
 #pragma once
+#include "concepts.hpp"
+#include <iostream>
 
 namespace templa
 {
@@ -27,12 +29,30 @@ namespace templa
             using type = type_list<Ts...>;
         };
 
-        template <typename T, T... elems>
-        struct element_list
+        template <auto... elems>
+        struct uniform_element_identity
         {
+        public:
             constexpr static std::size_t size = sizeof...(elems);
-            using underlying = T;
-            using type = hidden::element_pack<T, elems...>;
+
+        private:
+            constexpr static auto lambda =
+                []<std::size_t... I>(std::index_sequence<I...>)
+            {
+                constexpr std::tuple<decltype(elems)...> tup{elems...};
+                return std::get<0>(tup);
+            };
+            using uniform_type =
+                typename std::array<decltype(lambda(std::make_index_sequence<size>{})),
+                                    size>;
+
+        public:
+            using type = typename uniform_type::value_type;
+            constexpr static bool valid = (std::is_same_v<type, decltype(elems)> && ...);
+
+            static_assert(valid && (concepts::Comparable<decltype(elems)> && ...),
+                          "elements must be of uniform type");
+            constexpr static uniform_type value{elems...};
         };
 
     }

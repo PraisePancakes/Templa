@@ -4,6 +4,7 @@
 #include <vector>
 #include <set>
 #include "concepts.hpp"
+#include "pack.hpp"
 
 namespace templa
 {
@@ -96,6 +97,38 @@ namespace templa
             {
                 return decltype(a){a[I]...};
             }(std::make_index_sequence<a.size()>{});
+        };
+
+        template <auto... Es>
+        struct max
+        {
+            using uniform_type = templa::internal::uniform_element_identity<Es...>;
+            constexpr static auto lambda = []() consteval noexcept
+            {
+                typename uniform_type::type max{};
+                for (std::size_t i = 0; i < uniform_type::size; i++)
+                {
+                    if (uniform_type::value[i] > max)
+                    {
+                        max = uniform_type::value[i];
+                    }
+                }
+                return max;
+            };
+            constexpr static typename uniform_type::type value = lambda();
+        };
+
+        template <auto e>
+        struct max_from
+        {
+        public:
+            using type = typename decltype(e)::value_type;
+            constexpr static std::size_t size = e.size();
+            constexpr static auto value =
+                []<std::size_t... I>(std::index_sequence<I...>) consteval noexcept
+            {
+                return max<e[I]...>::value;
+            }(std::make_index_sequence<size>{});
         };
 
         template <typename T, std::size_t N, T... elems>
