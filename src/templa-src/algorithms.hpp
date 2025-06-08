@@ -129,23 +129,20 @@ namespace templa
         {
             using identity_type = typename templa::internal::uniform_element_identity<Es...>;
 
-        private:
-            constexpr static auto impl = [](identity_type::uniform_type old) consteval
+        public:
+            constexpr static auto unique_sequence = []() consteval
             {
                 std::array<typename identity_type::value_type, count_unique(identity_type::identity_value)> new_arr{};
                 std::size_t idx = 0;
-                for (std::size_t i = 0; i < old.size(); i++)
+                for (std::size_t i = 0; i < identity_type::identity_value.size(); i++)
                 {
-                    if (!exists_until(old, old[i], i))
+                    if (!exists_until(identity_type::identity_value, identity_type::identity_value[i], i))
                     {
-                        new_arr[idx++] = old[i];
+                        new_arr[idx++] = identity_type::identity_value[i];
                     };
                 };
                 return new_arr;
-            };
-
-        public:
-            constexpr static auto unique_sequence = impl(identity_type::identity_value);
+            }();
         };
 
         template <auto a>

@@ -34,6 +34,9 @@ namespace templa
         {
         public:
             constexpr static std::size_t size = sizeof...(elems);
+            constexpr static bool valid = (std::is_same_v<std::decay_t<decltype(elems)>, std::decay_t<decltype(std::get<0>(std::tuple{elems...}))>> && ...);
+            static_assert(valid && (concepts::Comparable<decltype(elems)> && ...),
+                          "elements must be of uniform type");
 
         private:
             constexpr static auto lambda =
@@ -44,13 +47,8 @@ namespace templa
             };
 
         public:
-            using uniform_type =
-                typename std::array<decltype(lambda(std::make_index_sequence<size>{})),
-                                    size>;
+            using uniform_type = typename std::array<decltype(lambda(std::make_index_sequence<size>{})), size>;
             using value_type = typename uniform_type::value_type;
-            constexpr static bool valid = (std::is_same_v<std::decay_t<decltype(elems)>, std::decay_t<decltype(std::get<0>(std::tuple{elems...}))>> && ...);
-            static_assert(valid && (concepts::Comparable<decltype(elems)> && ...),
-                          "elements must be of uniform type");
             constexpr static uniform_type identity_value{elems...};
         };
 
