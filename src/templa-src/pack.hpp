@@ -29,6 +29,27 @@ namespace templa
             using type = type_list<Ts...>;
         };
 
+        template <typename T, std::size_t N, T... elems>
+        struct forward_elements
+        {
+            constexpr static std::array<T, N> array = {elems...};
+            constexpr static std::size_t size = N;
+            using type = T;
+        };
+
+        template <auto a>
+            requires(concepts::Container<std::remove_cv_t<decltype(a)>>)
+        struct forward_elements_from
+        {
+            using type = decltype(a)::value_type;
+
+            constexpr static auto value = []<std::size_t... I>(std::index_sequence<I...>) consteval
+            {
+                return decltype(a){a[I]...};
+            }(std::make_index_sequence<a.size()>{});
+            constexpr static std::size_t size = value.size();
+        };
+
         template <auto... elems>
         struct uniform_element_identity
         {

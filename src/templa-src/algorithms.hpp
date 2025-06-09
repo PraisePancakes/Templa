@@ -6,6 +6,7 @@
 #include "concepts.hpp"
 #include "pack.hpp"
 #include <algorithm>
+#include "static_for.hpp"
 
 namespace templa
 {
@@ -82,24 +83,6 @@ namespace templa
             return cnt;
         };
 
-        template <typename T, std::size_t N, T... elems>
-        struct forward_elements
-        {
-            constexpr static std::array<T, N> array = {elems...};
-            constexpr static std::size_t size = N;
-            using type = T;
-        };
-
-        template <auto a>
-            requires(concepts::Container<std::remove_cv_t<decltype(a)>>)
-        struct forward_elements_from
-        {
-            constexpr static auto value = []<std::size_t... I>(std::index_sequence<I...>) consteval
-            {
-                return decltype(a){a[I]...};
-            }(std::make_index_sequence<a.size()>{});
-        };
-
         template <auto... Es>
         struct min : templa::internal::uniform_element_identity<Es...>
         {
@@ -168,24 +151,28 @@ namespace templa
         };
 
         template <auto a>
-            requires(concepts::Container<std::remove_cv_t<decltype(a)>>)
+            requires(concepts::Container<std::remove_cv_t<decltype(a)>>) &&
+                    (concepts::Comparable<std::remove_cv_t<decltype(a)>>)
         struct unique_from
         {
         private:
-            constexpr static auto old = forward_elements_from<a>::value;
+            using forwarded_type = templa::internal::forward_elements_from<a>;
+            using old_array_type = std::array<typename forwarded_type::type, forwarded_type::size>;
+            constexpr static auto old = templa::internal::forward_elements_from<a>::value;
+            auto lam = []<std::size_t... I>(const old_array_type &o,
+                                            std::array<typename forwarded_type::type, count_unique(old)> &n,
+                                            std::size_t &idx)
+            {
+                ((!exists_until(old, old[I], I) ? (n[idx++] = old[I], void()) : void()), ...);
+            };
 
         public:
             constexpr static auto unique_sequence = []() consteval
             {
-                std::array<typename decltype(a)::value_type, count_unique(old)> new_arr{};
+                std::array<typename forwarded_type::type, count_unique(old)> new_arr{};
                 std::size_t idx = 0;
-                for (std::size_t i = 0; i < old.size(); i++)
-                {
-                    if (!exists_until(old, old[i], i))
-                    {
-                        new_arr[idx++] = old[i];
-                    };
-                };
+
+                static_for<old.size()>(lam, old, new_arr, idx);
                 return new_arr;
             }();
         };
@@ -194,11 +181,15 @@ namespace templa
         struct reverse : templa::internal::uniform_element_identity<elems...>
         {
             using identity_type = typename templa::internal::uniform_element_identity<elems...>;
-            constexpr static auto reverse_sequence = []<std::size_t... I>(std::index_sequence<I...>)
-            {
-                constexpr std::size_t N = identity_type::size;
-                return std::array<typename identity_type::value_type, N>{identity_type::identity_value[N - I - 1]...};
-            }(std::make_index_sequence<identity_type::size>{});
+            using array_type = typename identity_type::uniform_type;
+
+            constexpr static auto reverse_sequence = []()
+            { 
+                auto lam = []<std::size_t... I>(const array_type &in, array_type &out) constexpr
+                 { ((out[I] = in[in.size() - I - 1]), ...); };
+            std::array<int, identity_type::size> ret{};
+            static_for<identity_type::size>(lam, identity_type::identity_value, ret);
+            return ret; }();
         };
 
         template <auto a>
@@ -206,7 +197,7 @@ namespace templa
         struct reverse_from
         {
         private:
-            constexpr static auto old = forward_elements_from<a>::value;
+            constexpr static auto old = templa::internal::forward_elements_from<a>::value;
 
         public:
             constexpr static auto reverse_sequence = []<std::size_t... I>(std::index_sequence<I...>)
@@ -260,15 +251,6 @@ namespace templa
             {
                 flatten(e, out);
             };
-        };
-
-        template <std::size_t N, typename F, typename... Args>
-        [[nodiscard]] constexpr auto static_for(F &&f, Args &&...args)
-        {
-            return []<std::size_t... I>(std::index_sequence<I...>, F &&f, Args &&...args) constexpr
-            {
-                std::forward<F>(f).template operator()<I...>(std::forward<Args>(args)...);
-            }(std::make_index_sequence<N>{}, std::forward<F>(f), std::forward<Args>(args)...);
         };
 
         template <typename Callable, typename... Ts>
