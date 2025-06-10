@@ -1,0 +1,10 @@
+#pragma once
+#include "templa-include/algorithms.hpp"
+#include "templa-include/concepts.hpp"
+#include "templa-include/convert.hpp"
+#include "templa-include/pack.hpp"
+#include "templa-include/traits.hpp"
+#include "templa-include/type_info.hpp"
+#include "templa-include/type_list.hpp"
+#include "templa-include/flagnum.hpp"
+#include "templa-include/static_for.hpp"
