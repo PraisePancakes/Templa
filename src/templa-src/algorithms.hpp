@@ -133,19 +133,20 @@ namespace templa
         struct unique : templa::internal::uniform_element_identity<Es...>
         {
             using identity_type = typename templa::internal::uniform_element_identity<Es...>;
+            using old_array_type = typename identity_type::uniform_type;
 
         public:
             constexpr static auto unique_sequence = []() consteval
             {
-                std::array<typename identity_type::value_type, count_unique(identity_type::identity_value)> new_arr{};
+                constexpr std::size_t n_unique = count_unique(identity_type::identity_value);
+                std::array<typename identity_type::value_type, n_unique> new_arr{};
                 std::size_t idx = 0;
-                for (std::size_t i = 0; i < identity_type::identity_value.size(); i++)
+                constexpr auto lam = []<std::size_t... I>(std::array<typename identity_type::value_type, n_unique> &n, std::size_t &idx)
                 {
-                    if (!exists_until(identity_type::identity_value, identity_type::identity_value[i], i))
-                    {
-                        new_arr[idx++] = identity_type::identity_value[i];
-                    };
+                    constexpr auto &old = identity_type::identity_value;
+                    ((!exists_until(old, old[I], I) ? (n[idx++] = old[I], void()) : void()), ...);
                 };
+                static_for<identity_type::size>(lam, new_arr, idx);
                 return new_arr;
             }();
         };
@@ -159,19 +160,18 @@ namespace templa
             using forwarded_type = templa::internal::forward_elements_from<a>;
             using old_array_type = std::array<typename forwarded_type::type, forwarded_type::size>;
             constexpr static auto old = templa::internal::forward_elements_from<a>::value;
-            auto lam = []<std::size_t... I>(const old_array_type &o,
-                                            std::array<typename forwarded_type::type, count_unique(old)> &n,
-                                            std::size_t &idx)
-            {
-                ((!exists_until(old, old[I], I) ? (n[idx++] = old[I], void()) : void()), ...);
-            };
 
         public:
             constexpr static auto unique_sequence = []() consteval
             {
                 std::array<typename forwarded_type::type, count_unique(old)> new_arr{};
                 std::size_t idx = 0;
-
+                constexpr auto lam = []<std::size_t... I>(const old_array_type &o,
+                                                          std::array<typename forwarded_type::type, count_unique(old)> &n,
+                                                          std::size_t &idx)
+                {
+                    ((!exists_until(old, old[I], I) ? (n[idx++] = old[I], void()) : void()), ...);
+                };
                 static_for<old.size()>(lam, old, new_arr, idx);
                 return new_arr;
             }();

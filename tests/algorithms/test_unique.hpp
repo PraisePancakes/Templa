@@ -3,6 +3,7 @@
 
 namespace templa::test
 {
+
     void test_unique()
     {
         constexpr auto unique_list = algorithms::unique<1, 1, 2, 1, 3, 3>::unique_sequence;
