@@ -33,6 +33,19 @@ namespace templa
     {
     };
 
+    template <typename... T>
+    struct type_list_reverse;
+
+    template <typename T, typename U, typename... Ts>
+    struct type_list_reverse<T, U, Ts...> : internal::type_list<Ts..., U, T>
+    {
+    };
+
+    template <template <typename...> class Tlist, typename T, typename U, typename... Ts>
+    struct type_list_reverse<Tlist<T, U, Ts...>> : internal::type_list<Ts..., U, T>
+    {
+    };
+
     // helper declaration
     template <typename... T>
     struct type_list_pop_front;

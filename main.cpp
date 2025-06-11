@@ -27,6 +27,8 @@ int main(int argc, char **argv)
     using t9 = type_list_prepend<t1, bool>::type;
     using t10 = type_list_pop_back<int, char, bool>::type;
     using t11 = type_list_pop_back<t1>::type;
+    using t12 = type_list_reverse<int, char, long>::type;
+    using t13 = type_list_reverse<t1>::type;
     static_assert(index_at_type<int, char, int, bool>::index == 1);
     static_assert(index_at_type<int, t1>::index == 0);
     static_assert(index_at_type_v<short, t2> == 0);
