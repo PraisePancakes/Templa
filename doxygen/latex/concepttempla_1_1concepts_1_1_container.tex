@@ -1,0 +1,29 @@
+\doxysection{templa\+::concepts\+::Container Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1_container}{}\label{concepttempla_1_1concepts_1_1_container}\index{templa::concepts::Container@{templa::concepts::Container}}
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_container}{templa::concepts::Container}}\ =\ \ \textcolor{keyword}{requires}(T\ a,\ \textcolor{keyword}{const}\ T\ b)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::regular<T>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::swappable<T>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_erasable}{Erasable<typename\ T::value\_type,\ T>}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<typename\ T::reference,\ typename\ T::value\_type\ \&>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<typename\ T::const\_reference,\ const\ typename\ T::value\_type\ \&>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::forward\_iterator<typename\ T::iterator>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::forward\_iterator<typename\ T::const\_iterator>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::signed\_integral<typename\ T::difference\_type>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<typename\ T::difference\_type,\ typename\ std::iterator\_traits<typename\ T::iterator>::difference\_type>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<typename\ T::difference\_type,\ typename\ std::iterator\_traits<typename\ T::const\_iterator>::difference\_type>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a.begin()\ \}\ -\/>\ std::same\_as<typename\ T::iterator>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a.end()\ \}\ -\/>\ std::same\_as<typename\ T::iterator>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ b.begin()\ \}\ -\/>\ std::same\_as<typename\ T::const\_iterator>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ b.end()\ \}\ -\/>\ std::same\_as<typename\ T::const\_iterator>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a.cbegin()\ \}\ -\/>\ std::same\_as<typename\ T::const\_iterator>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a.cend()\ \}\ -\/>\ std::same\_as<typename\ T::const\_iterator>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a.size()\ \}\ -\/>\ std::same\_as<typename\ T::size\_type>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a.max\_size()\ \}\ -\/>\ std::same\_as<typename\ T::size\_type>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a.empty()\ \}\ -\/>\ std::convertible\_to<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}

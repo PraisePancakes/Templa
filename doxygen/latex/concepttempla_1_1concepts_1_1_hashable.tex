@@ -1,0 +1,11 @@
+\doxysection{templa\+::concepts\+::Hashable Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1_hashable}{}\label{concepttempla_1_1concepts_1_1_hashable}\index{templa::concepts::Hashable@{templa::concepts::Hashable}}
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_hashable}{templa::concepts::Hashable}}\ =\ \ \textcolor{keyword}{requires}(T\ x)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ std::hash<T>\{\}(x)\ \}\ -\/>\ std::convertible\_to<std::size\_t>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}

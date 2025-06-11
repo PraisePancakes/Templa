@@ -1,0 +1,11 @@
+\doxysection{templa\+::concepts\+::Allocator\+Aware Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1_allocator_aware}{}\label{concepttempla_1_1concepts_1_1_allocator_aware}\index{templa::concepts::AllocatorAware@{templa::concepts::AllocatorAware}}
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_aware}{templa::concepts::AllocatorAware}}\ =\ \ \textcolor{keyword}{requires}(T\ a)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a.get\_allocator()\ \}\ -\/>\ std::same\_as<typename\ T::allocator\_type>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}

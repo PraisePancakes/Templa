@@ -1,0 +1,66 @@
+\doxysection{templa\+::algorithms\+::reverse\texorpdfstring{$<$}{<} elems \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1algorithms_1_1reverse}{}\label{structtempla_1_1algorithms_1_1reverse}\index{templa::algorithms::reverse$<$ elems $>$@{templa::algorithms::reverse$<$ elems $>$}}
+Inheritance diagram for templa\+::algorithms\+::reverse\texorpdfstring{$<$}{<} elems \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structtempla_1_1algorithms_1_1reverse}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1algorithms_1_1reverse_a46438f8acfd35aafa66adc85e3830676}\label{structtempla_1_1algorithms_1_1reverse_a46438f8acfd35aafa66adc85e3830676} 
+using {\bfseries identity\+\_\+type} = typename \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity}}$<$elems...$>$
+\item 
+\Hypertarget{structtempla_1_1algorithms_1_1reverse_a87255bbd9374fa7d78bb9a1ed94148f6}\label{structtempla_1_1algorithms_1_1reverse_a87255bbd9374fa7d78bb9a1ed94148f6} 
+using {\bfseries array\+\_\+type} = typename identity\+\_\+type\+::uniform\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity$<$ elems... $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using {\bfseries uniform\+\_\+type}
+\item 
+using {\bfseries value\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse_a078a650c51c35b40fde073e263b27b1b}{reverse\+\_\+sequence}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity$<$ elems... $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr std\+::size\+\_\+t {\bfseries size}
+\item 
+static constexpr bool {\bfseries valid}
+\item 
+static constexpr uniform\+\_\+type {\bfseries identity\+\_\+value}
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{structtempla_1_1algorithms_1_1reverse_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtempla_1_1algorithms_1_1reverse_a078a650c51c35b40fde073e263b27b1b}\index{templa::algorithms::reverse$<$ elems $>$@{templa::algorithms::reverse$<$ elems $>$}!reverse\_sequence@{reverse\_sequence}}
+\index{reverse\_sequence@{reverse\_sequence}!templa::algorithms::reverse$<$ elems $>$@{templa::algorithms::reverse$<$ elems $>$}}
+\doxysubsubsection{\texorpdfstring{reverse\_sequence}{reverse\_sequence}}
+{\footnotesize\ttfamily \label{structtempla_1_1algorithms_1_1reverse_a078a650c51c35b40fde073e263b27b1b} 
+template$<$auto... elems$>$ \\
+auto \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse}{templa\+::algorithms\+::reverse}}$<$ elems $>$\+::reverse\+\_\+sequence\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ []()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ lam\ =\ []<std::size\_t...\ I>(\textcolor{keyword}{const}\ array\_type\ \&in,\ array\_type\ \&out)\ \textcolor{keyword}{constexpr}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ ((out[I]\ =\ in[in.size()\ -\/\ I\ -\/\ 1]),\ ...);\ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::array<int,\ identity\_type::size>\ ret\{\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ static\_for<identity\_type::size>(lam,\ identity\_type::identity\_value,\ ret);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;\ \}()}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/templa-\/include/algorithms.\+hpp\end{DoxyCompactItemize}

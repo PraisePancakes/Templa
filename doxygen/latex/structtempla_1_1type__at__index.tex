@@ -1,0 +1,34 @@
+\doxysection{templa\+::type\+\_\+at\+\_\+index\texorpdfstring{$<$}{<} idx, Ts \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1type__at__index}{}\label{structtempla_1_1type__at__index}\index{templa::type\_at\_index$<$ idx, Ts $>$@{templa::type\_at\_index$<$ idx, Ts $>$}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structtempla_1_1type__at__index_a95c7829898c97da75f8376e53e3a0e4a}{type}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{structtempla_1_1type__at__index_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{structtempla_1_1type__at__index_a95c7829898c97da75f8376e53e3a0e4a}\index{templa::type\_at\_index$<$ idx, Ts $>$@{templa::type\_at\_index$<$ idx, Ts $>$}!type@{type}}
+\index{type@{type}!templa::type\_at\_index$<$ idx, Ts $>$@{templa::type\_at\_index$<$ idx, Ts $>$}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \label{structtempla_1_1type__at__index_a95c7829898c97da75f8376e53e3a0e4a} 
+template$<$std\+::size\+\_\+t idx, typename... Ts$>$ \\
+using \mbox{\hyperlink{structtempla_1_1type__at__index}{templa\+::type\+\_\+at\+\_\+index}}$<$ idx, Ts $>$\+::type}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{decltype}([]<std::size\_t...\ i>(std::index\_sequence<i...>)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structtempla_1_1internal_1_1visitor}{internal::visitor}}\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](value<i>)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::type\_identity<Ts>();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}...\}(value<idx>\{\});\ \}(\mbox{\hyperlink{structtempla_1_1type__at__index}{std::index\_sequence\_for}}<\mbox{\hyperlink{structtempla_1_1type__at__index}{Ts}}...>()))\mbox{\hyperlink{structtempla_1_1type__at__index}{::type}}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/templa-\/include/type\+\_\+list.\+hpp\end{DoxyCompactItemize}

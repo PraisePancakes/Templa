@@ -1,0 +1,42 @@
+\doxysection{templa\+::algorithms\+::min\+\_\+from\texorpdfstring{$<$}{<} e \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1algorithms_1_1min__from}{}\label{structtempla_1_1algorithms_1_1min__from}\index{templa::algorithms::min\_from$<$ e $>$@{templa::algorithms::min\_from$<$ e $>$}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1algorithms_1_1min__from_a106f8dc4ae210f4826ffa5e59b1ac694}\label{structtempla_1_1algorithms_1_1min__from_a106f8dc4ae210f4826ffa5e59b1ac694} 
+using {\bfseries type} = typename decltype(e)\+::value\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1algorithms_1_1min__from_a1158c1414263ec8e0626f7b9f20de4b7}\label{structtempla_1_1algorithms_1_1min__from_a1158c1414263ec8e0626f7b9f20de4b7} 
+static constexpr std\+::size\+\_\+t {\bfseries size} = e.\+size()
+\item 
+static constexpr auto \mbox{\hyperlink{structtempla_1_1algorithms_1_1min__from_acdd4c5d3d337221d36f6cc9d48e4e78d}{value}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{structtempla_1_1algorithms_1_1min__from_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtempla_1_1algorithms_1_1min__from_acdd4c5d3d337221d36f6cc9d48e4e78d}\index{templa::algorithms::min\_from$<$ e $>$@{templa::algorithms::min\_from$<$ e $>$}!value@{value}}
+\index{value@{value}!templa::algorithms::min\_from$<$ e $>$@{templa::algorithms::min\_from$<$ e $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily \label{structtempla_1_1algorithms_1_1min__from_acdd4c5d3d337221d36f6cc9d48e4e78d} 
+template$<$auto e$>$ \\
+auto \mbox{\hyperlink{structtempla_1_1algorithms_1_1min__from}{templa\+::algorithms\+::min\+\_\+from}}$<$ e $>$\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ []<std::size\_t...\ I>(std::index\_sequence<I...>)\ \textcolor{keyword}{consteval}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1min}{min}}<e[I]...>::value;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}(std::make\_index\_sequence<size>\{\})}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/templa-\/include/algorithms.\+hpp\end{DoxyCompactItemize}

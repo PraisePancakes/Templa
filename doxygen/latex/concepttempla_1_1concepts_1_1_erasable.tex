@@ -1,0 +1,9 @@
+\doxysection{templa\+::concepts\+::Erasable Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1_erasable}{}\label{concepttempla_1_1concepts_1_1_erasable}\index{templa::concepts::Erasable@{templa::concepts::Erasable}}
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ E,\ \textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_erasable}{templa::concepts::Erasable}}\ =\ \ (is\_basic\_string\_v<T>\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_default_erasable}{DefaultErasable<E>}})\ ||\ (\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_aware}{AllocatorAware<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_erasable}{AllocatorErasable<E,\ T,\ typename\ T::allocator\_type>}})\ ||\ (!\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_aware}{AllocatorAware<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_default_erasable}{DefaultErasable<E>}})}
+
+\end{DoxyCode}

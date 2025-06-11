@@ -1,0 +1,11 @@
+\doxysection{templa\+::concepts\+::Streamable Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1_streamable}{}\label{concepttempla_1_1concepts_1_1_streamable}\index{templa::concepts::Streamable@{templa::concepts::Streamable}}
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_streamable}{templa::concepts::Streamable}}\ =\ \ \textcolor{keyword}{requires}(std::ostream\ \&os,\ T\ t)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ os\ <<\ t\ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}

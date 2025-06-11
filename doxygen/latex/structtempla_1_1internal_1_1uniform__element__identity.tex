@@ -1,0 +1,28 @@
+\doxysection{templa\+::internal\+::uniform\+\_\+element\+\_\+identity\texorpdfstring{$<$}{<} elems \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1internal_1_1uniform__element__identity}{}\label{structtempla_1_1internal_1_1uniform__element__identity}\index{templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d}\label{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d} 
+using {\bfseries uniform\+\_\+type} = typename std\+::array$<$decltype(lambda(std\+::make\+\_\+index\+\_\+sequence$<$size$>$\{\})), size$>$
+\item 
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3}\label{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3} 
+using {\bfseries value\+\_\+type} = typename uniform\+\_\+type\+::value\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5}\label{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5} 
+static constexpr std\+::size\+\_\+t {\bfseries size} = sizeof...(elems)
+\item 
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_ae20a0ac17e2635fa37ce7b8bb9a0d392}\label{structtempla_1_1internal_1_1uniform__element__identity_ae20a0ac17e2635fa37ce7b8bb9a0d392} 
+static constexpr bool {\bfseries valid} = (std\+::is\+\_\+same\+\_\+v$<$std\+::decay\+\_\+t$<$decltype(elems)$>$, std\+::decay\+\_\+t$<$decltype(std\+::get$<$0$>$(std\+::tuple\{elems...\}))$>$$>$ \&\& ...)
+\item 
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_a13ebfb09bfa9a405ddc717bb17a40448}\label{structtempla_1_1internal_1_1uniform__element__identity_a13ebfb09bfa9a405ddc717bb17a40448} 
+static constexpr uniform\+\_\+type {\bfseries identity\+\_\+value} \{elems...\}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/templa-\/include/pack.\+hpp\end{DoxyCompactItemize}

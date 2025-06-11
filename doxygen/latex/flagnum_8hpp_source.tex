@@ -1,0 +1,59 @@
+\doxysection{flagnum.\+hpp}
+\hypertarget{flagnum_8hpp_source}{}\label{flagnum_8hpp_source}\index{include/templa-\/include/flagnum.hpp@{include/templa-\/include/flagnum.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{namespace\ }templa}
+\DoxyCodeLine{00004\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ENUM>}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{struct\ }FlagEnum}
+\DoxyCodeLine{00007\ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_enum<ENUM>::value,\ \textcolor{stringliteral}{"{}E\ must\ be\ enum\ type"{}});}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }underlying\_t\ =\ \textcolor{keyword}{typename}\ std::underlying\_type<ENUM>::type;}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ underlying\_t\ mask\ =\ 0x000;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ FlagEnum()\ :\ mask\{0\}\ \{\};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ FlagEnum(ENUM\ single\_flag)\ :\ mask(single\_flag)\ \{\};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ FlagEnum(\textcolor{keyword}{const}\ FlagEnum\ \&o)\ :\ mask(o.mask)\ \{\};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \string~FlagEnum()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ FlagEnum\ \&operator|=(ENUM\ addValue)}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ mask\ |=\ \textcolor{keyword}{static\_cast<}underlying\_t\textcolor{keyword}{>}(addValue);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ FlagEnum\ operator|(ENUM\ addValue)}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ FlagEnum\ result(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ result\ |=\ addValue;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ FlagEnum\ \&operator\&=(ENUM\ maskValue)}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ mask\ \&=\ maskValue;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ FlagEnum\ operator\&(ENUM\ maskValue)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ FlagEnum\ result(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ result\ \&=\ maskValue;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(ENUM\ maskValue)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((this-\/>mask\ \&\ maskValue)\ ==\ maskValue);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ FlagEnum\ operator\string~()}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ FlagEnum\ result(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ result.mask\ =\ \string~result.mask;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\ \{\ \textcolor{keywordflow}{return}\ mask\ !=\ 0;\ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ \};}
+
+\end{DoxyCode}

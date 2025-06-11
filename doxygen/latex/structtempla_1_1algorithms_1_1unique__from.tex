@@ -1,0 +1,41 @@
+\doxysection{templa\+::algorithms\+::unique\+\_\+from\texorpdfstring{$<$}{<} a \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1algorithms_1_1unique__from}{}\label{structtempla_1_1algorithms_1_1unique__from}\index{templa::algorithms::unique\_from$<$ a $>$@{templa::algorithms::unique\_from$<$ a $>$}}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{structtempla_1_1algorithms_1_1unique__from_a7fe08bb2dbef104d7af77fbf5007d83e}{unique\+\_\+sequence}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{structtempla_1_1algorithms_1_1unique__from_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtempla_1_1algorithms_1_1unique__from_a7fe08bb2dbef104d7af77fbf5007d83e}\index{templa::algorithms::unique\_from$<$ a $>$@{templa::algorithms::unique\_from$<$ a $>$}!unique\_sequence@{unique\_sequence}}
+\index{unique\_sequence@{unique\_sequence}!templa::algorithms::unique\_from$<$ a $>$@{templa::algorithms::unique\_from$<$ a $>$}}
+\doxysubsubsection{\texorpdfstring{unique\_sequence}{unique\_sequence}}
+{\footnotesize\ttfamily \label{structtempla_1_1algorithms_1_1unique__from_a7fe08bb2dbef104d7af77fbf5007d83e} 
+template$<$auto a$>$ \\
+auto \mbox{\hyperlink{structtempla_1_1algorithms_1_1unique__from}{templa\+::algorithms\+::unique\+\_\+from}}$<$ a $>$\+::unique\+\_\+sequence\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ []()\ \textcolor{keyword}{consteval}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::array<\textcolor{keyword}{typename}\ forwarded\_type::type,\ count\_unique(old)>\ new\_arr\{\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ idx\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ lam\ =\ []<std::size\_t...\ I>(\textcolor{keyword}{const}\ old\_array\_type\ \&o,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::array<\textcolor{keyword}{typename}\ forwarded\_type::type,\ count\_unique(old)>\ \&n,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \&idx)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((!exists\_until(old,\ old[I],\ I)\ ?\ (n[idx++]\ =\ old[I],\ void())\ :\ void()),\ ...);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ static\_for<old.size()>(lam,\ old,\ new\_arr,\ idx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ new\_arr;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}()}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/templa-\/include/algorithms.\+hpp\end{DoxyCompactItemize}

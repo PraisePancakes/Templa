@@ -1,0 +1,16 @@
+\doxysection{templa\+::concepts\+::Comparable Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1_comparable}{}\label{concepttempla_1_1concepts_1_1_comparable}\index{templa::concepts::Comparable@{templa::concepts::Comparable}}
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_comparable}{templa::concepts::Comparable}}\ =\ \ \textcolor{keyword}{requires}(T\ a,\ T\ b)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ <\ b\ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ ==\ b\ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ >\ b\ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ !=\ b\ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ >=\ b\ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ <=\ b\ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}

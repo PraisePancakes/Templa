@@ -1,0 +1,19 @@
+\doxysection{static\+\_\+for.\+hpp}
+\hypertarget{static__for_8hpp_source}{}\label{static__for_8hpp_source}\index{include/templa-\/include/static\_for.hpp@{include/templa-\/include/static\_for.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{namespace\ }templa}
+\DoxyCodeLine{00004\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{template}\ <std::size\_t\ N,\ \textcolor{keyword}{typename}\ F,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00006\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ static\_for(F\ \&\&f,\ Args\ \&\&...args)}
+\DoxyCodeLine{00007\ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ []<std::size\_t...\ I>(std::index\_sequence<I...>,\ F\ \&\&f,\ Args\ \&\&...args)\ \textcolor{keyword}{constexpr}}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<F>(f).template\ operator()<I...>(std::forward<Args>(args)...);}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \}(std::make\_index\_sequence<N>\{\},\ std::forward<F>(f),\ std::forward<Args>(args)...);}
+\DoxyCodeLine{00012\ \ \ \ \ \};}
+\DoxyCodeLine{00013\ \};}
+
+\end{DoxyCode}

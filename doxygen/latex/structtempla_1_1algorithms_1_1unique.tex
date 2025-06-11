@@ -1,0 +1,72 @@
+\doxysection{templa\+::algorithms\+::unique\texorpdfstring{$<$}{<} Es \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1algorithms_1_1unique}{}\label{structtempla_1_1algorithms_1_1unique}\index{templa::algorithms::unique$<$ Es $>$@{templa::algorithms::unique$<$ Es $>$}}
+Inheritance diagram for templa\+::algorithms\+::unique\texorpdfstring{$<$}{<} Es \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structtempla_1_1algorithms_1_1unique}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1algorithms_1_1unique_a57ca143798c64061e87a587e379f1256}\label{structtempla_1_1algorithms_1_1unique_a57ca143798c64061e87a587e379f1256} 
+using {\bfseries identity\+\_\+type} = typename \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity}}$<$Es...$>$
+\item 
+\Hypertarget{structtempla_1_1algorithms_1_1unique_acc0d2c188afe3cd0ae5406397b7275b0}\label{structtempla_1_1algorithms_1_1unique_acc0d2c188afe3cd0ae5406397b7275b0} 
+using {\bfseries old\+\_\+array\+\_\+type} = typename identity\+\_\+type\+::uniform\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity$<$ Es... $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using {\bfseries uniform\+\_\+type}
+\item 
+using {\bfseries value\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{structtempla_1_1algorithms_1_1unique_aaf25d9685d1c733798ea8cd1f7d62dcd}{unique\+\_\+sequence}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity$<$ Es... $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr std\+::size\+\_\+t {\bfseries size}
+\item 
+static constexpr bool {\bfseries valid}
+\item 
+static constexpr uniform\+\_\+type {\bfseries identity\+\_\+value}
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{structtempla_1_1algorithms_1_1unique_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtempla_1_1algorithms_1_1unique_aaf25d9685d1c733798ea8cd1f7d62dcd}\index{templa::algorithms::unique$<$ Es $>$@{templa::algorithms::unique$<$ Es $>$}!unique\_sequence@{unique\_sequence}}
+\index{unique\_sequence@{unique\_sequence}!templa::algorithms::unique$<$ Es $>$@{templa::algorithms::unique$<$ Es $>$}}
+\doxysubsubsection{\texorpdfstring{unique\_sequence}{unique\_sequence}}
+{\footnotesize\ttfamily \label{structtempla_1_1algorithms_1_1unique_aaf25d9685d1c733798ea8cd1f7d62dcd} 
+template$<$auto... Es$>$ \\
+auto \mbox{\hyperlink{structtempla_1_1algorithms_1_1unique}{templa\+::algorithms\+::unique}}$<$ Es $>$\+::unique\+\_\+sequence\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ []()\ \textcolor{keyword}{consteval}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ std::size\_t\ n\_unique\ =\ count\_unique(identity\_type::identity\_value);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::array<typename\ identity\_type::value\_type,\ n\_unique>\ new\_arr\{\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ idx\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ lam\ =\ []<std::size\_t...\ I>(std::array<typename\ identity\_type::value\_type,\ n\_unique>\ \&n,\ std::size\_t\ \&idx)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \&old\ =\ identity\_type::identity\_value;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((!exists\_until(old,\ old[I],\ I)\ ?\ (n[idx++]\ =\ old[I],\ void())\ :\ void()),\ ...);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ static\_for<identity\_type::size>(lam,\ new\_arr,\ idx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ new\_arr;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}()}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/templa-\/include/algorithms.\+hpp\end{DoxyCompactItemize}

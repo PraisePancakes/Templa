@@ -1,0 +1,59 @@
+\doxysection{templa\+::algorithms\+::max\texorpdfstring{$<$}{<} Es \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1algorithms_1_1max}{}\label{structtempla_1_1algorithms_1_1max}\index{templa::algorithms::max$<$ Es $>$@{templa::algorithms::max$<$ Es $>$}}
+Inheritance diagram for templa\+::algorithms\+::max\texorpdfstring{$<$}{<} Es \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structtempla_1_1algorithms_1_1max}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1algorithms_1_1max_a47b1051362cc5377535d0ec540ce08e5}\label{structtempla_1_1algorithms_1_1max_a47b1051362cc5377535d0ec540ce08e5} 
+using {\bfseries identity\+\_\+type} = typename \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity}}$<$Es...$>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity$<$ Es... $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using {\bfseries uniform\+\_\+type}
+\item 
+using {\bfseries value\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr value\+\_\+type \mbox{\hyperlink{structtempla_1_1algorithms_1_1max_a4ad55dc4f20b585d771baad790e50f90}{value}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity$<$ Es... $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr std\+::size\+\_\+t {\bfseries size}
+\item 
+static constexpr bool {\bfseries valid}
+\item 
+static constexpr uniform\+\_\+type {\bfseries identity\+\_\+value}
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{structtempla_1_1algorithms_1_1max_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtempla_1_1algorithms_1_1max_a4ad55dc4f20b585d771baad790e50f90}\index{templa::algorithms::max$<$ Es $>$@{templa::algorithms::max$<$ Es $>$}!value@{value}}
+\index{value@{value}!templa::algorithms::max$<$ Es $>$@{templa::algorithms::max$<$ Es $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily \label{structtempla_1_1algorithms_1_1max_a4ad55dc4f20b585d771baad790e50f90} 
+template$<$auto... Es$>$ \\
+value\+\_\+type \mbox{\hyperlink{structtempla_1_1algorithms_1_1max}{templa\+::algorithms\+::max}}$<$ Es $>$\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ *std::max\_element(identity\_type::identity\_value.begin(),\ identity\_type::identity\_value.end(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\textcolor{keyword}{const}\ value\_type\ \&a,\ \textcolor{keyword}{const}\ value\_type\ \&b)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ a\ <\ b;\ \})}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/templa-\/include/algorithms.\+hpp\end{DoxyCompactItemize}

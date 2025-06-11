@@ -1,0 +1,130 @@
+\doxysection{concepts.\+hpp}
+\hypertarget{concepts_8hpp_source}{}\label{concepts_8hpp_source}\index{include/templa-\/include/concepts.hpp@{include/templa-\/include/concepts.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }templa}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{namespace\ }concepts}
+\DoxyCodeLine{00007\ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_hashable}{Hashable}}\ =\ \textcolor{keyword}{requires}(T\ x)\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ std::hash<T>\{\}(x)\ \}\ -\/>\ std::convertible\_to<std::size\_t>;}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_integral}{Integral}}\ =\ std::is\_integral\_v<T>;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ F,\ \textcolor{keyword}{typename}...\ T>}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_callable_with}{CallableWith}}\ =\ \textcolor{keyword}{requires}(F\ f,\ T\ \&\&...t)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ f(std::forward<T>(t)...)\ \};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_comparable}{Comparable}}\ =\ \textcolor{keyword}{requires}(T\ a,\ T\ b)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ <\ b\ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ ==\ b\ \};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ >\ b\ \};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ !=\ b\ \};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ >=\ b\ \};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ <=\ b\ \};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_unsigned_integral}{UnsignedIntegral}}\ =\ std::is\_unsigned\_v<T>\ \&\&\ std::is\_integral\_v<T>;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_signed_integral}{SignedIntegral}}\ =\ std::is\_signed\_v<T>\ \&\&\ std::is\_integral\_v<T>;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_addable}{Addable}}\ =\ \textcolor{keyword}{requires}(T\ a,\ T\ b)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ +\ b\ \};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ +=\ b\ \};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_subtractable}{Subtractable}}\ =\ \textcolor{keyword}{requires}(T\ a,\ T\ b)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ -\/\ b\ \};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ -\/=\ b\ \};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_multipliable}{Multipliable}}\ =\ \textcolor{keyword}{requires}(T\ a,\ T\ b)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ *\ b\ \};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ *=\ b\ \};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_divisible}{Divisible}}\ =\ \textcolor{keyword}{requires}(T\ a,\ T\ b)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ /\ b\ \};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a\ /=\ b\ \};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_arithmetical}{Arithmetical}}\ =\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_subtractable}{Subtractable<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_multipliable}{Multipliable<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_divisible}{Divisible<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_addable}{Addable<T>}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_streamable}{Streamable}}\ =\ \textcolor{keyword}{requires}(std::ostream\ \&os,\ T\ t)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ os\ <<\ t\ \};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ E>}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_default_erasable}{DefaultErasable}}\ =\ \textcolor{keyword}{requires}(E\ *p)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ std::destroy\_at(p);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ E,\ \textcolor{keyword}{class}\ T,\ \textcolor{keyword}{class}\ A>}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_erasable}{AllocatorErasable}}\ =\ \textcolor{keyword}{requires}(A\ m,\ E\ *p)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<typename\ T::allocator\_type,\ typename\ std::allocator\_traits<A>::rebind\_alloc<E>>;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ std::allocator\_traits<A>::destroy(m,\ p);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_aware}{AllocatorAware}}\ =\ \textcolor{keyword}{requires}(T\ a)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a.get\_allocator()\ \}\ -\/>\ std::same\_as<typename\ T::allocator\_type>;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1concepts_1_1is__basic__string}{is\_basic\_string}}\ :\ std::false\_type}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ C,\ \textcolor{keyword}{class}\ T,\ \textcolor{keyword}{class}\ A>}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1concepts_1_1is__basic__string}{is\_basic\_string}}<std::basic\_string<C,\ T,\ A>>\ :\ std::true\_type}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_basic\_string\_v\ =\ \mbox{\hyperlink{structtempla_1_1concepts_1_1is__basic__string}{is\_basic\_string<T>::value}};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ E,\ \textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_erasable}{Erasable}}\ =\ (is\_basic\_string\_v<T>\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_default_erasable}{DefaultErasable<E>}})\ ||\ (\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_aware}{AllocatorAware<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_erasable}{AllocatorErasable<E,\ T,\ typename\ T::allocator\_type>}})\ ||\ (!\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_aware}{AllocatorAware<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_default_erasable}{DefaultErasable<E>}});}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_container}{Container}}\ =\ \textcolor{keyword}{requires}(T\ a,\ \textcolor{keyword}{const}\ T\ b)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::regular<T>;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::swappable<T>;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_erasable}{Erasable<typename\ T::value\_type,\ T>}};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<typename\ T::reference,\ typename\ T::value\_type\ \&>;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<typename\ T::const\_reference,\ const\ typename\ T::value\_type\ \&>;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::forward\_iterator<typename\ T::iterator>;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::forward\_iterator<typename\ T::const\_iterator>;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::signed\_integral<typename\ T::difference\_type>;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<typename\ T::difference\_type,\ typename\ std::iterator\_traits<typename\ T::iterator>::difference\_type>;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<typename\ T::difference\_type,\ typename\ std::iterator\_traits<typename\ T::const\_iterator>::difference\_type>;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a.begin()\ \}\ -\/>\ std::same\_as<typename\ T::iterator>;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a.end()\ \}\ -\/>\ std::same\_as<typename\ T::iterator>;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ b.begin()\ \}\ -\/>\ std::same\_as<typename\ T::const\_iterator>;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ b.end()\ \}\ -\/>\ std::same\_as<typename\ T::const\_iterator>;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a.cbegin()\ \}\ -\/>\ std::same\_as<typename\ T::const\_iterator>;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a.cend()\ \}\ -\/>\ std::same\_as<typename\ T::const\_iterator>;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a.size()\ \}\ -\/>\ std::same\_as<typename\ T::size\_type>;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a.max\_size()\ \}\ -\/>\ std::same\_as<typename\ T::size\_type>;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ a.empty()\ \}\ -\/>\ std::convertible\_to<bool>;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}
