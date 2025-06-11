@@ -12,11 +12,26 @@ namespace templa
 {
     namespace algorithms
     {
+        /**
+         * @brief Converts a fixed-size array into a tuple using specified format types.
+         *
+         * @tparam T        The element type of the input std::array.
+         * @tparam Formats  A parameter pack representing the target types for each tuple element.
+         * @tparam N        The size of the input array.
+         * @tparam Is       A parameter pack of indices used to access elements in the array.
+         *
+         * @param arr       The input std::array of type T with N elements.
+         * @param           std::index_sequence<Is...> used to unpack array indices at compile time.
+         *
+         * @return std::tuple<Formats...> A tuple containing elements of the array converted to the specified format types.
+         *
+         * @note The number of elements in `Formats...` must match the number of indices in `Is...`.
+         */
         template <typename T, typename... Formats, std::size_t N, std::size_t... Is>
         std::tuple<Formats...> as_tuple(std::array<T, N> const &arr, std::index_sequence<Is...>)
         {
             return std::make_tuple(Formats{arr[Is]}...);
-        };
+        }
 
         template <typename T, typename... Formats, std::size_t N>
         std::tuple<Formats...> as_tuple(std::array<T, N> const &arr)

@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['return_5ftype_0',['return_type',['../structtempla_1_1traits_1_1return__type.html',1,'templa::traits']]],
-  ['return_5ftype_3c_20r_28args_2e_2e_2e_29_3e_1',['return_type&lt; R(Args...)&gt;',['../structtempla_1_1traits_1_1return__type_3_01_r_07_args_8_8_8_08_4.html',1,'templa::traits']]],
-  ['return_5ftype_3c_20std_3a_3afunction_3c_20r_28args_2e_2e_2e_29_3e_20_3e_2',['return_type&lt; std::function&lt; R(Args...)&gt; &gt;',['../structtempla_1_1traits_1_1return__type_3_01std_1_1function_3_01_r_07_args_8_8_8_08_4_01_4.html',1,'templa::traits']]],
-  ['reverse_3',['reverse',['../structtempla_1_1algorithms_1_1reverse.html',1,'templa::algorithms']]],
-  ['reverse_5ffrom_4',['reverse_from',['../structtempla_1_1algorithms_1_1reverse__from.html',1,'templa::algorithms']]]
+  ['pack_0',['pack',['../structtempla_1_1internal_1_1hidden_1_1pack.html',1,'templa::internal::hidden']]],
+  ['pack_2ehpp_1',['pack.hpp',['../pack_8hpp.html',1,'']]],
+  ['pack_3c_20ts_2e_2e_2e_20_3e_2',['pack&lt; Ts... &gt;',['../structtempla_1_1internal_1_1hidden_1_1pack.html',1,'templa::internal::hidden']]],
+  ['popped_3',['popped',['../structtempla_1_1type__list__pop__front_3_01_t_00_01_ts_8_8_8_01_4.html#a039d90332b3ffa34dbe231d303018294',1,'templa::type_list_pop_front&lt; T, Ts... &gt;::popped'],['../structtempla_1_1type__list__pop__front_3_01_tlist_3_01_u_00_01_ts_8_8_8_01_4_01_4.html#a5c6bdfde750d585ac7c027c5511e91f9',1,'templa::type_list_pop_front&lt; Tlist&lt; U, Ts... &gt; &gt;::popped'],['../structtempla_1_1type__list__pop__back_3_01_head_00_01_tail_01_4.html#ad8f6bb89f38a6136c4b9291541552bfa',1,'templa::type_list_pop_back&lt; Head, Tail &gt;::popped'],['../structtempla_1_1type__list__pop__back_3_01_head_00_01_mid_00_01_tail_8_8_8_01_4.html#a957dffd35a7fa2c899b877923908f781',1,'templa::type_list_pop_back&lt; Head, Mid, Tail... &gt;::popped'],['../structtempla_1_1type__list__pop__back_3_01_tlist_3_01_ts_8_8_8_01_4_01_4.html#a7fa2ae2f34e5d56742a6855318ca0723',1,'templa::type_list_pop_back&lt; Tlist&lt; Ts... &gt; &gt;::popped']]]
 ];

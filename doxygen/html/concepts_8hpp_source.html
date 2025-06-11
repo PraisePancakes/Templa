@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Templa: include/templa-include/concepts.hpp Source File</title>
+<title>Templa: C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-include/concepts.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,12 +92,13 @@ $(function(){initNavTree('concepts_8hpp_source.html','',''); });
   <div class="headertitle"><div class="title">concepts.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="concepts_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span>templa</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetempla.html">templa</a></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keyword">namespace </span>concepts</div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="}">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="namespacetempla_1_1concepts.html">    6</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetempla_1_1concepts.html">concepts</a></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    {</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
@@ -213,10 +214,10 @@ $(function(){initNavTree('concepts_8hpp_source.html','',''); });
 </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> is_basic_string_v = <a class="code hl_struct" href="structtempla_1_1concepts_1_1is__basic__string.html">is_basic_string&lt;T&gt;::value</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="namespacetempla_1_1concepts.html#af447551be951ac8b303dbb460a91d499">   96</a></span>        <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="namespacetempla_1_1concepts.html#af447551be951ac8b303dbb460a91d499">is_basic_string_v</a> = <a class="code hl_struct" href="structtempla_1_1concepts_1_1is__basic__string.html">is_basic_string&lt;T&gt;::value</a>;</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keyword">template</span> &lt;<span class="keyword">class</span> E, <span class="keyword">class</span> T&gt;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="concepttempla_1_1concepts_1_1_erasable.html">   99</a></span>        <span class="keyword">concept </span><a class="code hl_concept" href="concepttempla_1_1concepts_1_1_erasable.html">Erasable</a> = (is_basic_string_v&lt;T&gt; &amp;&amp; <a class="code hl_concept" href="concepttempla_1_1concepts_1_1_default_erasable.html">DefaultErasable&lt;E&gt;</a>) || (<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_allocator_aware.html">AllocatorAware&lt;T&gt;</a> &amp;&amp; <a class="code hl_concept" href="concepttempla_1_1concepts_1_1_allocator_erasable.html">AllocatorErasable&lt;E, T, typename T::allocator_type&gt;</a>) || (!<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_allocator_aware.html">AllocatorAware&lt;T&gt;</a> &amp;&amp; <a class="code hl_concept" href="concepttempla_1_1concepts_1_1_default_erasable.html">DefaultErasable&lt;E&gt;</a>);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="concepttempla_1_1concepts_1_1_erasable.html">   99</a></span>        <span class="keyword">concept </span><a class="code hl_concept" href="concepttempla_1_1concepts_1_1_erasable.html">Erasable</a> = (<a class="code hl_variable" href="namespacetempla_1_1concepts.html#af447551be951ac8b303dbb460a91d499">is_basic_string_v&lt;T&gt;</a> &amp;&amp; <a class="code hl_concept" href="concepttempla_1_1concepts_1_1_default_erasable.html">DefaultErasable&lt;E&gt;</a>) || (<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_allocator_aware.html">AllocatorAware&lt;T&gt;</a> &amp;&amp; <a class="code hl_concept" href="concepttempla_1_1concepts_1_1_allocator_erasable.html">AllocatorErasable&lt;E, T, typename T::allocator_type&gt;</a>) || (!<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_allocator_aware.html">AllocatorAware&lt;T&gt;</a> &amp;&amp; <a class="code hl_concept" href="concepttempla_1_1concepts_1_1_default_erasable.html">DefaultErasable&lt;E&gt;</a>);</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
 <div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
@@ -243,6 +244,7 @@ $(function(){initNavTree('concepts_8hpp_source.html','',''); });
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        };</div>
 </div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
+</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_addable_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_addable.html">templa::concepts::Addable</a></div><div class="ttdef"><b>Definition</b> concepts.hpp:38</div></div>
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_allocator_aware_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_allocator_aware.html">templa::concepts::AllocatorAware</a></div><div class="ttdef"><b>Definition</b> concepts.hpp:81</div></div>
@@ -261,6 +263,9 @@ $(function(){initNavTree('concepts_8hpp_source.html','',''); });
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_streamable_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_streamable.html">templa::concepts::Streamable</a></div><div class="ttdef"><b>Definition</b> concepts.hpp:65</div></div>
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_subtractable_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_subtractable.html">templa::concepts::Subtractable</a></div><div class="ttdef"><b>Definition</b> concepts.hpp:44</div></div>
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_unsigned_integral_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_unsigned_integral.html">templa::concepts::UnsignedIntegral</a></div><div class="ttdef"><b>Definition</b> concepts.hpp:32</div></div>
+<div class="ttc" id="anamespacetempla_1_1concepts_html"><div class="ttname"><a href="namespacetempla_1_1concepts.html">templa::concepts</a></div><div class="ttdef"><b>Definition</b> concepts.hpp:7</div></div>
+<div class="ttc" id="anamespacetempla_1_1concepts_html_af447551be951ac8b303dbb460a91d499"><div class="ttname"><a href="namespacetempla_1_1concepts.html#af447551be951ac8b303dbb460a91d499">templa::concepts::is_basic_string_v</a></div><div class="ttdeci">constexpr bool is_basic_string_v</div><div class="ttdef"><b>Definition</b> concepts.hpp:96</div></div>
+<div class="ttc" id="anamespacetempla_html"><div class="ttname"><a href="namespacetempla.html">templa</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:12</div></div>
 <div class="ttc" id="astructtempla_1_1concepts_1_1is__basic__string_html"><div class="ttname"><a href="structtempla_1_1concepts_1_1is__basic__string.html">templa::concepts::is_basic_string</a></div><div class="ttdef"><b>Definition</b> concepts.hpp:87</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -268,7 +273,7 @@ $(function(){initNavTree('concepts_8hpp_source.html','',''); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_7256bb84d0decb1e80927dff017f103a.html">templa-include</a></li><li class="navelem"><b>concepts.hpp</b></li>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_7256bb84d0decb1e80927dff017f103a.html">templa-include</a></li><li class="navelem"><a href="concepts_8hpp.html">concepts.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

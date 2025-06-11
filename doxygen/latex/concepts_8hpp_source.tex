@@ -1,13 +1,13 @@
 \doxysection{concepts.\+hpp}
-\hypertarget{concepts_8hpp_source}{}\label{concepts_8hpp_source}\index{include/templa-\/include/concepts.hpp@{include/templa-\/include/concepts.hpp}}
-
+\hypertarget{concepts_8hpp_source}{}\label{concepts_8hpp_source}\index{C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-\/include/concepts.hpp@{C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-\/include/concepts.hpp}}
+\mbox{\hyperlink{concepts_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }templa}
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetempla}{templa}}}
 \DoxyCodeLine{00005\ \{}
-\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{namespace\ }concepts}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetempla_1_1concepts}{concepts}}}
 \DoxyCodeLine{00007\ \ \ \ \ \{}
 \DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
 \DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_hashable}{Hashable}}\ =\ \textcolor{keyword}{requires}(T\ x)\ \{}
@@ -97,10 +97,10 @@
 \DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00094\ }
 \DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_basic\_string\_v\ =\ \mbox{\hyperlink{structtempla_1_1concepts_1_1is__basic__string}{is\_basic\_string<T>::value}};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacetempla_1_1concepts_af447551be951ac8b303dbb460a91d499}{is\_basic\_string\_v}}\ =\ \mbox{\hyperlink{structtempla_1_1concepts_1_1is__basic__string}{is\_basic\_string<T>::value}};}
 \DoxyCodeLine{00097\ }
 \DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ E,\ \textcolor{keyword}{class}\ T>}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_erasable}{Erasable}}\ =\ (is\_basic\_string\_v<T>\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_default_erasable}{DefaultErasable<E>}})\ ||\ (\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_aware}{AllocatorAware<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_erasable}{AllocatorErasable<E,\ T,\ typename\ T::allocator\_type>}})\ ||\ (!\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_aware}{AllocatorAware<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_default_erasable}{DefaultErasable<E>}});}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_erasable}{Erasable}}\ =\ (\mbox{\hyperlink{namespacetempla_1_1concepts_af447551be951ac8b303dbb460a91d499}{is\_basic\_string\_v<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_default_erasable}{DefaultErasable<E>}})\ ||\ (\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_aware}{AllocatorAware<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_erasable}{AllocatorErasable<E,\ T,\ typename\ T::allocator\_type>}})\ ||\ (!\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_aware}{AllocatorAware<T>}}\ \&\&\ \mbox{\hyperlink{concepttempla_1_1concepts_1_1_default_erasable}{DefaultErasable<E>}});}
 \DoxyCodeLine{00100\ }
 \DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
 \DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_container}{Container}}\ =\ \textcolor{keyword}{requires}(T\ a,\ \textcolor{keyword}{const}\ T\ b)\ \{}

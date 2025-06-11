@@ -1,17 +1,17 @@
 \doxysection{pack.\+hpp}
-\hypertarget{pack_8hpp_source}{}\label{pack_8hpp_source}\index{include/templa-\/include/pack.hpp@{include/templa-\/include/pack.hpp}}
-
+\hypertarget{pack_8hpp_source}{}\label{pack_8hpp_source}\index{C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-\/include/pack.hpp@{C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-\/include/pack.hpp}}
+\mbox{\hyperlink{pack_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}concepts.hpp"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{concepts_8hpp}{concepts.hpp}}"{}}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }templa}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetempla}{templa}}}
 \DoxyCodeLine{00006\ \{}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{namespace\ }internal}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetempla_1_1internal}{internal}}}
 \DoxyCodeLine{00009\ \ \ \ \ \{}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }hidden}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetempla_1_1internal_1_1hidden}{hidden}}}
 \DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Ts>}
 \DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1internal_1_1hidden_1_1pack}{pack}};}
@@ -23,44 +23,44 @@
 \DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Ts>}
 \DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1internal_1_1type__list}{type\_list}}}
 \DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ \mbox{\hyperlink{structtempla_1_1internal_1_1hidden_1_1pack}{hidden::pack}}<Ts...>;}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ size\ =\ \textcolor{keyword}{sizeof}...(Ts);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1internal_1_1type__list_ada1ac1c5d84c1153953e5b8dfb458390}{type}}\ =\ \mbox{\hyperlink{structtempla_1_1internal_1_1hidden_1_1pack}{hidden::pack}}<Ts...>;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structtempla_1_1internal_1_1type__list_aa7e597aa68ca68ccbb8a4e8490880e4e}{size}}\ =\ \textcolor{keyword}{sizeof}...(Ts);}
 \DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00025\ }
 \DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...>\ \textcolor{keyword}{class\ }T,\ \textcolor{keyword}{typename}...\ Ts>}
 \DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1internal_1_1type__list}{type\_list}}<T<Ts...>>}
 \DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ \mbox{\hyperlink{structtempla_1_1internal_1_1type__list}{type\_list}}<Ts...>;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1internal_1_1type__list_3_01_t_3_01_ts_8_8_8_01_4_01_4_ad8f60d80c0933da04ea376a86264eabe}{type}}\ =\ \mbox{\hyperlink{structtempla_1_1internal_1_1type__list}{type\_list}}<Ts...>;}
 \DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00031\ }
 \DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::size\_t\ N,\ T...\ elems>}
 \DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements}{forward\_elements}}}
 \DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::array<T,\ N>\ array\ =\ \{elems...\};}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::size\_t\ size\ =\ N;}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ T;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::array<T,\ N>\ \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements_a1d5d8ceabd5865e5c31130c47f51164e}{array}}\ =\ \{elems...\};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::size\_t\ \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements_a2cec7817677eb4b1574e45426983648c}{size}}\ =\ N;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements_a1a94b81cb561d2fb5be35885a60cffd7}{type}}\ =\ T;}
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00039\ }
 \DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <auto\ a>}
 \DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}(\mbox{\hyperlink{concepttempla_1_1concepts_1_1_container}{concepts::Container}}<std::remove\_cv\_t<\textcolor{keyword}{decltype}(a)>>)}
 \DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements__from}{forward\_elements\_from}}}
 \DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ \textcolor{keyword}{decltype}(a)::value\_type;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements__from_a8481749e857c4a6908eeecd09acf7946}{type}}\ =\ \textcolor{keyword}{decltype}(a)::value\_type;}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ value\ =\ []<std::size\_t...\ I>(std::index\_sequence<I...>)\ \textcolor{keyword}{consteval}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements__from_af0276070351472eb48e6b1cb13a9f5e7}{value}}\ =\ []<std::size\_t...\ I>(std::index\_sequence<I...>)\ \textcolor{keyword}{consteval}}
 \DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{decltype}(a)\{a[I]...\};}
 \DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}(std::make\_index\_sequence<a.size()>\{\});}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::size\_t\ size\ =\ value.size();}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::size\_t\ \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements__from_a922a9a9dab6ad1015be911756f48726e}{size}}\ =\ \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements__from_af0276070351472eb48e6b1cb13a9f5e7}{value}}.size();}
 \DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00052\ }
 \DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{auto}...\ elems>}
 \DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{uniform\_element\_identity}}}
 \DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::size\_t\ size\ =\ \textcolor{keyword}{sizeof}...(elems);}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ valid\ =\ (std::is\_same\_v<std::decay\_t<\textcolor{keyword}{decltype}(elems)>,\ std::decay\_t<decltype(std::get<0>(std::tuple\{elems...\}))>>\ \&\&\ ...);}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(valid\ \&\&\ (\mbox{\hyperlink{concepttempla_1_1concepts_1_1_comparable}{concepts::Comparable}}<\textcolor{keyword}{decltype}(elems)>\ \&\&\ ...),}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::size\_t\ \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5}{size}}\ =\ \textcolor{keyword}{sizeof}...(elems);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_ae20a0ac17e2635fa37ce7b8bb9a0d392}{valid}}\ =\ (std::is\_same\_v<std::decay\_t<\textcolor{keyword}{decltype}(elems)>,\ std::decay\_t<decltype(std::get<0>(std::tuple\{elems...\}))>>\ \&\&\ ...);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_ae20a0ac17e2635fa37ce7b8bb9a0d392}{valid}}\ \&\&\ (\mbox{\hyperlink{concepttempla_1_1concepts_1_1_comparable}{concepts::Comparable}}<\textcolor{keyword}{decltype}(elems)>\ \&\&\ ...),}
 \DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}elements\ must\ be\ of\ uniform\ type"{}});}
 \DoxyCodeLine{00061\ }
 \DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
@@ -72,9 +72,9 @@
 \DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00069\ }
 \DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }uniform\_type\ =\ \textcolor{keyword}{typename}\ std::array<\textcolor{keyword}{decltype}(lambda(std::make\_index\_sequence<size>\{\})),\ size>;}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }value\_type\ =\ \textcolor{keyword}{typename}\ uniform\_type::value\_type;}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ uniform\_type\ identity\_value\{elems...\};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d}{uniform\_type}}\ =\ \textcolor{keyword}{typename}\ std::array<\textcolor{keyword}{decltype}(lambda(std::make\_index\_sequence<size>\{\})),\ \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5}{size}}>;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3}{value\_type}}\ =\ \textcolor{keyword}{typename}\ uniform\_type::value\_type;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d}{uniform\_type}}\ \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a13ebfb09bfa9a405ddc717bb17a40448}{identity\_value}}\{elems...\};}
 \DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00075\ }
 \DoxyCodeLine{00076\ \ \ \ \ \}}

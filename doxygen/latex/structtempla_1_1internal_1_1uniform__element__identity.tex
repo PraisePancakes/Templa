@@ -1,28 +1,72 @@
 \doxysection{templa\+::internal\+::uniform\+\_\+element\+\_\+identity\texorpdfstring{$<$}{<} elems \texorpdfstring{$>$}{>} Struct Template Reference}
 \hypertarget{structtempla_1_1internal_1_1uniform__element__identity}{}\label{structtempla_1_1internal_1_1uniform__element__identity}\index{templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}}
+
+
+{\ttfamily \#include $<$pack.\+hpp$>$}
+
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d}\label{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d} 
-using {\bfseries uniform\+\_\+type} = typename std\+::array$<$decltype(lambda(std\+::make\+\_\+index\+\_\+sequence$<$size$>$\{\})), size$>$
+using \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d}{uniform\+\_\+type}} = typename std\+::array$<$decltype(lambda(std\+::make\+\_\+index\+\_\+sequence$<$\mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5}{size}}$>$\{\})), \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5}{size}}$>$
 \item 
-\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3}\label{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3} 
-using {\bfseries value\+\_\+type} = typename uniform\+\_\+type\+::value\+\_\+type
+using \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3}{value\+\_\+type}} = typename uniform\+\_\+type\+::value\+\_\+type
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5}\label{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5} 
-static constexpr std\+::size\+\_\+t {\bfseries size} = sizeof...(elems)
+static constexpr std\+::size\+\_\+t \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5}{size}} = sizeof...(elems)
 \item 
-\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_ae20a0ac17e2635fa37ce7b8bb9a0d392}\label{structtempla_1_1internal_1_1uniform__element__identity_ae20a0ac17e2635fa37ce7b8bb9a0d392} 
-static constexpr bool {\bfseries valid} = (std\+::is\+\_\+same\+\_\+v$<$std\+::decay\+\_\+t$<$decltype(elems)$>$, std\+::decay\+\_\+t$<$decltype(std\+::get$<$0$>$(std\+::tuple\{elems...\}))$>$$>$ \&\& ...)
+static constexpr bool \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_ae20a0ac17e2635fa37ce7b8bb9a0d392}{valid}} = (std\+::is\+\_\+same\+\_\+v$<$std\+::decay\+\_\+t$<$decltype(elems)$>$, std\+::decay\+\_\+t$<$decltype(std\+::get$<$0$>$(std\+::tuple\{elems...\}))$>$$>$ \&\& ...)
 \item 
-\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_a13ebfb09bfa9a405ddc717bb17a40448}\label{structtempla_1_1internal_1_1uniform__element__identity_a13ebfb09bfa9a405ddc717bb17a40448} 
-static constexpr uniform\+\_\+type {\bfseries identity\+\_\+value} \{elems...\}
+static constexpr \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d}{uniform\+\_\+type}} \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a13ebfb09bfa9a405ddc717bb17a40448}{identity\+\_\+value}} \{elems...\}
 \end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d}\index{templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}!uniform\_type@{uniform\_type}}
+\index{uniform\_type@{uniform\_type}!templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}}
+\doxysubsubsection{\texorpdfstring{uniform\_type}{uniform\_type}}
+{\footnotesize\ttfamily \label{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d} 
+template$<$auto... elems$>$ \\
+using \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity}}$<$ elems $>$\+::uniform\+\_\+type = typename std\+::array$<$decltype(lambda(std\+::make\+\_\+index\+\_\+sequence$<$\mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5}{size}}$>$\{\})), \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5}{size}}$>$}
+
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3}\index{templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily \label{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3} 
+template$<$auto... elems$>$ \\
+using \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity}}$<$ elems $>$\+::value\+\_\+type = typename uniform\+\_\+type\+::value\+\_\+type}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_a13ebfb09bfa9a405ddc717bb17a40448}\index{templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}!identity\_value@{identity\_value}}
+\index{identity\_value@{identity\_value}!templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}}
+\doxysubsubsection{\texorpdfstring{identity\_value}{identity\_value}}
+{\footnotesize\ttfamily \label{structtempla_1_1internal_1_1uniform__element__identity_a13ebfb09bfa9a405ddc717bb17a40448} 
+template$<$auto... elems$>$ \\
+\mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d}{uniform\+\_\+type}} \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity}}$<$ elems $>$\+::identity\+\_\+value \{elems...\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5}\index{templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}!size@{size}}
+\index{size@{size}!templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{structtempla_1_1internal_1_1uniform__element__identity_ac7aa214db8777eed4026d0b996a304e5} 
+template$<$auto... elems$>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity}}$<$ elems $>$\+::size = sizeof...(elems)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{structtempla_1_1internal_1_1uniform__element__identity_ae20a0ac17e2635fa37ce7b8bb9a0d392}\index{templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}!valid@{valid}}
+\index{valid@{valid}!templa::internal::uniform\_element\_identity$<$ elems $>$@{templa::internal::uniform\_element\_identity$<$ elems $>$}}
+\doxysubsubsection{\texorpdfstring{valid}{valid}}
+{\footnotesize\ttfamily \label{structtempla_1_1internal_1_1uniform__element__identity_ae20a0ac17e2635fa37ce7b8bb9a0d392} 
+template$<$auto... elems$>$ \\
+bool \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity}}$<$ elems $>$\+::valid = (std\+::is\+\_\+same\+\_\+v$<$std\+::decay\+\_\+t$<$decltype(elems)$>$, std\+::decay\+\_\+t$<$decltype(std\+::get$<$0$>$(std\+::tuple\{elems...\}))$>$$>$ \&\& ...)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/templa-\/include/pack.\+hpp\end{DoxyCompactItemize}
+C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/\mbox{\hyperlink{pack_8hpp}{pack.\+hpp}}\end{DoxyCompactItemize}

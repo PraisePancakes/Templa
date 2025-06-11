@@ -1,0 +1,53 @@
+\doxysection{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/algorithms.hpp File Reference}
+\hypertarget{algorithms_8hpp}{}\label{algorithms_8hpp}\index{C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-\/include/algorithms.hpp@{C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-\/include/algorithms.hpp}}
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include "{}concepts.\+hpp"{}}\newline
+{\ttfamily \#include "{}pack.\+hpp"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include "{}static\+\_\+for.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1algorithms_1_1min}{templa\+::algorithms\+::min$<$ Es $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1algorithms_1_1min__from}{templa\+::algorithms\+::min\+\_\+from$<$ e $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1algorithms_1_1max}{templa\+::algorithms\+::max$<$ Es $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1algorithms_1_1max__from}{templa\+::algorithms\+::max\+\_\+from$<$ e $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1algorithms_1_1unique}{templa\+::algorithms\+::unique$<$ Es $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1algorithms_1_1unique__from}{templa\+::algorithms\+::unique\+\_\+from$<$ a $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse}{templa\+::algorithms\+::reverse$<$ elems $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse__from}{templa\+::algorithms\+::reverse\+\_\+from$<$ a $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1algorithms_1_1join}{templa\+::algorithms\+::join$<$ Strs $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetempla}{templa}}
+\item 
+namespace \mbox{\hyperlink{namespacetempla_1_1algorithms}{templa\+::algorithms}}
+\item 
+namespace \mbox{\hyperlink{namespacetempla_1_1algorithms_1_1internal}{templa\+::algorithms\+::internal}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T, typename... Formats, std\+::size\+\_\+t N, std\+::size\+\_\+t... Is$>$ }\\std\+::tuple$<$ Formats... $>$ \mbox{\hyperlink{namespacetempla_1_1algorithms_a615dacb23cae5900f7d5e44b42344807}{templa\+::algorithms\+::as\+\_\+tuple}} (std\+::array$<$ T, N $>$ const \&arr, std\+::index\+\_\+sequence$<$ Is... $>$)
+\begin{DoxyCompactList}\small\item\em Converts a fixed-\/size array into a tuple using specified format types. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename... Formats, std\+::size\+\_\+t N$>$ }\\std\+::tuple$<$ Formats... $>$ \mbox{\hyperlink{namespacetempla_1_1algorithms_ab006f0d75aaa584bb3f7b9f8279abb2f}{templa\+::algorithms\+::as\+\_\+tuple}} (std\+::array$<$ T, N $>$ const \&arr)
+\item 
+{\footnotesize template$<$typename T, std\+::size\+\_\+t N, std\+::size\+\_\+t M, std\+::size\+\_\+t... I, std\+::size\+\_\+t... J$>$ }\\constexpr auto \mbox{\hyperlink{namespacetempla_1_1algorithms_1_1internal_a7e27ce8f0dc50d72cd1005933872a0a1}{templa\+::algorithms\+::internal\+::concat\+\_\+impl}} (std\+::array$<$ T, N $>$ const \&lhs, std\+::array$<$ T, M $>$ const \&rhs, std\+::index\+\_\+sequence$<$ I... $>$, std\+::index\+\_\+sequence$<$ J... $>$)
+\item 
+{\footnotesize template$<$typename T, typename O$>$ }\\void \mbox{\hyperlink{namespacetempla_1_1algorithms_a4b86c02bb96b024b95841f2268e6e0f8}{templa\+::algorithms\+::flatten}} (const std\+::vector$<$ T $>$ \&in, std\+::vector$<$ O $>$ \&out)
+\item 
+{\footnotesize template$<$typename T, typename O$>$ }\\void \mbox{\hyperlink{namespacetempla_1_1algorithms_a4586d12315030607c285a5e03a38ba0d}{templa\+::algorithms\+::flatten}} (const std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&in, std\+::vector$<$ O $>$ \&out)
+\end{DoxyCompactItemize}

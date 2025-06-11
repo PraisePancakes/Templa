@@ -1,7 +1,7 @@
 var concepts =
 [
-    [ "templa", null, [
-      [ "concepts", null, [
+    [ "templa", "namespacetempla.html", [
+      [ "concepts", "namespacetempla_1_1concepts.html", [
         [ "Hashable", "concepttempla_1_1concepts_1_1_hashable.html", null ],
         [ "Integral", "concepttempla_1_1concepts_1_1_integral.html", null ],
         [ "CallableWith", "concepttempla_1_1concepts_1_1_callable_with.html", null ],

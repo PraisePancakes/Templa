@@ -92,25 +92,128 @@ $(function(){initNavTree('structtempla_1_1internal_1_1uniform__element__identity
   <div class="headertitle"><div class="title">templa::internal::uniform_element_identity&lt; elems &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="pack_8hpp_source.html">pack.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a5513bb858309bb74b6bf4d04bb333c7d" id="r_a5513bb858309bb74b6bf4d04bb333c7d"><td class="memItemLeft" align="right" valign="top"><a id="a5513bb858309bb74b6bf4d04bb333c7d" name="a5513bb858309bb74b6bf4d04bb333c7d"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>uniform_type</b> = typename std::array&lt;decltype(lambda(std::make_index_sequence&lt;size&gt;{})), size&gt;</td></tr>
-<tr class="memitem:a34177c2d47c12125d0992c64cfa62fb3" id="r_a34177c2d47c12125d0992c64cfa62fb3"><td class="memItemLeft" align="right" valign="top"><a id="a34177c2d47c12125d0992c64cfa62fb3" name="a34177c2d47c12125d0992c64cfa62fb3"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = typename uniform_type::value_type</td></tr>
+<tr class="memitem:a5513bb858309bb74b6bf4d04bb333c7d" id="r_a5513bb858309bb74b6bf4d04bb333c7d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5513bb858309bb74b6bf4d04bb333c7d">uniform_type</a> = typename std::array&lt;decltype(lambda(std::make_index_sequence&lt;<a class="el" href="#ac7aa214db8777eed4026d0b996a304e5">size</a>&gt;{})), <a class="el" href="#ac7aa214db8777eed4026d0b996a304e5">size</a>&gt;</td></tr>
+<tr class="memitem:a34177c2d47c12125d0992c64cfa62fb3" id="r_a34177c2d47c12125d0992c64cfa62fb3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34177c2d47c12125d0992c64cfa62fb3">value_type</a> = typename uniform_type::value_type</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ac7aa214db8777eed4026d0b996a304e5" id="r_ac7aa214db8777eed4026d0b996a304e5"><td class="memItemLeft" align="right" valign="top"><a id="ac7aa214db8777eed4026d0b996a304e5" name="ac7aa214db8777eed4026d0b996a304e5"></a>
-static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> = sizeof...(elems)</td></tr>
-<tr class="memitem:ae20a0ac17e2635fa37ce7b8bb9a0d392" id="r_ae20a0ac17e2635fa37ce7b8bb9a0d392"><td class="memItemLeft" align="right" valign="top"><a id="ae20a0ac17e2635fa37ce7b8bb9a0d392" name="ae20a0ac17e2635fa37ce7b8bb9a0d392"></a>
-static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>valid</b> = (std::is_same_v&lt;std::decay_t&lt;decltype(elems)&gt;, std::decay_t&lt;decltype(std::get&lt;0&gt;(std::tuple{elems...}))&gt;&gt; &amp;&amp; ...)</td></tr>
-<tr class="memitem:a13ebfb09bfa9a405ddc717bb17a40448" id="r_a13ebfb09bfa9a405ddc717bb17a40448"><td class="memItemLeft" align="right" valign="top"><a id="a13ebfb09bfa9a405ddc717bb17a40448" name="a13ebfb09bfa9a405ddc717bb17a40448"></a>
-static constexpr uniform_type&#160;</td><td class="memItemRight" valign="bottom"><b>identity_value</b> {elems...}</td></tr>
+<tr class="memitem:ac7aa214db8777eed4026d0b996a304e5" id="r_ac7aa214db8777eed4026d0b996a304e5"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7aa214db8777eed4026d0b996a304e5">size</a> = sizeof...(elems)</td></tr>
+<tr class="memitem:ae20a0ac17e2635fa37ce7b8bb9a0d392" id="r_ae20a0ac17e2635fa37ce7b8bb9a0d392"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae20a0ac17e2635fa37ce7b8bb9a0d392">valid</a> = (std::is_same_v&lt;std::decay_t&lt;decltype(elems)&gt;, std::decay_t&lt;decltype(std::get&lt;0&gt;(std::tuple{elems...}))&gt;&gt; &amp;&amp; ...)</td></tr>
+<tr class="memitem:a13ebfb09bfa9a405ddc717bb17a40448" id="r_a13ebfb09bfa9a405ddc717bb17a40448"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="#a5513bb858309bb74b6bf4d04bb333c7d">uniform_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13ebfb09bfa9a405ddc717bb17a40448">identity_value</a> {elems...}</td></tr>
 </table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a5513bb858309bb74b6bf4d04bb333c7d" name="a5513bb858309bb74b6bf4d04bb333c7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5513bb858309bb74b6bf4d04bb333c7d">&#9670;&#160;</a></span>uniform_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;auto... elems&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt; elems &gt;::uniform_type = typename std::array&lt;decltype(lambda(std::make_index_sequence&lt;<a class="el" href="#ac7aa214db8777eed4026d0b996a304e5">size</a>&gt;{})), <a class="el" href="#ac7aa214db8777eed4026d0b996a304e5">size</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34177c2d47c12125d0992c64cfa62fb3" name="a34177c2d47c12125d0992c64cfa62fb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34177c2d47c12125d0992c64cfa62fb3">&#9670;&#160;</a></span>value_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;auto... elems&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt; elems &gt;::value_type = typename uniform_type::value_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a13ebfb09bfa9a405ddc717bb17a40448" name="a13ebfb09bfa9a405ddc717bb17a40448"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13ebfb09bfa9a405ddc717bb17a40448">&#9670;&#160;</a></span>identity_value</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;auto... elems&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a5513bb858309bb74b6bf4d04bb333c7d">uniform_type</a> <a class="el" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt; elems &gt;::identity_value {elems...}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac7aa214db8777eed4026d0b996a304e5" name="ac7aa214db8777eed4026d0b996a304e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7aa214db8777eed4026d0b996a304e5">&#9670;&#160;</a></span>size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;auto... elems&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt; elems &gt;::size = sizeof...(elems)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae20a0ac17e2635fa37ce7b8bb9a0d392" name="ae20a0ac17e2635fa37ce7b8bb9a0d392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae20a0ac17e2635fa37ce7b8bb9a0d392">&#9670;&#160;</a></span>valid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;auto... elems&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt; elems &gt;::valid = (std::is_same_v&lt;std::decay_t&lt;decltype(elems)&gt;, std::decay_t&lt;decltype(std::get&lt;0&gt;(std::tuple{elems...}))&gt;&gt; &amp;&amp; ...)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/templa-include/<a class="el" href="pack_8hpp_source.html">pack.hpp</a></li>
+<li>C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-include/<a class="el" href="pack_8hpp_source.html">pack.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -125,7 +228,7 @@ static constexpr uniform_type&#160;</td><td class="memItemRight" valign="bottom"
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>templa</b></li><li class="navelem"><b>internal</b></li><li class="navelem"><a href="structtempla_1_1internal_1_1uniform__element__identity.html">uniform_element_identity</a></li>
+    <li class="navelem"><a href="namespacetempla.html">templa</a></li><li class="navelem"><a href="namespacetempla_1_1internal.html">internal</a></li><li class="navelem"><a href="structtempla_1_1internal_1_1uniform__element__identity.html">uniform_element_identity</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

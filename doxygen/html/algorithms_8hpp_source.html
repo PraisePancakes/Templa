@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Templa: include/templa-include/algorithms.hpp Source File</title>
+<title>Templa: C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-include/algorithms.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,309 +92,370 @@ $(function(){initNavTree('algorithms_8hpp_source.html','',''); });
   <div class="headertitle"><div class="title">algorithms.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="algorithms_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;array&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;concepts.hpp&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;pack.hpp&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="concepts_8hpp.html">concepts.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="pack_8hpp.html">pack.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;static_for.hpp&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="static__for_8hpp.html">static_for.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span>templa</div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespacetempla.html">   11</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetempla.html">templa</a></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">namespace </span>algorithms</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacetempla_1_1algorithms.html">   13</a></span>    <span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetempla_1_1algorithms.html">algorithms</a></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Formats, std::size_t N, std::size_t... Is&gt;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        std::tuple&lt;Formats...&gt; as_tuple(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;arr, std::index_sequence&lt;Is...&gt;)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <span class="keywordflow">return</span> std::make_tuple(Formats{arr[Is]}...);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        };</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Formats, std::size_t N&gt;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        std::tuple&lt;Formats...&gt; as_tuple(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;arr)</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="keywordflow">return</span> as_tuple&lt;Formats...&gt;(arr, std::make_index_sequence&lt;N&gt;{});</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        };</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2, std::size_t... I&gt;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> zip(T1 <span class="keyword">const</span> &amp;t1, T2 <span class="keyword">const</span> &amp;t2, std::index_sequence&lt;I...&gt;)</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="keywordflow">return</span> std::make_tuple((std::pair{std::get&lt;I&gt;(t1), std::get&lt;I&gt;(t2)})...);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        };</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts, <span class="keyword">typename</span>... Us&gt;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keyword">requires</span>(<span class="keyword">sizeof</span>...(Ts) == <span class="keyword">sizeof</span>...(Us))</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> zip(std::tuple&lt;Ts...&gt; <span class="keyword">const</span> &amp;t1, std::tuple&lt;Us...&gt; <span class="keyword">const</span> &amp;t2)</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keywordflow">return</span> zip(t1, t2, std::make_index_sequence&lt;<span class="keyword">sizeof</span>...(Ts)&gt;{});</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        };</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keyword">namespace </span>internal</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::size_t N, std::size_t M, std::size_t... I, std::size_t... J&gt;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keyword">constexpr</span> <span class="keyword">auto</span> concat_impl(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;lhs, std::array&lt;T, M&gt; <span class="keyword">const</span> &amp;rhs, std::index_sequence&lt;I...&gt;, std::index_sequence&lt;J...&gt;)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                <span class="keywordflow">return</span> std::array&lt;T, N + M&gt;{lhs[I]..., rhs[J]...};</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            };</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Formats, std::size_t N, std::size_t... Is&gt;</div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespacetempla_1_1algorithms.html#a615dacb23cae5900f7d5e44b42344807">   31</a></span>        std::tuple&lt;Formats...&gt; <a class="code hl_function" href="namespacetempla_1_1algorithms.html#a615dacb23cae5900f7d5e44b42344807">as_tuple</a>(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;arr, std::index_sequence&lt;Is...&gt;)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keywordflow">return</span> std::make_tuple(Formats{arr[Is]}...);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        }</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Formats, std::size_t N&gt;</div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacetempla_1_1algorithms.html#ab006f0d75aaa584bb3f7b9f8279abb2f">   37</a></span>        std::tuple&lt;Formats...&gt; <a class="code hl_function" href="namespacetempla_1_1algorithms.html#a615dacb23cae5900f7d5e44b42344807">as_tuple</a>(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;arr)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetempla_1_1algorithms.html#a615dacb23cae5900f7d5e44b42344807">as_tuple</a>&lt;Formats...&gt;(arr, std::make_index_sequence&lt;N&gt;{});</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        };</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2, std::size_t... I&gt;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> zip(T1 <span class="keyword">const</span> &amp;t1, T2 <span class="keyword">const</span> &amp;t2, std::index_sequence&lt;I...&gt;)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keywordflow">return</span> std::make_tuple((std::pair{std::get&lt;I&gt;(t1), std::get&lt;I&gt;(t2)})...);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        };</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        };</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N&gt;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">consteval</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> exists(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;arr, <span class="keyword">const</span> T &amp;elem)</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; N; i++)</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                <span class="keywordflow">if</span> (arr[i] == elem)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts, <span class="keyword">typename</span>... Us&gt;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keyword">requires</span>(<span class="keyword">sizeof</span>...(Ts) == <span class="keyword">sizeof</span>...(Us))</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> zip(std::tuple&lt;Ts...&gt; <span class="keyword">const</span> &amp;t1, std::tuple&lt;Us...&gt; <span class="keyword">const</span> &amp;t2)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordflow">return</span> zip(t1, t2, std::make_index_sequence&lt;<span class="keyword">sizeof</span>...(Ts)&gt;{});</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        };</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="namespacetempla_1_1algorithms_1_1internal.html">   55</a></span>        <span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetempla_1_1algorithms_1_1internal.html">internal</a></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::size_t N, std::size_t M, std::size_t... I, std::size_t... J&gt;</div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespacetempla_1_1algorithms_1_1internal.html#a7e27ce8f0dc50d72cd1005933872a0a1">   58</a></span>            <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespacetempla_1_1algorithms_1_1internal.html#a7e27ce8f0dc50d72cd1005933872a0a1">concat_impl</a>(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;lhs, std::array&lt;T, M&gt; <span class="keyword">const</span> &amp;rhs, std::index_sequence&lt;I...&gt;, std::index_sequence&lt;J...&gt;)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                <span class="keywordflow">return</span> std::array&lt;T, N + M&gt;{lhs[I]..., rhs[J]...};</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            };</div>
+</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N&gt;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keyword">consteval</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> exists_until(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;arr, <span class="keyword">const</span> T &amp;elem, std::size_t until)</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; until; i++)</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <span class="keywordflow">if</span> (arr[i] == elem)</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        };</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N&gt;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">consteval</span> <span class="keyword">static</span> std::size_t count_unique(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;arr)</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            std::size_t cnt = 0;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; N; i++)</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                <span class="keywordflow">if</span> (!exists_until(arr, arr[i], i))</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                    cnt++;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            }</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="keywordflow">return</span> cnt;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        };</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keyword">template</span> &lt;<span class="keyword">auto</span>... Es&gt;</div>
-<div class="foldopen" id="foldopen00087" data-start="{" data-end="};">
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1min.html">   87</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1min.html">min</a> : <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        {</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keyword">using </span>identity_type = <span class="keyword">typename</span> <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keyword">using </span>typename identity_type::value_type;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> value_type value = *std::min_element(identity_type::identity_value.begin(), identity_type::identity_value.end());</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        };</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        };</div>
 </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">template</span> &lt;auto e&gt;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <span class="keyword">requires</span>(<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_container.html">concepts::Container</a>&lt;std::remove_cv_t&lt;<span class="keyword">decltype</span>(e)&gt;&gt;)</div>
-<div class="foldopen" id="foldopen00096" data-start="{" data-end="};">
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1min__from.html">   96</a></span>        <span class="keyword">struct</span> <a class="code hl_struct" href="structtempla_1_1algorithms_1_1min__from.html">min_from</a></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        {</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keyword">using </span>type = <span class="keyword">typename</span> <span class="keyword">decltype</span>(e)::value_type;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> std::size_t size = e.size();</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> value =</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                []&lt;std::size_t... I&gt;(std::index_sequence&lt;I...&gt;) <span class="keyword">consteval</span> <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            {</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                <span class="keywordflow">return</span> <a class="code hl_struct" href="structtempla_1_1algorithms_1_1min.html">min</a>&lt;e[I]...&gt;::value;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            }(std::make_index_sequence&lt;size&gt;{});</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        };</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N&gt;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keyword">consteval</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> exists(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;arr, <span class="keyword">const</span> T &amp;elem)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; N; i++)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                <span class="keywordflow">if</span> (arr[i] == elem)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N&gt;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">consteval</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> exists_until(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;arr, <span class="keyword">const</span> T &amp;elem, std::size_t until)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; until; i++)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                <span class="keywordflow">if</span> (arr[i] == elem)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        };</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N&gt;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keyword">consteval</span> <span class="keyword">static</span> std::size_t count_unique(std::array&lt;T, N&gt; <span class="keyword">const</span> &amp;arr)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            std::size_t cnt = 0;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; N; i++)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                <span class="keywordflow">if</span> (!exists_until(arr, arr[i], i))</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                    cnt++;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">return</span> cnt;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        };</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keyword">template</span> &lt;<span class="keyword">auto</span>... Es&gt;</div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="};">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1min.html">  102</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1min.html">min</a> : <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1min.html#a66b7ca991841bfc39b1e80f434c1ce47">  104</a></span>            <span class="keyword">using </span><a class="code hl_typedef" href="structtempla_1_1algorithms_1_1min.html#a66b7ca991841bfc39b1e80f434c1ce47">identity_type</a> = <span class="keyword">typename</span> <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keyword">using </span>typename identity_type::value_type;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1min.html#aa081c0654583122b8e2102e119393130">  106</a></span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <a class="code hl_typedef" href="structtempla_1_1internal_1_1uniform__element__identity.html#a34177c2d47c12125d0992c64cfa62fb3">value_type</a> <a class="code hl_variable" href="structtempla_1_1algorithms_1_1min.html#aa081c0654583122b8e2102e119393130">value</a> = *std::min_element(identity_type::identity_value.begin(), identity_type::identity_value.end());</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        };</div>
 </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keyword">template</span> &lt;<span class="keyword">auto</span>... Es&gt;</div>
-<div class="foldopen" id="foldopen00109" data-start="{" data-end="};">
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1max.html">  109</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1max.html">max</a> : <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        {</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="keyword">using </span>identity_type = <span class="keyword">typename</span> <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keyword">using </span>typename identity_type::value_type;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> value_type value = *std::max_element(identity_type::identity_value.begin(), identity_type::identity_value.end(),</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                                                                  [](<span class="keyword">const</span> value_type &amp;a, <span class="keyword">const</span> value_type &amp;b)</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                                                                  { <span class="keywordflow">return</span> a &lt; b; });</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        };</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keyword">template</span> &lt;auto e&gt;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keyword">requires</span>(<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_container.html">concepts::Container</a>&lt;std::remove_cv_t&lt;<span class="keyword">decltype</span>(e)&gt;&gt;)</div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="};">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1min__from.html">  111</a></span>        <span class="keyword">struct</span> <a class="code hl_struct" href="structtempla_1_1algorithms_1_1min__from.html">min_from</a></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1min__from.html#a106f8dc4ae210f4826ffa5e59b1ac694">  114</a></span>            <span class="keyword">using </span><a class="code hl_typedef" href="structtempla_1_1algorithms_1_1min__from.html#a106f8dc4ae210f4826ffa5e59b1ac694">type</a> = <span class="keyword">typename</span> <span class="keyword">decltype</span>(e)::value_type;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1min__from.html#a1158c1414263ec8e0626f7b9f20de4b7">  115</a></span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> std::size_t <a class="code hl_variable" href="structtempla_1_1algorithms_1_1min__from.html#a1158c1414263ec8e0626f7b9f20de4b7">size</a> = e.size();</div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="};">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1min__from.html#acdd4c5d3d337221d36f6cc9d48e4e78d">  116</a></span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code hl_variable" href="structtempla_1_1algorithms_1_1min__from.html#acdd4c5d3d337221d36f6cc9d48e4e78d">value</a> =</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                []&lt;std::size_t... I&gt;(std::index_sequence&lt;I...&gt;) <span class="keyword">consteval</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                <span class="keywordflow">return</span> <a class="code hl_struct" href="structtempla_1_1algorithms_1_1min.html">min</a>&lt;e[I]...&gt;<a class="code hl_variable" href="structtempla_1_1algorithms_1_1min__from.html#acdd4c5d3d337221d36f6cc9d48e4e78d">::value</a>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            }(std::make_index_sequence&lt;size&gt;{});</div>
 </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keyword">template</span> &lt;auto e&gt;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <span class="keyword">requires</span>(<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_container.html">concepts::Container</a>&lt;std::remove_cv_t&lt;<span class="keyword">decltype</span>(e)&gt;&gt;)</div>
-<div class="foldopen" id="foldopen00120" data-start="{" data-end="};">
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1max__from.html">  120</a></span>        <span class="keyword">struct</span> <a class="code hl_struct" href="structtempla_1_1algorithms_1_1max__from.html">max_from</a></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        {</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <span class="keyword">using </span>type = <span class="keyword">typename</span> <span class="keyword">decltype</span>(e)::value_type;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> std::size_t size = e.size();</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> value =</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                []&lt;std::size_t... I&gt;(std::index_sequence&lt;I...&gt;) <span class="keyword">consteval</span> <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                <span class="keywordflow">return</span> <a class="code hl_struct" href="structtempla_1_1algorithms_1_1max.html">max</a>&lt;e[I]...&gt;::value;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            }(std::make_index_sequence&lt;size&gt;{});</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        };</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        };</div>
 </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keyword">template</span> &lt;<span class="keyword">auto</span>... Es&gt;</div>
-<div class="foldopen" id="foldopen00133" data-start="{" data-end="};">
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1unique.html">  133</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1unique.html">unique</a> : <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        {</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            <span class="keyword">using </span>identity_type = <span class="keyword">typename</span> <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            <span class="keyword">using </span>old_array_type = <span class="keyword">typename</span> identity_type::uniform_type;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> unique_sequence = []() <span class="keyword">consteval</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            {</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                <span class="keyword">constexpr</span> std::size_t n_unique = count_unique(identity_type::identity_value);</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                std::array&lt;typename identity_type::value_type, n_unique&gt; new_arr{};</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                std::size_t idx = 0;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                <span class="keyword">constexpr</span> <span class="keyword">auto</span> lam = []&lt;std::size_t... I&gt;(std::array&lt;typename identity_type::value_type, n_unique&gt; &amp;n, std::size_t &amp;idx)</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                {</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                    <span class="keyword">constexpr</span> <span class="keyword">auto</span> &amp;old = identity_type::identity_value;</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                    ((!exists_until(old, old[I], I) ? (n[idx++] = old[I], void()) : void()), ...);</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                };</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                static_for&lt;identity_type::size&gt;(lam, new_arr, idx);</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                <span class="keywordflow">return</span> new_arr;</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            }();</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        };</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keyword">template</span> &lt;<span class="keyword">auto</span>... Es&gt;</div>
+<div class="foldopen" id="foldopen00124" data-start="{" data-end="};">
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1max.html">  124</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1max.html">max</a> : <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1max.html#a47b1051362cc5377535d0ec540ce08e5">  126</a></span>            <span class="keyword">using </span><a class="code hl_typedef" href="structtempla_1_1algorithms_1_1max.html#a47b1051362cc5377535d0ec540ce08e5">identity_type</a> = <span class="keyword">typename</span> <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <span class="keyword">using </span>typename identity_type::value_type;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1max.html#a4ad55dc4f20b585d771baad790e50f90">  128</a></span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <a class="code hl_typedef" href="structtempla_1_1internal_1_1uniform__element__identity.html#a34177c2d47c12125d0992c64cfa62fb3">value_type</a> <a class="code hl_variable" href="structtempla_1_1algorithms_1_1max.html#a4ad55dc4f20b585d771baad790e50f90">value</a> = *std::max_element(identity_type::identity_value.begin(), identity_type::identity_value.end(),</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                                                                  [](<span class="keyword">const</span> <a class="code hl_typedef" href="structtempla_1_1internal_1_1uniform__element__identity.html#a34177c2d47c12125d0992c64cfa62fb3">value_type</a> &amp;a, <span class="keyword">const</span> <a class="code hl_typedef" href="structtempla_1_1internal_1_1uniform__element__identity.html#a34177c2d47c12125d0992c64cfa62fb3">value_type</a> &amp;b)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                                                                  { <span class="keywordflow">return</span> a &lt; b; });</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        };</div>
 </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="keyword">template</span> &lt;auto a&gt;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            <span class="keyword">requires</span>(<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_container.html">concepts::Container</a>&lt;std::remove_cv_t&lt;<span class="keyword">decltype</span>(a)&gt;&gt;) &amp;&amp;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                    (<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_comparable.html">concepts::Comparable</a>&lt;std::remove_cv_t&lt;<span class="keyword">decltype</span>(a)&gt;&gt;)</div>
-<div class="foldopen" id="foldopen00157" data-start="{" data-end="};">
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1unique__from.html">  157</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1unique__from.html">unique_from</a></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        {</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            <span class="keyword">using </span>forwarded_type = <a class="code hl_struct" href="structtempla_1_1internal_1_1forward__elements__from.html">templa::internal::forward_elements_from&lt;a&gt;</a>;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keyword">using </span>old_array_type = std::array&lt;typename forwarded_type::type, forwarded_type::size&gt;;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> old = templa::internal::forward_elements_from&lt;a&gt;::value;</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> unique_sequence = []() <span class="keyword">consteval</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            {</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                std::array&lt;<span class="keyword">typename</span> forwarded_type::type, count_unique(old)&gt; new_arr{};</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                std::size_t idx = 0;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                <span class="keyword">constexpr</span> <span class="keyword">auto</span> lam = []&lt;std::size_t... I&gt;(<span class="keyword">const</span> old_array_type &amp;o,</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                                                          std::array&lt;<span class="keyword">typename</span> forwarded_type::type, count_unique(old)&gt; &amp;n,</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                                                          std::size_t &amp;idx)</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                {</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                    ((!exists_until(old, old[I], I) ? (n[idx++] = old[I], void()) : void()), ...);</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                };</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                static_for&lt;old.size()&gt;(lam, old, new_arr, idx);</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                <span class="keywordflow">return</span> new_arr;</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            }();</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        };</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keyword">template</span> &lt;auto e&gt;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keyword">requires</span>(<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_container.html">concepts::Container</a>&lt;std::remove_cv_t&lt;<span class="keyword">decltype</span>(e)&gt;&gt;)</div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="};">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1max__from.html">  135</a></span>        <span class="keyword">struct</span> <a class="code hl_struct" href="structtempla_1_1algorithms_1_1max__from.html">max_from</a></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1max__from.html#a8099acd9485399bb507faa25c4ce835f">  138</a></span>            <span class="keyword">using </span><a class="code hl_typedef" href="structtempla_1_1algorithms_1_1max__from.html#a8099acd9485399bb507faa25c4ce835f">type</a> = <span class="keyword">typename</span> <span class="keyword">decltype</span>(e)::value_type;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1max__from.html#a53ec3ea6104a8823b8211f139b170175">  139</a></span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> std::size_t <a class="code hl_variable" href="structtempla_1_1algorithms_1_1max__from.html#a53ec3ea6104a8823b8211f139b170175">size</a> = e.size();</div>
+<div class="foldopen" id="foldopen00140" data-start="{" data-end="};">
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1max__from.html#a688a396dfd97075e433a778f983c3812">  140</a></span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code hl_variable" href="structtempla_1_1algorithms_1_1max__from.html#a688a396dfd97075e433a778f983c3812">value</a> =</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                []&lt;std::size_t... I&gt;(std::index_sequence&lt;I...&gt;) <span class="keyword">consteval</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                <span class="keywordflow">return</span> <a class="code hl_struct" href="structtempla_1_1algorithms_1_1max.html">max</a>&lt;e[I]...&gt;<a class="code hl_variable" href="structtempla_1_1algorithms_1_1max__from.html#a688a396dfd97075e433a778f983c3812">::value</a>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            }(std::make_index_sequence&lt;size&gt;{});</div>
 </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keyword">template</span> &lt;<span class="keyword">auto</span>... elems&gt;</div>
-<div class="foldopen" id="foldopen00181" data-start="{" data-end="};">
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1reverse.html">  181</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1reverse.html">reverse</a> : <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;elems...&gt;</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        {</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <span class="keyword">using </span>identity_type = <span class="keyword">typename</span> <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;elems...&gt;;</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            <span class="keyword">using </span>array_type = <span class="keyword">typename</span> identity_type::uniform_type;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> reverse_sequence = []()</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            { </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                <span class="keyword">auto</span> lam = []&lt;std::size_t... I&gt;(<span class="keyword">const</span> array_type &amp;in, array_type &amp;out) <span class="keyword">constexpr</span></div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                 { ((out[I] = in[in.size() - I - 1]), ...); };</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            std::array&lt;int, identity_type::size&gt; ret{};</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            static_for&lt;identity_type::size&gt;(lam, identity_type::identity_value, ret);</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            <span class="keywordflow">return</span> ret; }();</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        };</div>
+</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keyword">template</span> &lt;<span class="keyword">auto</span>... Es&gt;</div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="};">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1unique.html">  148</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1unique.html">unique</a> : <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1unique.html#a57ca143798c64061e87a587e379f1256">  150</a></span>            <span class="keyword">using </span><a class="code hl_typedef" href="structtempla_1_1algorithms_1_1unique.html#a57ca143798c64061e87a587e379f1256">identity_type</a> = <span class="keyword">typename</span> <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;Es...&gt;;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1unique.html#acc0d2c188afe3cd0ae5406397b7275b0">  151</a></span>            <span class="keyword">using </span><a class="code hl_typedef" href="structtempla_1_1algorithms_1_1unique.html#acc0d2c188afe3cd0ae5406397b7275b0">old_array_type</a> = <span class="keyword">typename</span> identity_type::uniform_type;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00154" data-start="{" data-end="};">
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1unique.html#aaf25d9685d1c733798ea8cd1f7d62dcd">  154</a></span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code hl_variable" href="structtempla_1_1algorithms_1_1unique.html#aaf25d9685d1c733798ea8cd1f7d62dcd">unique_sequence</a> = []() <span class="keyword">consteval</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                <span class="keyword">constexpr</span> std::size_t n_unique = count_unique(identity_type::identity_value);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                std::array&lt;typename identity_type::value_type, n_unique&gt; new_arr{};</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                std::size_t idx = 0;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                <span class="keyword">constexpr</span> <span class="keyword">auto</span> lam = []&lt;std::size_t... I&gt;(std::array&lt;typename identity_type::value_type, n_unique&gt; &amp;n, std::size_t &amp;idx)</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                    <span class="keyword">constexpr</span> <span class="keyword">auto</span> &amp;old = identity_type::identity_value;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                    ((!exists_until(old, old[I], I) ? (n[idx++] = old[I], void()) : void()), ...);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                };</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                <a class="code hl_function" href="namespacetempla.html#aa9b7eb66b57a85c86fd0917c5c87d13c">static_for&lt;identity_type::size&gt;</a>(lam, new_arr, idx);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                <span class="keywordflow">return</span> new_arr;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            }();</div>
+</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        };</div>
+</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keyword">template</span> &lt;auto a&gt;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <span class="keyword">requires</span>(<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_container.html">concepts::Container</a>&lt;std::remove_cv_t&lt;<span class="keyword">decltype</span>(a)&gt;&gt;) &amp;&amp;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                    (<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_comparable.html">concepts::Comparable</a>&lt;std::remove_cv_t&lt;<span class="keyword">decltype</span>(a)&gt;&gt;)</div>
+<div class="foldopen" id="foldopen00172" data-start="{" data-end="};">
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1unique__from.html">  172</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1unique__from.html">unique_from</a></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        {</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keyword">using </span>forwarded_type = <a class="code hl_struct" href="structtempla_1_1internal_1_1forward__elements__from.html">templa::internal::forward_elements_from&lt;a&gt;</a>;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keyword">using </span>old_array_type = std::array&lt;typename forwarded_type::type, forwarded_type::size&gt;;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> old = <a class="code hl_variable" href="structtempla_1_1internal_1_1forward__elements__from.html#af0276070351472eb48e6b1cb13a9f5e7">templa::internal::forward_elements_from&lt;a&gt;::value</a>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00180" data-start="{" data-end="};">
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1unique__from.html#a7fe08bb2dbef104d7af77fbf5007d83e">  180</a></span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code hl_variable" href="structtempla_1_1algorithms_1_1unique__from.html#a7fe08bb2dbef104d7af77fbf5007d83e">unique_sequence</a> = []() <span class="keyword">consteval</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            {</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>                std::array&lt;<span class="keyword">typename</span> <a class="code hl_typedef" href="structtempla_1_1internal_1_1forward__elements__from.html#a8481749e857c4a6908eeecd09acf7946">forwarded_type::type</a>, count_unique(old)&gt; new_arr{};</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                std::size_t idx = 0;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                <span class="keyword">constexpr</span> <span class="keyword">auto</span> lam = []&lt;std::size_t... I&gt;(<span class="keyword">const</span> old_array_type &amp;o,</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                                                          std::array&lt;<span class="keyword">typename</span> <a class="code hl_typedef" href="structtempla_1_1internal_1_1forward__elements__from.html#a8481749e857c4a6908eeecd09acf7946">forwarded_type::type</a>, count_unique(old)&gt; &amp;n,</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                                                          std::size_t &amp;idx)</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                {</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                    ((!exists_until(old, old[I], I) ? (n[idx++] = old[I], void()) : void()), ...);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                };</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                <a class="code hl_function" href="namespacetempla.html#aa9b7eb66b57a85c86fd0917c5c87d13c">static_for</a>&lt;old.size()&gt;(lam, old, new_arr, idx);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                <span class="keywordflow">return</span> new_arr;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            }();</div>
+</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        };</div>
 </div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keyword">template</span> &lt;auto a&gt;</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keyword">requires</span>(<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_container.html">concepts::Container</a>&lt;std::remove_cv_t&lt;<span class="keyword">decltype</span>(a)&gt;&gt;)</div>
-<div class="foldopen" id="foldopen00197" data-start="{" data-end="};">
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1reverse__from.html">  197</a></span>        <span class="keyword">struct</span> <a class="code hl_struct" href="structtempla_1_1algorithms_1_1reverse__from.html">reverse_from</a></div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        {</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> old = templa::internal::forward_elements_from&lt;a&gt;::value;</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> reverse_sequence = []&lt;std::size_t... I&gt;(std::index_sequence&lt;I...&gt;)</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            {</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                <span class="keyword">constexpr</span> <span class="keyword">decltype</span>(a) ret{old[a.size() - I - 1]...};</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            }(std::make_index_sequence&lt;a.size()&gt;{});</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keyword">template</span> &lt;<span class="keyword">auto</span>... elems&gt;</div>
+<div class="foldopen" id="foldopen00196" data-start="{" data-end="};">
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1reverse.html">  196</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1reverse.html">reverse</a> : <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;elems...&gt;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        {</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1reverse.html#a46438f8acfd35aafa66adc85e3830676">  198</a></span>            <span class="keyword">using </span><a class="code hl_typedef" href="structtempla_1_1algorithms_1_1reverse.html#a46438f8acfd35aafa66adc85e3830676">identity_type</a> = <span class="keyword">typename</span> <a class="code hl_struct" href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a>&lt;elems...&gt;;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1reverse.html#a87255bbd9374fa7d78bb9a1ed94148f6">  199</a></span>            <span class="keyword">using </span><a class="code hl_typedef" href="structtempla_1_1algorithms_1_1reverse.html#a87255bbd9374fa7d78bb9a1ed94148f6">array_type</a> = <span class="keyword">typename</span> identity_type::uniform_type;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="foldopen" id="foldopen00201" data-start="{" data-end="};">
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1reverse.html#a078a650c51c35b40fde073e263b27b1b">  201</a></span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code hl_variable" href="structtempla_1_1algorithms_1_1reverse.html#a078a650c51c35b40fde073e263b27b1b">reverse_sequence</a> = []()</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>            { </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                <span class="keyword">auto</span> lam = []&lt;std::size_t... I&gt;(<span class="keyword">const</span> <a class="code hl_typedef" href="structtempla_1_1algorithms_1_1reverse.html#a87255bbd9374fa7d78bb9a1ed94148f6">array_type</a> &amp;in, <a class="code hl_typedef" href="structtempla_1_1algorithms_1_1reverse.html#a87255bbd9374fa7d78bb9a1ed94148f6">array_type</a> &amp;out) <span class="keyword">constexpr</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                 { ((out[I] = in[in.size() - I - 1]), ...); };</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            std::array&lt;int, identity_type::size&gt; ret{};</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            <a class="code hl_function" href="namespacetempla.html#aa9b7eb66b57a85c86fd0917c5c87d13c">static_for&lt;identity_type::size&gt;</a>(lam, identity_type::identity_value, ret);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            <span class="keywordflow">return</span> ret; }();</div>
+</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        };</div>
 </div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> M&gt;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> concat(<span class="keyword">const</span> std::array&lt;T, N&gt; &amp;lhs, <span class="keyword">const</span> std::array&lt;T, M&gt; &amp;rhs)</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        {</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            <span class="keywordflow">return</span> internal::concat_impl(lhs, rhs, std::make_index_sequence&lt;N&gt;{}, std::make_index_sequence&lt;M&gt;{});</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        };</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keyword">template</span> &lt;<span class="keyword">const</span> std::string_view &amp;...Strs&gt;</div>
-<div class="foldopen" id="foldopen00217" data-start="{" data-end="};">
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1join.html">  217</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1join.html">join</a></div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        {</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> arr = []() <span class="keyword">consteval</span></div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>            { <span class="keyword">constexpr</span> std::size_t length = (Strs.size() + ... + 0);</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                std::array&lt;char, length + 1&gt; arr;</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                <span class="keyword">auto</span> Joiner = [i = 0, &amp;arr](<span class="keyword">const</span> std::string_view &amp;s) <span class="keyword">consteval</span> <span class="keyword">mutable</span></div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                {</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> c : s)</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                    {</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                        arr[i++] = c;</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                    }</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                };</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                (Joiner(Strs), ...);</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                arr[length] = 0;</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                <span class="keywordflow">return</span> arr; }();</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> std::string_view value = {arr.data(), arr.size() - 1};</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        };</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keyword">template</span> &lt;auto a&gt;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            <span class="keyword">requires</span>(<a class="code hl_concept" href="concepttempla_1_1concepts_1_1_container.html">concepts::Container</a>&lt;std::remove_cv_t&lt;<span class="keyword">decltype</span>(a)&gt;&gt;)</div>
+<div class="foldopen" id="foldopen00212" data-start="{" data-end="};">
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1reverse__from.html">  212</a></span>        <span class="keyword">struct</span> <a class="code hl_struct" href="structtempla_1_1algorithms_1_1reverse__from.html">reverse_from</a></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> old = <a class="code hl_variable" href="structtempla_1_1internal_1_1forward__elements__from.html#af0276070351472eb48e6b1cb13a9f5e7">templa::internal::forward_elements_from&lt;a&gt;::value</a>;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00218" data-start="{" data-end="};">
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1reverse__from.html#a866aa67b62f7092b5f26dac86f90c6a2">  218</a></span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code hl_variable" href="structtempla_1_1algorithms_1_1reverse__from.html#a866aa67b62f7092b5f26dac86f90c6a2">reverse_sequence</a> = []&lt;std::size_t... I&gt;(std::index_sequence&lt;I...&gt;)</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                <span class="keyword">constexpr</span> <span class="keyword">decltype</span>(a) ret{old[a.size() - I - 1]...};</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>            }(std::make_index_sequence&lt;a.size()&gt;{});</div>
 </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="keyword">template</span> &lt;std::string_view <span class="keyword">const</span> &amp;...Strs&gt;</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        <span class="keyword">constexpr</span> <span class="keyword">static</span> std::string_view join_v = <a class="code hl_struct" href="structtempla_1_1algorithms_1_1join.html">join</a>&lt;Strs...&gt;::value;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> O&gt;</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keywordtype">void</span> flatten(<span class="keyword">const</span> std::vector&lt;T&gt; &amp;in, std::vector&lt;O&gt; &amp;out)</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        {</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            out.insert(out.end(), in.begin(), in.end());</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        };</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> O&gt;</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <span class="keywordtype">void</span> flatten(<span class="keyword">const</span> std::vector&lt;std::vector&lt;T&gt;&gt; &amp;in, std::vector&lt;O&gt; &amp;out)</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        {</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;e : in)</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            {</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                flatten(e, out);</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            };</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        };</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        };</div>
+</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> M&gt;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> concat(<span class="keyword">const</span> std::array&lt;T, N&gt; &amp;lhs, <span class="keyword">const</span> std::array&lt;T, M&gt; &amp;rhs)</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        {</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetempla_1_1algorithms_1_1internal.html#a7e27ce8f0dc50d72cd1005933872a0a1">internal::concat_impl</a>(lhs, rhs, std::make_index_sequence&lt;N&gt;{}, std::make_index_sequence&lt;M&gt;{});</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        };</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keyword">template</span> &lt;<span class="keyword">const</span> std::string_view &amp;...Strs&gt;</div>
+<div class="foldopen" id="foldopen00232" data-start="{" data-end="};">
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1join.html">  232</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtempla_1_1algorithms_1_1join.html">join</a></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        {</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> arr = []() <span class="keyword">consteval</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            { <span class="keyword">constexpr</span> std::size_t length = (Strs.size() + ... + 0);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                std::array&lt;char, length + 1&gt; arr;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                <span class="keyword">auto</span> Joiner = [i = 0, &amp;arr](<span class="keyword">const</span> std::string_view &amp;s) <span class="keyword">consteval</span> <span class="keyword">mutable</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                {</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> c : s)</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                    {</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                        arr[i++] = c;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                    }</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                };</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                (Joiner(Strs), ...);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                arr[length] = 0;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                <span class="keywordflow">return</span> arr; }();</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="structtempla_1_1algorithms_1_1join.html#a0b0bec2ac22d682bea3a32618c3e5aa1">  250</a></span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> std::string_view <a class="code hl_variable" href="structtempla_1_1algorithms_1_1join.html#a0b0bec2ac22d682bea3a32618c3e5aa1">value</a> = {arr.data(), arr.size() - 1};</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        };</div>
+</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keyword">template</span> &lt;std::string_view <span class="keyword">const</span> &amp;...Strs&gt;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        <span class="keyword">constexpr</span> <span class="keyword">static</span> std::string_view join_v = join&lt;Strs...&gt;<a class="code hl_typedef" href="namespacetempla.html#a765041b3cf05288a09cd4ca1473c519a">::value</a>;</div>
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callable, <span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">void</span> apply_to_tuple_cat(Callable &amp;&amp;c, Ts &amp;&amp;...tuples)</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> O&gt;</div>
+<div class="foldopen" id="foldopen00257" data-start="{" data-end="}">
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="namespacetempla_1_1algorithms.html#a4b86c02bb96b024b95841f2268e6e0f8">  257</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacetempla_1_1algorithms.html#a4b86c02bb96b024b95841f2268e6e0f8">flatten</a>(<span class="keyword">const</span> std::vector&lt;T&gt; &amp;in, std::vector&lt;O&gt; &amp;out)</div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        {</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>            <span class="keyword">auto</span> cat = std::tuple_cat&lt;Ts...&gt;(std::forward&lt;Ts&gt;(tuples)...);</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            std::apply(std::forward&lt;Callable&gt;(c), std::move(cat));</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        };</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    };</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>}</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>            out.insert(out.end(), in.begin(), in.end());</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        };</div>
+</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> O&gt;</div>
+<div class="foldopen" id="foldopen00263" data-start="{" data-end="}">
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="namespacetempla_1_1algorithms.html#a4586d12315030607c285a5e03a38ba0d">  263</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="namespacetempla_1_1algorithms.html#a4b86c02bb96b024b95841f2268e6e0f8">flatten</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;T&gt;&gt; &amp;in, std::vector&lt;O&gt; &amp;out)</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        {</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;e : in)</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            {</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                <a class="code hl_function" href="namespacetempla_1_1algorithms.html#a4b86c02bb96b024b95841f2268e6e0f8">flatten</a>(e, out);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            };</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        };</div>
+</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callable, <span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">void</span> apply_to_tuple_cat(Callable &amp;&amp;c, Ts &amp;&amp;...tuples)</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        {</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            <span class="keyword">auto</span> cat = std::tuple_cat&lt;Ts...&gt;(std::forward&lt;Ts&gt;(tuples)...);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            std::apply(std::forward&lt;Callable&gt;(c), std::move(cat));</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        };</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    };</div>
+</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>}</div>
+</div>
+<div class="ttc" id="aconcepts_8hpp_html"><div class="ttname"><a href="concepts_8hpp.html">concepts.hpp</a></div></div>
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_comparable_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_comparable.html">templa::concepts::Comparable</a></div><div class="ttdef"><b>Definition</b> concepts.hpp:22</div></div>
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_container_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_container.html">templa::concepts::Container</a></div><div class="ttdef"><b>Definition</b> concepts.hpp:102</div></div>
-<div class="ttc" id="astructtempla_1_1algorithms_1_1join_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1join.html">templa::algorithms::join</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:218</div></div>
-<div class="ttc" id="astructtempla_1_1algorithms_1_1max__from_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1max__from.html">templa::algorithms::max_from</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:121</div></div>
-<div class="ttc" id="astructtempla_1_1algorithms_1_1max_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1max.html">templa::algorithms::max</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:110</div></div>
-<div class="ttc" id="astructtempla_1_1algorithms_1_1min__from_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1min__from.html">templa::algorithms::min_from</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:97</div></div>
-<div class="ttc" id="astructtempla_1_1algorithms_1_1min_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1min.html">templa::algorithms::min</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:88</div></div>
-<div class="ttc" id="astructtempla_1_1algorithms_1_1reverse__from_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1reverse__from.html">templa::algorithms::reverse_from</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:198</div></div>
-<div class="ttc" id="astructtempla_1_1algorithms_1_1reverse_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1reverse.html">templa::algorithms::reverse</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:182</div></div>
-<div class="ttc" id="astructtempla_1_1algorithms_1_1unique__from_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1unique__from.html">templa::algorithms::unique_from</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:158</div></div>
-<div class="ttc" id="astructtempla_1_1algorithms_1_1unique_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1unique.html">templa::algorithms::unique</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:134</div></div>
+<div class="ttc" id="anamespacetempla_1_1algorithms_1_1internal_html"><div class="ttname"><a href="namespacetempla_1_1algorithms_1_1internal.html">templa::algorithms::internal</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:56</div></div>
+<div class="ttc" id="anamespacetempla_1_1algorithms_1_1internal_html_a7e27ce8f0dc50d72cd1005933872a0a1"><div class="ttname"><a href="namespacetempla_1_1algorithms_1_1internal.html#a7e27ce8f0dc50d72cd1005933872a0a1">templa::algorithms::internal::concat_impl</a></div><div class="ttdeci">constexpr auto concat_impl(std::array&lt; T, N &gt; const &amp;lhs, std::array&lt; T, M &gt; const &amp;rhs, std::index_sequence&lt; I... &gt;, std::index_sequence&lt; J... &gt;)</div><div class="ttdef"><b>Definition</b> algorithms.hpp:58</div></div>
+<div class="ttc" id="anamespacetempla_1_1algorithms_html"><div class="ttname"><a href="namespacetempla_1_1algorithms.html">templa::algorithms</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:14</div></div>
+<div class="ttc" id="anamespacetempla_1_1algorithms_html_a4b86c02bb96b024b95841f2268e6e0f8"><div class="ttname"><a href="namespacetempla_1_1algorithms.html#a4b86c02bb96b024b95841f2268e6e0f8">templa::algorithms::flatten</a></div><div class="ttdeci">void flatten(const std::vector&lt; T &gt; &amp;in, std::vector&lt; O &gt; &amp;out)</div><div class="ttdef"><b>Definition</b> algorithms.hpp:257</div></div>
+<div class="ttc" id="anamespacetempla_1_1algorithms_html_a615dacb23cae5900f7d5e44b42344807"><div class="ttname"><a href="namespacetempla_1_1algorithms.html#a615dacb23cae5900f7d5e44b42344807">templa::algorithms::as_tuple</a></div><div class="ttdeci">std::tuple&lt; Formats... &gt; as_tuple(std::array&lt; T, N &gt; const &amp;arr, std::index_sequence&lt; Is... &gt;)</div><div class="ttdoc">Converts a fixed-size array into a tuple using specified format types.</div><div class="ttdef"><b>Definition</b> algorithms.hpp:31</div></div>
+<div class="ttc" id="anamespacetempla_html"><div class="ttname"><a href="namespacetempla.html">templa</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:12</div></div>
+<div class="ttc" id="anamespacetempla_html_a765041b3cf05288a09cd4ca1473c519a"><div class="ttname"><a href="namespacetempla.html#a765041b3cf05288a09cd4ca1473c519a">templa::value</a></div><div class="ttdeci">std::integral_constant&lt; std::size_t, x &gt; value</div><div class="ttdef"><b>Definition</b> type_list.hpp:110</div></div>
+<div class="ttc" id="anamespacetempla_html_aa9b7eb66b57a85c86fd0917c5c87d13c"><div class="ttname"><a href="namespacetempla.html#aa9b7eb66b57a85c86fd0917c5c87d13c">templa::static_for</a></div><div class="ttdeci">constexpr auto static_for(F &amp;&amp;f, Args &amp;&amp;...args)</div><div class="ttdef"><b>Definition</b> static_for.hpp:6</div></div>
+<div class="ttc" id="apack_8hpp_html"><div class="ttname"><a href="pack_8hpp.html">pack.hpp</a></div></div>
+<div class="ttc" id="astatic__for_8hpp_html"><div class="ttname"><a href="static__for_8hpp.html">static_for.hpp</a></div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1join_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1join.html">templa::algorithms::join</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:233</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1join_html_a0b0bec2ac22d682bea3a32618c3e5aa1"><div class="ttname"><a href="structtempla_1_1algorithms_1_1join.html#a0b0bec2ac22d682bea3a32618c3e5aa1">templa::algorithms::join::value</a></div><div class="ttdeci">static constexpr std::string_view value</div><div class="ttdef"><b>Definition</b> algorithms.hpp:250</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1max__from_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1max__from.html">templa::algorithms::max_from</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:136</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1max__from_html_a53ec3ea6104a8823b8211f139b170175"><div class="ttname"><a href="structtempla_1_1algorithms_1_1max__from.html#a53ec3ea6104a8823b8211f139b170175">templa::algorithms::max_from::size</a></div><div class="ttdeci">static constexpr std::size_t size</div><div class="ttdef"><b>Definition</b> algorithms.hpp:139</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1max__from_html_a688a396dfd97075e433a778f983c3812"><div class="ttname"><a href="structtempla_1_1algorithms_1_1max__from.html#a688a396dfd97075e433a778f983c3812">templa::algorithms::max_from::value</a></div><div class="ttdeci">static constexpr auto value</div><div class="ttdef"><b>Definition</b> algorithms.hpp:140</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1max__from_html_a8099acd9485399bb507faa25c4ce835f"><div class="ttname"><a href="structtempla_1_1algorithms_1_1max__from.html#a8099acd9485399bb507faa25c4ce835f">templa::algorithms::max_from::type</a></div><div class="ttdeci">typename decltype(e)::value_type type</div><div class="ttdef"><b>Definition</b> algorithms.hpp:138</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1max_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1max.html">templa::algorithms::max</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:125</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1max_html_a47b1051362cc5377535d0ec540ce08e5"><div class="ttname"><a href="structtempla_1_1algorithms_1_1max.html#a47b1051362cc5377535d0ec540ce08e5">templa::algorithms::max::identity_type</a></div><div class="ttdeci">typename templa::internal::uniform_element_identity&lt; Es... &gt; identity_type</div><div class="ttdef"><b>Definition</b> algorithms.hpp:126</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1max_html_a4ad55dc4f20b585d771baad790e50f90"><div class="ttname"><a href="structtempla_1_1algorithms_1_1max.html#a4ad55dc4f20b585d771baad790e50f90">templa::algorithms::max::value</a></div><div class="ttdeci">static constexpr value_type value</div><div class="ttdef"><b>Definition</b> algorithms.hpp:128</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1min__from_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1min__from.html">templa::algorithms::min_from</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:112</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1min__from_html_a106f8dc4ae210f4826ffa5e59b1ac694"><div class="ttname"><a href="structtempla_1_1algorithms_1_1min__from.html#a106f8dc4ae210f4826ffa5e59b1ac694">templa::algorithms::min_from::type</a></div><div class="ttdeci">typename decltype(e)::value_type type</div><div class="ttdef"><b>Definition</b> algorithms.hpp:114</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1min__from_html_a1158c1414263ec8e0626f7b9f20de4b7"><div class="ttname"><a href="structtempla_1_1algorithms_1_1min__from.html#a1158c1414263ec8e0626f7b9f20de4b7">templa::algorithms::min_from::size</a></div><div class="ttdeci">static constexpr std::size_t size</div><div class="ttdef"><b>Definition</b> algorithms.hpp:115</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1min__from_html_acdd4c5d3d337221d36f6cc9d48e4e78d"><div class="ttname"><a href="structtempla_1_1algorithms_1_1min__from.html#acdd4c5d3d337221d36f6cc9d48e4e78d">templa::algorithms::min_from::value</a></div><div class="ttdeci">static constexpr auto value</div><div class="ttdef"><b>Definition</b> algorithms.hpp:116</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1min_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1min.html">templa::algorithms::min</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:103</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1min_html_a66b7ca991841bfc39b1e80f434c1ce47"><div class="ttname"><a href="structtempla_1_1algorithms_1_1min.html#a66b7ca991841bfc39b1e80f434c1ce47">templa::algorithms::min::identity_type</a></div><div class="ttdeci">typename templa::internal::uniform_element_identity&lt; Es... &gt; identity_type</div><div class="ttdef"><b>Definition</b> algorithms.hpp:104</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1min_html_aa081c0654583122b8e2102e119393130"><div class="ttname"><a href="structtempla_1_1algorithms_1_1min.html#aa081c0654583122b8e2102e119393130">templa::algorithms::min::value</a></div><div class="ttdeci">static constexpr value_type value</div><div class="ttdef"><b>Definition</b> algorithms.hpp:106</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1reverse__from_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1reverse__from.html">templa::algorithms::reverse_from</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:213</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1reverse__from_html_a866aa67b62f7092b5f26dac86f90c6a2"><div class="ttname"><a href="structtempla_1_1algorithms_1_1reverse__from.html#a866aa67b62f7092b5f26dac86f90c6a2">templa::algorithms::reverse_from::reverse_sequence</a></div><div class="ttdeci">static constexpr auto reverse_sequence</div><div class="ttdef"><b>Definition</b> algorithms.hpp:218</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1reverse_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1reverse.html">templa::algorithms::reverse</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:197</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1reverse_html_a078a650c51c35b40fde073e263b27b1b"><div class="ttname"><a href="structtempla_1_1algorithms_1_1reverse.html#a078a650c51c35b40fde073e263b27b1b">templa::algorithms::reverse::reverse_sequence</a></div><div class="ttdeci">static constexpr auto reverse_sequence</div><div class="ttdef"><b>Definition</b> algorithms.hpp:201</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1reverse_html_a46438f8acfd35aafa66adc85e3830676"><div class="ttname"><a href="structtempla_1_1algorithms_1_1reverse.html#a46438f8acfd35aafa66adc85e3830676">templa::algorithms::reverse::identity_type</a></div><div class="ttdeci">typename templa::internal::uniform_element_identity&lt; elems... &gt; identity_type</div><div class="ttdef"><b>Definition</b> algorithms.hpp:198</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1reverse_html_a87255bbd9374fa7d78bb9a1ed94148f6"><div class="ttname"><a href="structtempla_1_1algorithms_1_1reverse.html#a87255bbd9374fa7d78bb9a1ed94148f6">templa::algorithms::reverse::array_type</a></div><div class="ttdeci">typename identity_type::uniform_type array_type</div><div class="ttdef"><b>Definition</b> algorithms.hpp:199</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1unique__from_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1unique__from.html">templa::algorithms::unique_from</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:173</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1unique__from_html_a7fe08bb2dbef104d7af77fbf5007d83e"><div class="ttname"><a href="structtempla_1_1algorithms_1_1unique__from.html#a7fe08bb2dbef104d7af77fbf5007d83e">templa::algorithms::unique_from::unique_sequence</a></div><div class="ttdeci">static constexpr auto unique_sequence</div><div class="ttdef"><b>Definition</b> algorithms.hpp:180</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1unique_html"><div class="ttname"><a href="structtempla_1_1algorithms_1_1unique.html">templa::algorithms::unique</a></div><div class="ttdef"><b>Definition</b> algorithms.hpp:149</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1unique_html_a57ca143798c64061e87a587e379f1256"><div class="ttname"><a href="structtempla_1_1algorithms_1_1unique.html#a57ca143798c64061e87a587e379f1256">templa::algorithms::unique::identity_type</a></div><div class="ttdeci">typename templa::internal::uniform_element_identity&lt; Es... &gt; identity_type</div><div class="ttdef"><b>Definition</b> algorithms.hpp:150</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1unique_html_aaf25d9685d1c733798ea8cd1f7d62dcd"><div class="ttname"><a href="structtempla_1_1algorithms_1_1unique.html#aaf25d9685d1c733798ea8cd1f7d62dcd">templa::algorithms::unique::unique_sequence</a></div><div class="ttdeci">static constexpr auto unique_sequence</div><div class="ttdef"><b>Definition</b> algorithms.hpp:154</div></div>
+<div class="ttc" id="astructtempla_1_1algorithms_1_1unique_html_acc0d2c188afe3cd0ae5406397b7275b0"><div class="ttname"><a href="structtempla_1_1algorithms_1_1unique.html#acc0d2c188afe3cd0ae5406397b7275b0">templa::algorithms::unique::old_array_type</a></div><div class="ttdeci">typename identity_type::uniform_type old_array_type</div><div class="ttdef"><b>Definition</b> algorithms.hpp:151</div></div>
 <div class="ttc" id="astructtempla_1_1internal_1_1forward__elements__from_html"><div class="ttname"><a href="structtempla_1_1internal_1_1forward__elements__from.html">templa::internal::forward_elements_from</a></div><div class="ttdef"><b>Definition</b> pack.hpp:43</div></div>
+<div class="ttc" id="astructtempla_1_1internal_1_1forward__elements__from_html_a8481749e857c4a6908eeecd09acf7946"><div class="ttname"><a href="structtempla_1_1internal_1_1forward__elements__from.html#a8481749e857c4a6908eeecd09acf7946">templa::internal::forward_elements_from::type</a></div><div class="ttdeci">decltype(a)::value_type type</div><div class="ttdef"><b>Definition</b> pack.hpp:44</div></div>
+<div class="ttc" id="astructtempla_1_1internal_1_1forward__elements__from_html_af0276070351472eb48e6b1cb13a9f5e7"><div class="ttname"><a href="structtempla_1_1internal_1_1forward__elements__from.html#af0276070351472eb48e6b1cb13a9f5e7">templa::internal::forward_elements_from::value</a></div><div class="ttdeci">static constexpr auto value</div><div class="ttdef"><b>Definition</b> pack.hpp:46</div></div>
 <div class="ttc" id="astructtempla_1_1internal_1_1uniform__element__identity_html"><div class="ttname"><a href="structtempla_1_1internal_1_1uniform__element__identity.html">templa::internal::uniform_element_identity</a></div><div class="ttdef"><b>Definition</b> pack.hpp:55</div></div>
+<div class="ttc" id="astructtempla_1_1internal_1_1uniform__element__identity_html_a34177c2d47c12125d0992c64cfa62fb3"><div class="ttname"><a href="structtempla_1_1internal_1_1uniform__element__identity.html#a34177c2d47c12125d0992c64cfa62fb3">templa::internal::uniform_element_identity&lt; Es... &gt;::value_type</a></div><div class="ttdeci">typename uniform_type::value_type value_type</div><div class="ttdef"><b>Definition</b> pack.hpp:72</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_7256bb84d0decb1e80927dff017f103a.html">templa-include</a></li><li class="navelem"><b>algorithms.hpp</b></li>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_7256bb84d0decb1e80927dff017f103a.html">templa-include</a></li><li class="navelem"><a href="algorithms_8hpp.html">algorithms.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>
