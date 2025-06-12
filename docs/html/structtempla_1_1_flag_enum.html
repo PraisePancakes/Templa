@@ -92,6 +92,11 @@ $(function(){initNavTree('structtempla_1_1_flag_enum.html','','structtempla_1_1_
   <div class="headertitle"><div class="title">templa::FlagEnum&lt; ENUM &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A utility wrapper for using scoped or unscoped enum types as bit flags.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="flagnum_8hpp_source.html">flagnum.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -130,8 +135,15 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename ENUM&gt;<br />
-struct templa::FlagEnum&lt; ENUM &gt;</div><dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2flagnum_8hpp-example.html#_a0">C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-include/flagnum.hpp</a>.</dd>
+struct templa::FlagEnum&lt; ENUM &gt;</div><p>A utility wrapper for using scoped or unscoped enum types as bit flags. </p>
+<p>Provides a type-safe way to combine, test, and manipulate enum flags using bitwise operations.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ENUM</td><td>The enumeration type. Must satisfy <span class="tt">std::is_enum</span>.</td></tr>
+  </table>
+  </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>The enum values are implicitly cast to their underlying integral type. </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="aa2165f9630e0ba501e78fb26c81216c3" name="aa2165f9630e0ba501e78fb26c81216c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa2165f9630e0ba501e78fb26c81216c3">&#9670;&#160;</a></span>operator bool()</h2>
@@ -196,8 +208,6 @@ template&lt;typename ENUM&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2flagnum_8hpp-example.html#a5">C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-include/flagnum.hpp</a>.</dd>
-</dl>
 
 </div>
 </div>
@@ -234,8 +244,6 @@ template&lt;typename ENUM&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if all bits in <span class="tt">maskValue</span> are set in the current mask. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2flagnum_8hpp-example.html#a6">C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-include/flagnum.hpp</a>.</dd>
-</dl>
 
 </div>
 </div>
@@ -272,13 +280,11 @@ template&lt;typename ENUM&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2flagnum_8hpp-example.html#a4">C:/Users/aryas/OneDrive/Desktop/C++Projects/Templa/include/templa-include/flagnum.hpp</a>.</dd>
-</dl>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C++Projects/Templa/include/templa-include/<a class="el" href="flagnum_8hpp_source.html">flagnum.hpp</a></li>
+<li><a class="el" href="flagnum_8hpp_source.html">flagnum.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

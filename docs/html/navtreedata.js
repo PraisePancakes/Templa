@@ -43,14 +43,13 @@ var NAVTREE =
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
-    ] ],
-    [ "Examples", "examples.html", "examples" ]
+    ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2algorithms_8hpp-example.html"
+"algorithms_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

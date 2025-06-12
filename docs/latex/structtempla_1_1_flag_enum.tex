@@ -1,5 +1,14 @@
 \doxysection{templa\+::Flag\+Enum\texorpdfstring{$<$}{<} ENUM \texorpdfstring{$>$}{>} Struct Template Reference}
 \hypertarget{structtempla_1_1_flag_enum}{}\label{structtempla_1_1_flag_enum}\index{templa::FlagEnum$<$ ENUM $>$@{templa::FlagEnum$<$ ENUM $>$}}
+
+
+A utility wrapper for using scoped or unscoped enum types as bit flags.  
+
+
+
+
+{\ttfamily \#include $<$flagnum.\+hpp$>$}
+
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,9 +49,18 @@ constexpr bool \mbox{\hyperlink{structtempla_1_1_flag_enum_ae3a7a29794fb07276ffa
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename ENUM$>$\newline
 struct templa\+::\+Flag\+Enum$<$ ENUM $>$}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2flagnum_8hpp-example}{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/flagnum.\+hpp}}.\end{Desc}
+A utility wrapper for using scoped or unscoped enum types as bit flags. 
+
+Provides a type-\/safe way to combine, test, and manipulate enum flags using bitwise operations.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em ENUM} & The enumeration type. Must satisfy {\ttfamily std\+::is\+\_\+enum}.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+The enum values are implicitly cast to their underlying integral type. 
+\end{DoxyNote}
 
 
 \label{doc-func-members}
@@ -81,9 +99,6 @@ Bitwise AND assignment with an enum value.
 \begin{DoxyReturn}{Returns}
 Reference to this object. 
 \end{DoxyReturn}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2flagnum_8hpp-example}{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/flagnum.\+hpp}}.\end{Desc}
 \Hypertarget{structtempla_1_1_flag_enum_ae3a7a29794fb07276ffa95e91df02305}\index{templa::FlagEnum$<$ ENUM $>$@{templa::FlagEnum$<$ ENUM $>$}!operator==@{operator==}}
 \index{operator==@{operator==}!templa::FlagEnum$<$ ENUM $>$@{templa::FlagEnum$<$ ENUM $>$}}
 \doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
@@ -103,9 +118,6 @@ Equality comparison with an enum value.
 \begin{DoxyReturn}{Returns}
 True if all bits in {\ttfamily mask\+Value} are set in the current mask. 
 \end{DoxyReturn}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2flagnum_8hpp-example}{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/flagnum.\+hpp}}.\end{Desc}
 \Hypertarget{structtempla_1_1_flag_enum_af6b8ad202917539d581542400cbe34b0}\index{templa::FlagEnum$<$ ENUM $>$@{templa::FlagEnum$<$ ENUM $>$}!operator\texttt{"|}=@{operator\texttt{"|}=}}
 \index{operator\texttt{"|}=@{operator\texttt{"|}=}!templa::FlagEnum$<$ ENUM $>$@{templa::FlagEnum$<$ ENUM $>$}}
 \doxysubsubsection{\texorpdfstring{operator\texttt{"|}=()}{operator|=()}}
@@ -125,11 +137,8 @@ Bitwise OR assignment with an enum value.
 \begin{DoxyReturn}{Returns}
 Reference to this object. 
 \end{DoxyReturn}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2flagnum_8hpp-example}{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/flagnum.\+hpp}}.\end{Desc}
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C++\+Projects/\+Templa/include/templa-\/include/\mbox{\hyperlink{flagnum_8hpp}{flagnum.\+hpp}}\end{DoxyCompactItemize}
+\mbox{\hyperlink{flagnum_8hpp}{flagnum.\+hpp}}\end{DoxyCompactItemize}

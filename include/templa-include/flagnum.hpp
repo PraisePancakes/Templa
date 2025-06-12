@@ -18,14 +18,6 @@ namespace templa
      *
      * @note The enum values are implicitly cast to their underlying integral type.
      *
-     * @example
-     * @code
-     * enum class Permissions { Read = 1, Write = 2, Execute = 4 };
-     * FlagEnum<Permissions> p;
-     * p |= Permissions::Read;
-     * p |= Permissions::Write;
-     * if (p == Permissions::Read) { ... }  // Checks if 'Read' is set
-     * @endcode
      */
     template <typename ENUM>
     struct FlagEnum

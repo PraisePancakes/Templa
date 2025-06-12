@@ -1,8 +1,5 @@
 var NAVTREEINDEX0 =
 {
-"_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2algorithms_8hpp-example.html":[5,0],
-"_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2flagnum_8hpp-example.html":[5,1],
-"_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2static_for_8hpp-example.html":[5,2],
 "algorithms_8hpp.html":[0,0,0],
 "annotated.html":[3,0],
 "classes.html":[3,1],
@@ -30,7 +27,6 @@ var NAVTREEINDEX0 =
 "dir_9671bc686298f8f0abf72fd0da16681e.html":[4,0,0,0,0],
 "dir_b23d9f1487a29ea911b53d24d2e14a13.html":[4,0,0,0],
 "dir_e607953446b0273710c057f6f747a39a.html":[4,0,0],
-"examples.html":[5],
 "files.html":[4,0],
 "flagnum_8hpp.html":[0,3,0],
 "flagnum_8hpp.html#a31a88209db82018a7863180b811117eb":[1,0,1,28],

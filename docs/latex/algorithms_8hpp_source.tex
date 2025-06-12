@@ -1,5 +1,5 @@
 \doxysection{algorithms.\+hpp}
-\hypertarget{algorithms_8hpp_source}{}\label{algorithms_8hpp_source}\index{C++Projects/Templa/include/templa-\/include/algorithms.hpp@{C++Projects/Templa/include/templa-\/include/algorithms.hpp}}
+\hypertarget{algorithms_8hpp_source}{}\label{algorithms_8hpp_source}\index{algorithms.hpp@{algorithms.hpp}}
 \mbox{\hyperlink{algorithms_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -269,13 +269,13 @@
 \DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00512\ \ \ \ \ \};}
 \DoxyCodeLine{00513\ }
-\DoxyCodeLine{00538\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callable,\ \textcolor{keyword}{typename}...\ Ts>}
-\DoxyCodeLine{00539\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ apply\_to\_tuple\_cat(Callable\ \&\&c,\ Ts\ \&\&...tuples)}
-\DoxyCodeLine{00540\ \ \ \ \ \{}
-\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ cat\ =\ std::tuple\_cat<Ts...>(std::forward<Ts>(tuples)...);}
-\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ std::apply(std::forward<Callable>(c),\ std::move(cat));}
-\DoxyCodeLine{00543\ \ \ \ \ \};}
-\DoxyCodeLine{00544\ }
-\DoxyCodeLine{00545\ \}}
+\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callable,\ \textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ apply\_to\_tuple\_cat(Callable\ \&\&c,\ Ts\ \&\&...tuples)}
+\DoxyCodeLine{00531\ \ \ \ \ \{}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ cat\ =\ std::tuple\_cat<Ts...>(std::forward<Ts>(tuples)...);}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ std::apply(std::forward<Callable>(c),\ std::move(cat));}
+\DoxyCodeLine{00534\ \ \ \ \ \};}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00536\ \}}
 
 \end{DoxyCode}

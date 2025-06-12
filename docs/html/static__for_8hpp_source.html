@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Templa: C++Projects/Templa/include/templa-include/static_for.hpp Source File</title>
+<title>Templa: static_for.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -96,15 +96,15 @@ $(function(){initNavTree('static__for_8hpp_source.html','',''); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">namespace </span>templa</div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">template</span> &lt;std::size_t N, <span class="keyword">typename</span> F, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    [[nodiscard]] <span class="keyword">constexpr</span> <span class="keyword">auto</span> static_for(F &amp;&amp;f, Args &amp;&amp;...args)</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> []&lt;std::size_t... I&gt;(std::index_sequence&lt;I...&gt;, F &amp;&amp;f, Args &amp;&amp;...args) <span class="keyword">constexpr</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            std::forward&lt;F&gt;(f).template operator()&lt;I...&gt;(std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        }(std::make_index_sequence&lt;N&gt;{}, std::forward&lt;F&gt;(f), std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">template</span> &lt;std::size_t N, <span class="keyword">typename</span> F, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    [[nodiscard]] <span class="keyword">constexpr</span> <span class="keyword">auto</span> static_for(F &amp;&amp;f, Args &amp;&amp;...args)</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">return</span> []&lt;std::size_t... I&gt;(std::index_sequence&lt;I...&gt;, F &amp;&amp;f, Args &amp;&amp;...args) <span class="keyword">constexpr</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            std::forward&lt;F&gt;(f).template operator()&lt;I...&gt;(std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        }(std::make_index_sequence&lt;N&gt;{}, std::forward&lt;F&gt;(f), std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    };</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

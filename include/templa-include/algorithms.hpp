@@ -525,15 +525,6 @@ namespace templa::algorithms
      *
      * @note All input tuples must be compatible with `std::tuple_cat`.
      *
-     * @example
-     * @code
-     * auto t1 = std::make_tuple(1, 'a');
-     * auto t2 = std::make_tuple(3.14);
-     * apply_to_tuple_cat([](int i, char c, double d) {
-     *     std::cout << i << ", " << c << ", " << d << '\n';
-     * }, t1, t2);
-     * // Output: 1, a, 3.14
-     * @endcode
      */
     template <typename Callable, typename... Ts>
     constexpr static void apply_to_tuple_cat(Callable &&c, Ts &&...tuples)
