@@ -22,11 +22,6 @@ jobs:
     - name: Generate Doxygen documentation
       run: doxygen Doxyfile
 
-    - name: Move docs for GitHub Pages
-      run: |
-        mv docs/html/* docs/
-        rm -r docs/html
-
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
