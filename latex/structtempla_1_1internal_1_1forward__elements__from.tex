@@ -1,0 +1,73 @@
+\doxysection{templa\+::internal\+::forward\+\_\+elements\+\_\+from\texorpdfstring{$<$}{<} a \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1internal_1_1forward__elements__from}{}\label{structtempla_1_1internal_1_1forward__elements__from}\index{templa::internal::forward\_elements\_from$<$ a $>$@{templa::internal::forward\_elements\_from$<$ a $>$}}
+
+
+Extract elements from a container-\/like template parameter as a new container.  
+
+
+
+
+{\ttfamily \#include $<$pack.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1internal_1_1forward__elements__from_a8481749e857c4a6908eeecd09acf7946}\label{structtempla_1_1internal_1_1forward__elements__from_a8481749e857c4a6908eeecd09acf7946} 
+using {\bfseries type} = decltype(a)\+::value\+\_\+type
+\begin{DoxyCompactList}\small\item\em Value type of the container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements__from_af0276070351472eb48e6b1cb13a9f5e7}{value}}
+\begin{DoxyCompactList}\small\item\em Compile-\/time generated container with the elements of {\ttfamily a}. Uses index\+\_\+sequence to access each element. \end{DoxyCompactList}\item 
+\Hypertarget{structtempla_1_1internal_1_1forward__elements__from_a922a9a9dab6ad1015be911756f48726e}\label{structtempla_1_1internal_1_1forward__elements__from_a922a9a9dab6ad1015be911756f48726e} 
+static constexpr std\+::size\+\_\+t {\bfseries size} = value.\+size()
+\begin{DoxyCompactList}\small\item\em Number of elements in the generated container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$auto a$>$\newline
+requires (concepts\+::\+Container$<$std\+::remove\+\_\+cv\+\_\+t$<$decltype(a)$>$$>$)\newline
+struct templa\+::internal\+::forward\+\_\+elements\+\_\+from$<$ a $>$}
+Extract elements from a container-\/like template parameter as a new container. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em a} & A container-\/like non-\/type template parameter. \\
+\hline
+\end{DoxyTemplParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2algorithms_8hpp-example}{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/algorithms.\+hpp}}.\end{Desc}
+
+
+\label{doc-variable-members}
+\Hypertarget{structtempla_1_1internal_1_1forward__elements__from_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtempla_1_1internal_1_1forward__elements__from_af0276070351472eb48e6b1cb13a9f5e7}\index{templa::internal::forward\_elements\_from$<$ a $>$@{templa::internal::forward\_elements\_from$<$ a $>$}!value@{value}}
+\index{value@{value}!templa::internal::forward\_elements\_from$<$ a $>$@{templa::internal::forward\_elements\_from$<$ a $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily \label{structtempla_1_1internal_1_1forward__elements__from_af0276070351472eb48e6b1cb13a9f5e7} 
+template$<$auto a$>$ \\
+auto \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements__from}{templa\+::internal\+::forward\+\_\+elements\+\_\+from}}$<$ a $>$\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ []<std::size\_t...\ I>(std::index\_sequence<I...>)\ \textcolor{keyword}{consteval}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{decltype}(a)\{a[I]...\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}(std::make\_index\_sequence<a.size()>\{\})}
+
+\end{DoxyCode}
+
+
+Compile-\/time generated container with the elements of {\ttfamily a}. Uses index\+\_\+sequence to access each element. 
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2algorithms_8hpp-example}{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/algorithms.\+hpp}}.\end{Desc}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C++\+Projects/\+Templa/include/templa-\/include/\mbox{\hyperlink{pack_8hpp}{pack.\+hpp}}\end{DoxyCompactItemize}

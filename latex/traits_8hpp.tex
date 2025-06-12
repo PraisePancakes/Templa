@@ -1,0 +1,77 @@
+\doxysection{C++\+Projects/\+Templa/include/templa-\/include/traits.hpp File Reference}
+\hypertarget{traits_8hpp}{}\label{traits_8hpp}\index{C++Projects/Templa/include/templa-\/include/traits.hpp@{C++Projects/Templa/include/templa-\/include/traits.hpp}}
+
+
+Utility templates for type manipulation and traits detection.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1strip}{templa\+::traits\+::strip$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Recursively strips const, volatile qualifiers and pointers from a type. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1strip_3_01const_01_t_01_4}{templa\+::traits\+::strip$<$ const T $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1strip_3_01volatile_01_t_01_4}{templa\+::traits\+::strip$<$ volatile T $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1strip_3_01const_01volatile_01_t_01_4}{templa\+::traits\+::strip$<$ const volatile T $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1strip_3_01_t_01_5_01_4}{templa\+::traits\+::strip$<$ T \texorpdfstring{$\ast$}{*} $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1strip_3_01const_01_t_01_5_01_4}{templa\+::traits\+::strip$<$ const T \texorpdfstring{$\ast$}{*} $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1strip_3_01volatile_01_t_01_5_01_4}{templa\+::traits\+::strip$<$ volatile T \texorpdfstring{$\ast$}{*} $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1strip_3_01const_01volatile_01_t_01_5_01_4}{templa\+::traits\+::strip$<$ const volatile T \texorpdfstring{$\ast$}{*} $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1return__type}{templa\+::traits\+::return\+\_\+type$<$ R, Args $>$}}
+\begin{DoxyCompactList}\small\item\em Extracts the return type of a callable or function signature. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1return__type_3_01_r_07_args_8_8_8_08_4}{templa\+::traits\+::return\+\_\+type$<$ R(\+Args...)$>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1return__type_3_01std_1_1function_3_01_r_07_args_8_8_8_08_4_01_4}{templa\+::traits\+::return\+\_\+type$<$ std\+::function$<$ R(\+Args...)$>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1is__same__return__type__callable}{templa\+::traits\+::is\+\_\+same\+\_\+return\+\_\+type\+\_\+callable$<$ T, U, Args $>$}}
+\begin{DoxyCompactList}\small\item\em Trait to check if two callable types have the same return type when called with Args... \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetraits}{traits}}
+\begin{DoxyCompactList}\small\item\em Utility templates for type manipulation and traits detection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\using \mbox{\hyperlink{traits_8hpp_ad07122d14c6a2229ebb7d50d58aed7b3}{templa\+::traits\+::strip\+\_\+t}} = \mbox{\hyperlink{structtempla_1_1traits_1_1strip}{strip}}$<$T$>$\+::type
+\begin{DoxyCompactList}\small\item\em Helper alias for strip. \end{DoxyCompactList}\item 
+\Hypertarget{traits_8hpp_a18fce0f1532de964e39f447f5c04cab5}\label{traits_8hpp_a18fce0f1532de964e39f447f5c04cab5} 
+{\footnotesize template$<$typename T$>$ }\\using {\bfseries templa\+::traits\+::return\+\_\+type\+\_\+t} = \mbox{\hyperlink{structtempla_1_1traits_1_1return__type}{return\+\_\+type}}$<$T$>$\+::type
+\begin{DoxyCompactList}\small\item\em Helper alias to extract return type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility templates for type manipulation and traits detection. 
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{traits_8hpp_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{traits_8hpp_ad07122d14c6a2229ebb7d50d58aed7b3}\index{traits.hpp@{traits.hpp}!strip\_t@{strip\_t}}
+\index{strip\_t@{strip\_t}!traits.hpp@{traits.hpp}}
+\doxysubsubsection{\texorpdfstring{strip\_t}{strip\_t}}
+{\footnotesize\ttfamily \label{traits_8hpp_ad07122d14c6a2229ebb7d50d58aed7b3} 
+template$<$typename T$>$ \\
+using \mbox{\hyperlink{traits_8hpp_ad07122d14c6a2229ebb7d50d58aed7b3}{templa\+::traits\+::strip\+\_\+t}} = strip$<$T$>$\+::type}
+
+
+
+Helper alias for strip. 
+
+Usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }base\_t\ =\ \mbox{\hyperlink{traits_8hpp_ad07122d14c6a2229ebb7d50d58aed7b3}{templa::traits::strip\_t<const\ volatile\ int*>}};}
+\DoxyCodeLine{\textcolor{comment}{//\ base\_t\ is\ int}}
+
+\end{DoxyCode}
+ 

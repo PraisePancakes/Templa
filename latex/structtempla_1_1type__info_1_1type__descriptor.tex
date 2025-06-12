@@ -1,0 +1,60 @@
+\doxysection{templa\+::type\+\_\+info\+::type\+\_\+descriptor\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1type__info_1_1type__descriptor}{}\label{structtempla_1_1type__info_1_1type__descriptor}\index{templa::type\_info::type\_descriptor$<$ T $>$@{templa::type\_info::type\_descriptor$<$ T $>$}}
+
+
+Provides a human-\/readable string description of the type T, including qualifiers and pointers.  
+
+
+
+
+{\ttfamily \#include $<$type\+\_\+info.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr std\+::string \mbox{\hyperlink{structtempla_1_1type__info_1_1type__descriptor_a35cdfc76112b19ca1334e56c56d08f59}{stringify}} ()
+\begin{DoxyCompactList}\small\item\em Returns a string describing the type T. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct templa\+::type\+\_\+info\+::type\+\_\+descriptor$<$ T $>$}
+Provides a human-\/readable string description of the type T, including qualifiers and pointers. 
+
+This struct recursively strips const, pointer, and reference qualifiers to build a descriptive string.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type to describe. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\label{doc-func-members}
+\Hypertarget{structtempla_1_1type__info_1_1type__descriptor_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structtempla_1_1type__info_1_1type__descriptor_a35cdfc76112b19ca1334e56c56d08f59}\index{templa::type\_info::type\_descriptor$<$ T $>$@{templa::type\_info::type\_descriptor$<$ T $>$}!stringify@{stringify}}
+\index{stringify@{stringify}!templa::type\_info::type\_descriptor$<$ T $>$@{templa::type\_info::type\_descriptor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{stringify()}{stringify()}}
+{\footnotesize\ttfamily \label{structtempla_1_1type__info_1_1type__descriptor_a35cdfc76112b19ca1334e56c56d08f59} 
+template$<$typename T$>$ \\
+constexpr std\+::string \mbox{\hyperlink{structtempla_1_1type__info_1_1type__descriptor}{templa\+::type\+\_\+info\+::type\+\_\+descriptor}}$<$ T $>$\+::stringify (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Returns a string describing the type T. 
+
+Examples\+:
+\begin{DoxyItemize}
+\item {\ttfamily const int\texorpdfstring{$\ast$}{*}}
+\item {\ttfamily float\&}
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+A string representing the type. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C++\+Projects/\+Templa/include/templa-\/include/\mbox{\hyperlink{type__info_8hpp}{type\+\_\+info.\+hpp}}\end{DoxyCompactItemize}

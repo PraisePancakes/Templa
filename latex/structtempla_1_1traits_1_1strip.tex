@@ -1,0 +1,37 @@
+\doxysection{templa\+::traits\+::strip\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1traits_1_1strip}{}\label{structtempla_1_1traits_1_1strip}\index{templa::traits::strip$<$ T $>$@{templa::traits::strip$<$ T $>$}}
+
+
+Recursively strips const, volatile qualifiers and pointers from a type.  
+
+
+
+
+{\ttfamily \#include $<$traits.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1traits_1_1strip_a21c66ed1251f39cfcea9aafdf3194046}\label{structtempla_1_1traits_1_1strip_a21c66ed1251f39cfcea9aafdf3194046} 
+using {\bfseries type} = T
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct templa\+::traits\+::strip$<$ T $>$}
+Recursively strips const, volatile qualifiers and pointers from a type. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type to strip.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+This struct removes all levels of const, volatile, and pointer indirection. For example, strip$<$const volatile int \texorpdfstring{$\ast$}{*}$>$\+::type is int. 
+\end{DoxyNote}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C++\+Projects/\+Templa/include/templa-\/include/\mbox{\hyperlink{traits_8hpp}{traits.\+hpp}}\end{DoxyCompactItemize}

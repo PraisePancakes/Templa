@@ -1,0 +1,30 @@
+\doxysection{templa\+::concepts\+::Signed\+Integral Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1_signed_integral}{}\label{concepttempla_1_1concepts_1_1_signed_integral}\index{templa::concepts::SignedIntegral@{templa::concepts::SignedIntegral}}
+
+
+Concept to check if a type is a signed integral type.  
+
+
+
+
+{\ttfamily \#include $<$concepts.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_signed_integral}{templa::concepts::SignedIntegral}}\ =\ \ std::is\_signed\_v<T>\ \&\&\ std::is\_integral\_v<T>}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Concept to check if a type is a signed integral type. 
+
+Requires std\+::is\+\_\+signed\+\_\+v$<$\+T$>$ and std\+::is\+\_\+integral\+\_\+v$<$\+T$>$.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type to check. \\
+\hline
+\end{DoxyTemplParams}

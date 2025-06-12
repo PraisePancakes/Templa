@@ -1,0 +1,98 @@
+\doxysection{traits.\+hpp}
+\hypertarget{traits_8hpp_source}{}\label{traits_8hpp_source}\index{C++Projects/Templa/include/templa-\/include/traits.hpp@{C++Projects/Templa/include/templa-\/include/traits.hpp}}
+\mbox{\hyperlink{traits_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }templa::traits}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1strip}{strip}}}
+\DoxyCodeLine{00034\ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ T;}
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1strip}{strip}}<const\ T>}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ strip<T>::type;}
+\DoxyCodeLine{00042\ \ \ \ \ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1strip}{strip}}<volatile\ T>}
+\DoxyCodeLine{00046\ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ strip<T>::type;}
+\DoxyCodeLine{00048\ \ \ \ \ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1strip}{strip}}<const\ volatile\ T>}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ strip<T>::type;}
+\DoxyCodeLine{00054\ \ \ \ \ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1strip}{strip}}<T\ *>}
+\DoxyCodeLine{00058\ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ strip<T>::type;}
+\DoxyCodeLine{00060\ \ \ \ \ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1strip}{strip}}<const\ T\ *>}
+\DoxyCodeLine{00064\ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ strip<T>::type;}
+\DoxyCodeLine{00066\ \ \ \ \ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1strip}{strip}}<volatile\ T\ *>}
+\DoxyCodeLine{00070\ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ strip<T>::type;}
+\DoxyCodeLine{00072\ \ \ \ \ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1strip}{strip}}<const\ volatile\ T\ *>}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ strip<T>::type;}
+\DoxyCodeLine{00078\ \ \ \ \ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{traits_8hpp_ad07122d14c6a2229ebb7d50d58aed7b3}{strip\_t}}\ =\ strip<T>::type;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1return__type}{return\_type}}}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ std::invoke\_result\_t<R,\ Args...>;}
+\DoxyCodeLine{00109\ \ \ \ \ \};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1return__type}{return\_type}}<R(Args...)>}
+\DoxyCodeLine{00113\ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ R;}
+\DoxyCodeLine{00115\ \ \ \ \ \};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1return__type}{return\_type}}<std::function<R(Args...)>>}
+\DoxyCodeLine{00119\ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ R;}
+\DoxyCodeLine{00121\ \ \ \ \ \};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{traits_8hpp_a18fce0f1532de964e39f447f5c04cab5}{return\_type\_t}}\ =\ return\_type<T>::type;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1is__same__return__type__callable}{is\_same\_return\_type\_callable}}}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ value\ =\ std::is\_same\_v<std::invoke\_result\_t<T,\ Args...>,\ std::invoke\_result\_t<U,\ Args...>>;}
+\DoxyCodeLine{00142\ \ \ \ \ \};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ is\_same\_return\_type\_v\ =\ std::is\_same\_v<return\_type\_t<T>,\ \mbox{\hyperlink{traits_8hpp_a18fce0f1532de964e39f447f5c04cab5}{return\_type\_t<U>}}>;}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ is\_same\_return\_type\_callable\_v\ =\ \mbox{\hyperlink{structtempla_1_1traits_1_1is__same__return__type__callable}{is\_same\_return\_type\_callable}}<T,\ U,\ Args...>\mbox{\hyperlink{type__list_8hpp_a765041b3cf05288a09cd4ca1473c519a}{::value}};}
+\DoxyCodeLine{00155\ \}}
+
+\end{DoxyCode}

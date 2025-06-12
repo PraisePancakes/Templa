@@ -1,0 +1,30 @@
+\doxysection{templa\+::concepts\+::Allocator\+Aware Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1_allocator_aware}{}\label{concepttempla_1_1concepts_1_1_allocator_aware}\index{templa::concepts::AllocatorAware@{templa::concepts::AllocatorAware}}
+
+
+Concept checking if a type has a get\+\_\+allocator() method returning allocator\+\_\+type.  
+
+
+
+
+{\ttfamily \#include $<$concepts.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_aware}{templa::concepts::AllocatorAware}}\ =\ \ \textcolor{keyword}{requires}(T\ a)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a.get\_allocator()\ \}\ -\/>\ std::same\_as<typename\ T::allocator\_type>;}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Concept checking if a type has a get\+\_\+allocator() method returning allocator\+\_\+type. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type to check. \\
+\hline
+\end{DoxyTemplParams}

@@ -1,0 +1,65 @@
+\doxysection{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/static\+\_\+for.\+hpp}
+\hypertarget{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2static_for_8hpp-example}{}\label{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2static_for_8hpp-example}Compile-\/time unrolled loop that applies a callable with a compile-\/time index sequence.
+
+Compile-\/time unrolled loop that applies a callable with a compile-\/time index sequence.\+This function template performs a static (compile-\/time) iteration from 0 to N-\/1, invoking the provided callable {\ttfamily f} with the expanded indices as template arguments. It forwards any additional arguments to the callable.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & Number of iterations (compile-\/time constant). \\
+\hline
+{\em F} & Type of the callable object. \\
+\hline
+{\em Args} & Types of additional arguments forwarded to the callable. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Callable to invoke with template indices. \\
+\hline
+{\em args} & Additional arguments to forward to the callable. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the callable invocation (if any).
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The callable {\ttfamily f} must have a templated call operator accepting template parameter pack of std\+::size\+\_\+t.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }Printer}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <std::size\_t...\ Is>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ operator()(\textcolor{keywordtype}{int}\ base)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ((std::cout\ <<\ \textcolor{stringliteral}{"{}Index\ "{}}\ <<\ Is\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<\ base\ +\ Is\ <<\ \textcolor{charliteral}{'\(\backslash\)n'}),\ ...);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{templa::static\_for<3>(Printer\{\},\ 10);}
+\DoxyCodeLine{\textcolor{comment}{//\ Output:}}
+\DoxyCodeLine{\textcolor{comment}{//\ Index\ 0:\ 10}}
+\DoxyCodeLine{\textcolor{comment}{//\ Index\ 1:\ 11}}
+\DoxyCodeLine{\textcolor{comment}{//\ Index\ 2:\ 12}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }templa}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <std::size\_t\ N,\ \textcolor{keyword}{typename}\ F,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{\ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ static\_for(F\ \&\&f,\ Args\ \&\&...args)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ []<std::size\_t...\ I>(std::index\_sequence<I...>,\ F\ \&\&f,\ Args\ \&\&...args)\ \textcolor{keyword}{constexpr}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::forward<F>(f).template\ operator()<I...>(std::forward<Args>(args)...);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}(std::make\_index\_sequence<N>\{\},\ std::forward<F>(f),\ std::forward<Args>(args)...);}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\};}
+
+\end{DoxyCodeInclude}
+ 
