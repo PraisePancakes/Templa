@@ -1,0 +1,37 @@
+\doxysection{templa\+::concepts\+::Allocator\+Erasable Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1_allocator_erasable}{}\label{concepttempla_1_1concepts_1_1_allocator_erasable}\index{templa::concepts::AllocatorErasable@{templa::concepts::AllocatorErasable}}
+
+
+Concept checking if an object can be destroyed via an allocator.  
+
+
+
+
+{\ttfamily \#include $<$concepts.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ E,\ \textcolor{keyword}{class}\ T,\ \textcolor{keyword}{class}\ A>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_allocator_erasable}{templa::concepts::AllocatorErasable}}\ =\ \ \textcolor{keyword}{requires}(A\ m,\ E\ *p)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<typename\ T::allocator\_type,\ typename\ std::allocator\_traits<A>::rebind\_alloc<E>>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::allocator\_traits<A>::destroy(m,\ p);}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Concept checking if an object can be destroyed via an allocator. 
+
+Requires allocator A to be rebindable to E and supports destroy(m, p).
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em E} & Element type. \\
+\hline
+{\em T} & Container type. \\
+\hline
+{\em A} & Allocator type. \\
+\hline
+\end{DoxyTemplParams}

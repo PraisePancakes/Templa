@@ -1,0 +1,103 @@
+\doxysection{templa\+::algorithms\+::reverse\texorpdfstring{$<$}{<} elems \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1algorithms_1_1reverse}{}\label{structtempla_1_1algorithms_1_1reverse}\index{templa::algorithms::reverse$<$ elems $>$@{templa::algorithms::reverse$<$ elems $>$}}
+
+
+Reverses a compile-\/time pack of constant values.  
+
+
+
+
+{\ttfamily \#include $<$algorithms.\+hpp$>$}
+
+Inheritance diagram for templa\+::algorithms\+::reverse\texorpdfstring{$<$}{<} elems \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structtempla_1_1algorithms_1_1reverse}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1algorithms_1_1reverse_a46438f8acfd35aafa66adc85e3830676}\label{structtempla_1_1algorithms_1_1reverse_a46438f8acfd35aafa66adc85e3830676} 
+using {\bfseries identity\+\_\+type} = typename \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity}}$<$elems...$>$
+\begin{DoxyCompactList}\small\item\em The identity type wrapping the parameter pack. \end{DoxyCompactList}\item 
+\Hypertarget{structtempla_1_1algorithms_1_1reverse_a87255bbd9374fa7d78bb9a1ed94148f6}\label{structtempla_1_1algorithms_1_1reverse_a87255bbd9374fa7d78bb9a1ed94148f6} 
+using {\bfseries array\+\_\+type} = typename identity\+\_\+type\+::uniform\+\_\+type
+\begin{DoxyCompactList}\small\item\em The array type representing the uniform values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity$<$ elems... $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using {\bfseries uniform\+\_\+type}
+\begin{DoxyCompactList}\small\item\em Type alias for the uniform std\+::array of elements. \end{DoxyCompactList}\item 
+using {\bfseries value\+\_\+type}
+\begin{DoxyCompactList}\small\item\em Value type of the \doxylink{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d}{uniform\+\_\+type}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse_a078a650c51c35b40fde073e263b27b1b}{reverse\+\_\+sequence}}
+\begin{DoxyCompactList}\small\item\em The reversed array, computed at compile time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity$<$ elems... $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr std\+::size\+\_\+t {\bfseries size}
+\begin{DoxyCompactList}\small\item\em Number of elements. \end{DoxyCompactList}\item 
+static constexpr bool {\bfseries valid}
+\begin{DoxyCompactList}\small\item\em Check if all elements have the same decayed type and are comparable. \end{DoxyCompactList}\item 
+static constexpr \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a5513bb858309bb74b6bf4d04bb333c7d}{uniform\+\_\+type}} {\bfseries identity\+\_\+value}
+\begin{DoxyCompactList}\small\item\em Static array holding the elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$auto... elems$>$\newline
+struct templa\+::algorithms\+::reverse$<$ elems $>$}
+Reverses a compile-\/time pack of constant values. 
+
+Inherits from {\ttfamily \doxylink{structtempla_1_1internal_1_1uniform__element__identity}{templa\+::internal\+::uniform\+\_\+element\+\_\+identity}} to treat the pack as a uniform array, then computes a reversed version of the array at compile time.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em elems} & A parameter pack of compile-\/time constant values. \\
+\hline
+\end{DoxyTemplParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2algorithms_8hpp-example}{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/algorithms.\+hpp}}.\end{Desc}
+
+
+\label{doc-variable-members}
+\Hypertarget{structtempla_1_1algorithms_1_1reverse_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtempla_1_1algorithms_1_1reverse_a078a650c51c35b40fde073e263b27b1b}\index{templa::algorithms::reverse$<$ elems $>$@{templa::algorithms::reverse$<$ elems $>$}!reverse\_sequence@{reverse\_sequence}}
+\index{reverse\_sequence@{reverse\_sequence}!templa::algorithms::reverse$<$ elems $>$@{templa::algorithms::reverse$<$ elems $>$}}
+\doxysubsubsection{\texorpdfstring{reverse\_sequence}{reverse\_sequence}}
+{\footnotesize\ttfamily \label{structtempla_1_1algorithms_1_1reverse_a078a650c51c35b40fde073e263b27b1b} 
+template$<$auto... elems$>$ \\
+auto \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse}{templa\+::algorithms\+::reverse}}$<$ elems $>$\+::reverse\+\_\+sequence\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ []()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ lam\ =\ []<std::size\_t...\ I>(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse_a87255bbd9374fa7d78bb9a1ed94148f6}{array\_type}}\ \&in,\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse_a87255bbd9374fa7d78bb9a1ed94148f6}{array\_type}}\ \&out)\ \textcolor{keyword}{constexpr}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((out[I]\ =\ in[in.size()\ -\/\ I\ -\/\ 1]),\ ...);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::array<int,\ identity\_type::size>\ ret\{\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ static\_for<identity\_type::size>(lam,\ identity\_type::identity\_value,\ ret);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}()}
+
+\end{DoxyCode}
+
+
+The reversed array, computed at compile time. 
+
+Constructs a new array where the order of elements is reversed relative to the input pack. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2algorithms_8hpp-example}{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/algorithms.\+hpp}}.\end{Desc}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C++\+Projects/\+Templa/include/templa-\/include/\mbox{\hyperlink{algorithms_8hpp}{algorithms.\+hpp}}\end{DoxyCompactItemize}

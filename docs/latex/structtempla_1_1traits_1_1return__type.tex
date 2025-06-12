@@ -1,0 +1,45 @@
+\doxysection{templa\+::traits\+::return\+\_\+type\texorpdfstring{$<$}{<} R, Args \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1traits_1_1return__type}{}\label{structtempla_1_1traits_1_1return__type}\index{templa::traits::return\_type$<$ R, Args $>$@{templa::traits::return\_type$<$ R, Args $>$}}
+
+
+Extracts the return type of a callable or function signature.  
+
+
+
+
+{\ttfamily \#include $<$traits.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1traits_1_1return__type_abb03e666bcea912f94b9c6c89c37870c}\label{structtempla_1_1traits_1_1return__type_abb03e666bcea912f94b9c6c89c37870c} 
+using {\bfseries type} = std\+::invoke\+\_\+result\+\_\+t$<$R, Args...$>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename R, typename... Args$>$\newline
+struct templa\+::traits\+::return\+\_\+type$<$ R, Args $>$}
+Extracts the return type of a callable or function signature. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Callable type or function signature.\\
+\hline
+\end{DoxyTemplParams}
+This template provides the nested member {\ttfamily type} representing the return type.
+
+Specializations\+:
+\begin{DoxyItemize}
+\item For function signatures\+: {\ttfamily \doxylink{structtempla_1_1traits_1_1return__type}{return\+\_\+type}\texorpdfstring{$<$}{<}R(\+Args...)\texorpdfstring{$>$}{>}} extracts R.
+\item For std\+::function\+: extracts the return type R.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Uses {\ttfamily std\+::invoke\+\_\+result\+\_\+t} for general callables. 
+\end{DoxyNote}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C++\+Projects/\+Templa/include/templa-\/include/\mbox{\hyperlink{traits_8hpp}{traits.\+hpp}}\end{DoxyCompactItemize}

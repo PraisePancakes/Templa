@@ -1,0 +1,38 @@
+\doxysection{templa\+::traits\+::is\+\_\+same\+\_\+return\+\_\+type\+\_\+callable\texorpdfstring{$<$}{<} T, U, Args \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1traits_1_1is__same__return__type__callable}{}\label{structtempla_1_1traits_1_1is__same__return__type__callable}\index{templa::traits::is\_same\_return\_type\_callable$<$ T, U, Args $>$@{templa::traits::is\_same\_return\_type\_callable$<$ T, U, Args $>$}}
+
+
+Trait to check if two callable types have the same return type when called with Args...  
+
+
+
+
+{\ttfamily \#include $<$traits.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1traits_1_1is__same__return__type__callable_a1cb59090166cdbe4da444615f12c8ecc}\label{structtempla_1_1traits_1_1is__same__return__type__callable_a1cb59090166cdbe4da444615f12c8ecc} 
+static constexpr bool {\bfseries value} = std\+::is\+\_\+same\+\_\+v$<$std\+::invoke\+\_\+result\+\_\+t$<$T, Args...$>$, std\+::invoke\+\_\+result\+\_\+t$<$U, Args...$>$$>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename U, typename... Args$>$\newline
+struct templa\+::traits\+::is\+\_\+same\+\_\+return\+\_\+type\+\_\+callable$<$ T, U, Args $>$}
+Trait to check if two callable types have the same return type when called with Args... 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & First callable type. \\
+\hline
+{\em U} & Second callable type. \\
+\hline
+{\em Args} & Argument types to call with.\\
+\hline
+\end{DoxyTemplParams}
+Provides constexpr static bool member {\ttfamily value}. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C++\+Projects/\+Templa/include/templa-\/include/\mbox{\hyperlink{traits_8hpp}{traits.\+hpp}}\end{DoxyCompactItemize}

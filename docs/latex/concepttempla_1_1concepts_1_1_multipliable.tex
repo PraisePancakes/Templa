@@ -1,0 +1,33 @@
+\doxysection{templa\+::concepts\+::Multipliable Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1_multipliable}{}\label{concepttempla_1_1concepts_1_1_multipliable}\index{templa::concepts::Multipliable@{templa::concepts::Multipliable}}
+
+
+Concept to check if a type supports multiplication operations.  
+
+
+
+
+{\ttfamily \#include $<$concepts.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1_multipliable}{templa::concepts::Multipliable}}\ =\ \ \textcolor{keyword}{requires}(T\ a,\ T\ b)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a\ *\ b\ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a\ *=\ b\ \};}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Concept to check if a type supports multiplication operations. 
+
+Requires \texorpdfstring{$\ast$}{*} and \texorpdfstring{$\ast$}{*}= operators.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type to check. \\
+\hline
+\end{DoxyTemplParams}

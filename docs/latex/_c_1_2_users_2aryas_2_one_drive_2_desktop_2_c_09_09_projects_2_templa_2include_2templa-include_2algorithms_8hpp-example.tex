@@ -1,0 +1,314 @@
+\doxysection{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/algorithms.\+hpp}
+\hypertarget{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2algorithms_8hpp-example}{}\label{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2algorithms_8hpp-example}Applies a callable to the result of concatenating multiple tuples.
+
+Applies a callable to the result of concatenating multiple tuples.\+Combines the input tuples using {\ttfamily std\+::tuple\+\_\+cat}, then invokes the callable with the elements of the concatenated tuple via {\ttfamily std\+::apply}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Callable} & A function, lambda, or callable object that accepts the unpacked elements of the concatenated tuple. \\
+\hline
+{\em Ts} & Parameter pack of tuple types (e.\+g., {\ttfamily std\+::tuple\texorpdfstring{$<$}{<}...\texorpdfstring{$>$}{>}}). \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The callable to invoke with the unpacked concatenated tuple. \\
+\hline
+{\em tuples} & The input tuples to be concatenated and passed to the callable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+All input tuples must be compatible with {\ttfamily std\+::tuple\+\_\+cat}.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ t1\ =\ std::make\_tuple(1,\ \textcolor{charliteral}{'a'});}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ t2\ =\ std::make\_tuple(3.14);}
+\DoxyCodeLine{apply\_to\_tuple\_cat([](\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{char}\ c,\ \textcolor{keywordtype}{double}\ d)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ c\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ d\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\},\ t1,\ t2);}
+\DoxyCodeLine{\textcolor{comment}{//\ Output:\ 1,\ a,\ 3.14}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{concepts_8hpp}{concepts.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{pack_8hpp}{pack.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}static\_for.hpp"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }templa::algorithms}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Formats,\ std::size\_t\ N,\ std::size\_t...\ Is>}
+\DoxyCodeLine{\ \ \ \ std::tuple<Formats...>\ \mbox{\hyperlink{algorithms_8hpp_a615dacb23cae5900f7d5e44b42344807}{as\_tuple}}(std::array<T,\ N>\ \textcolor{keyword}{const}\ \&arr,\ std::index\_sequence<Is...>)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(Formats\{arr[Is]\}...);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Formats,\ std::size\_t\ N>}
+\DoxyCodeLine{\ \ \ \ std::tuple<Formats...>\ \mbox{\hyperlink{algorithms_8hpp_a615dacb23cae5900f7d5e44b42344807}{as\_tuple}}(std::array<T,\ N>\ \textcolor{keyword}{const}\ \&arr)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{algorithms_8hpp_a615dacb23cae5900f7d5e44b42344807}{as\_tuple}}<Formats...>(arr,\ std::make\_index\_sequence<N>\{\});}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ std::size\_t...\ I>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ zip(T1\ \textcolor{keyword}{const}\ \&t1,\ T2\ \textcolor{keyword}{const}\ \&t2,\ std::index\_sequence<I...>)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple((std::pair\{std::get<I>(t1),\ std::get<I>(t2)\})...);}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Ts,\ \textcolor{keyword}{typename}...\ Us>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{requires}(\textcolor{keyword}{sizeof}...(Ts)\ ==\ \textcolor{keyword}{sizeof}...(Us))}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ zip(std::tuple<Ts...>\ \textcolor{keyword}{const}\ \&t1,\ std::tuple<Us...>\ \textcolor{keyword}{const}\ \&t2)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ zip(t1,\ t2,\ std::make\_index\_sequence<\textcolor{keyword}{sizeof}...(Ts)>\{\});}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{namespace\ }internal}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::size\_t\ N,\ std::size\_t\ M,\ std::size\_t...\ I,\ std::size\_t...\ J>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ concat\_impl(std::array<T,\ N>\ \textcolor{keyword}{const}\ \&lhs,\ std::array<T,\ M>\ \textcolor{keyword}{const}\ \&rhs,\ std::index\_sequence<I...>,\ std::index\_sequence<J...>)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::array<T,\ N\ +\ M>\{lhs[I]...,\ rhs[J]...\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{consteval}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ exists\_until(std::array<T,\ N>\ \textcolor{keyword}{const}\ \&arr,\ \textcolor{keyword}{const}\ T\ \&elem,\ std::size\_t\ until)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ until;\ i++)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i]\ ==\ elem)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{consteval}\ \textcolor{keyword}{static}\ std::size\_t\ count\_unique(std::array<T,\ N>\ \textcolor{keyword}{const}\ \&arr)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ cnt\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ N;\ i++)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!internal::exists\_until(arr,\ arr[i],\ i))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cnt++;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cnt;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{auto}...\ Es>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1min}{min}}\ :\ templa::internal::uniform\_element\_identity<Es...>}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1min_a66b7ca991841bfc39b1e80f434c1ce47}{identity\_type}}\ =\ \textcolor{keyword}{typename}\ templa::internal::uniform\_element\_identity<Es...>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ identity\_type::value\_type;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3}{value\_type}}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1min_aa081c0654583122b8e2102e119393130}{value}}\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ *std::min\_element(identity\_type::identity\_value.begin(),\ identity\_type::identity\_value.end());}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <auto\ e>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{requires}(concepts::Container<std::remove\_cv\_t<\textcolor{keyword}{decltype}(e)>>)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1min__from}{min\_from}}}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ \textcolor{keyword}{typename}\ \textcolor{keyword}{decltype}(e)::value\_type;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::size\_t\ size\ =\ e.size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{type__list_8hpp_a765041b3cf05288a09cd4ca1473c519a}{value}}\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ []<std::size\_t...\ I>(std::index\_sequence<I...>)\ \textcolor{keyword}{consteval}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1min}{min}}<e[I]...>::value;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}(std::make\_index\_sequence<size>\{\});}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{auto}...\ Es>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1max}{max}}\ :\ templa::internal::uniform\_element\_identity<Es...>}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1max_a47b1051362cc5377535d0ec540ce08e5}{identity\_type}}\ =\ \textcolor{keyword}{typename}\ templa::internal::uniform\_element\_identity<Es...>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ identity\_type::value\_type;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3}{value\_type}}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1max_a4ad55dc4f20b585d771baad790e50f90}{value}}\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ *std::max\_element(identity\_type::identity\_value.begin(),\ identity\_type::identity\_value.end(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3}{value\_type}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtempla_1_1internal_1_1uniform__element__identity_a34177c2d47c12125d0992c64cfa62fb3}{value\_type}}\ \&b)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ a\ <\ b;\ \});}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <auto\ e>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{requires}(concepts::Container<std::remove\_cv\_t<\textcolor{keyword}{decltype}(e)>>)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1max__from}{max\_from}}}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ \textcolor{keyword}{typename}\ \textcolor{keyword}{decltype}(e)::value\_type;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::size\_t\ size\ =\ e.size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{type__list_8hpp_a765041b3cf05288a09cd4ca1473c519a}{value}}\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ []<std::size\_t...\ I>(std::index\_sequence<I...>)\ \textcolor{keyword}{consteval}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1max}{max}}<e[I]...>::value;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}(std::make\_index\_sequence<size>\{\});}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{auto}...\ Es>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1unique}{unique}}\ :\ templa::internal::uniform\_element\_identity<Es...>}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1unique_a57ca143798c64061e87a587e379f1256}{identity\_type}}\ =\ \textcolor{keyword}{typename}\ templa::internal::uniform\_element\_identity<Es...>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1unique_acc0d2c188afe3cd0ae5406397b7275b0}{old\_array\_type}}\ =\ \textcolor{keyword}{typename}\ identity\_type::uniform\_type;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1unique_aaf25d9685d1c733798ea8cd1f7d62dcd}{unique\_sequence}}\ =\ []()\ \textcolor{keyword}{consteval}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ std::size\_t\ n\_unique\ =\ internal::count\_unique(identity\_type::identity\_value);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::array<typename\ identity\_type::value\_type,\ n\_unique>\ new\_arr\{\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ idx\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ lam\ =\ []<std::size\_t...\ I>(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::array<typename\ identity\_type::value\_type,\ n\_unique>\ \&n,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \&idx)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \&old\ =\ identity\_type::identity\_value;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((!internal::exists\_until(old,\ old[I],\ I)\ ?\ (n[idx++]\ =\ old[I],\ void())\ :\ void()),\ ...);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ static\_for<identity\_type::size>(lam,\ new\_arr,\ idx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ new\_arr;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}();}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <auto\ a>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{requires}(concepts::Container<std::remove\_cv\_t<\textcolor{keyword}{decltype}(a)>>)\ \&\&}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (concepts::Comparable<std::remove\_cv\_t<\textcolor{keyword}{decltype}(a)>>)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1unique__from}{unique\_from}}}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }forwarded\_type\ =\ templa::internal::forward\_elements\_from<a>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }old\_array\_type\ =\ std::array<typename\ forwarded\_type::type,\ forwarded\_type::size>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ old\ =\ \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements__from_af0276070351472eb48e6b1cb13a9f5e7}{templa::internal::forward\_elements\_from<a>::value}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1unique__from_a7fe08bb2dbef104d7af77fbf5007d83e}{unique\_sequence}}\ =\ []()\ \textcolor{keyword}{consteval}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::array<\textcolor{keyword}{typename}\ \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements__from_a8481749e857c4a6908eeecd09acf7946}{forwarded\_type::type}},\ internal::count\_unique(old)>\ new\_arr\{\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ idx\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ lam\ =\ []<std::size\_t...\ I>(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ old\_array\_type\ \&o,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::array<\textcolor{keyword}{typename}\ \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements__from_a8481749e857c4a6908eeecd09acf7946}{forwarded\_type::type}},\ internal::count\_unique(old)>\ \&n,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \&idx)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((!internal::exists\_until(old,\ old[I],\ I)\ ?\ (n[idx++]\ =\ old[I],\ void())\ :\ void()),\ ...);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ static\_for<old.size()>(lam,\ old,\ new\_arr,\ idx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ new\_arr;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}();}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{auto}...\ elems>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse}{reverse}}\ :\ templa::internal::uniform\_element\_identity<elems...>}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse_a46438f8acfd35aafa66adc85e3830676}{identity\_type}}\ =\ \textcolor{keyword}{typename}\ templa::internal::uniform\_element\_identity<elems...>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse_a87255bbd9374fa7d78bb9a1ed94148f6}{array\_type}}\ =\ \textcolor{keyword}{typename}\ identity\_type::uniform\_type;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse_a078a650c51c35b40fde073e263b27b1b}{reverse\_sequence}}\ =\ []()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ lam\ =\ []<std::size\_t...\ I>(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse_a87255bbd9374fa7d78bb9a1ed94148f6}{array\_type}}\ \&in,\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse_a87255bbd9374fa7d78bb9a1ed94148f6}{array\_type}}\ \&out)\ \textcolor{keyword}{constexpr}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((out[I]\ =\ in[in.size()\ -\/\ I\ -\/\ 1]),\ ...);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::array<int,\ identity\_type::size>\ ret\{\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ static\_for<identity\_type::size>(lam,\ identity\_type::identity\_value,\ ret);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}();}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <auto\ a>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{requires}(concepts::Container<std::remove\_cv\_t<\textcolor{keyword}{decltype}(a)>>)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1reverse__from}{reverse\_from}}}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ old\ =\ \mbox{\hyperlink{structtempla_1_1internal_1_1forward__elements__from_af0276070351472eb48e6b1cb13a9f5e7}{templa::internal::forward\_elements\_from<a>::value}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ reverse\_sequence\ =\ []<std::size\_t...\ I>(std::index\_sequence<I...>)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{decltype}(a)\ ret\{old[a.size()\ -\/\ I\ -\/\ 1]...\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}(std::make\_index\_sequence<a.size()>\{\});}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N,\ std::\textcolor{keywordtype}{size\_t}\ M>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ concat(\textcolor{keyword}{const}\ std::array<T,\ N>\ \&lhs,\ \textcolor{keyword}{const}\ std::array<T,\ M>\ \&rhs)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ internal::concat\_impl(lhs,\ rhs,\ std::make\_index\_sequence<N>\{\},\ std::make\_index\_sequence<M>\{\});}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{const}\ std::string\_view\ \&...Strs>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1algorithms_1_1join}{join}}}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ arr\ =\ []()\ \textcolor{keyword}{consteval}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ std::size\_t\ length\ =\ (Strs.size()\ +\ ...\ +\ 0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::array<char,\ length\ +\ 1>\ arr;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ Joiner\ =\ [i\ =\ 0,\ \&arr](\textcolor{keyword}{const}\ std::string\_view\ \&s)\ \textcolor{keyword}{consteval}\ \textcolor{keyword}{mutable}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ c\ :\ s)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr[i++]\ =\ c;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (Joiner(Strs),\ ...);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ arr[length]\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ arr;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::string\_view\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1join_a0b0bec2ac22d682bea3a32618c3e5aa1}{value}}\ =\ \{arr.data(),\ arr.size()\ -\/\ 1\};}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <std::string\_view\ \textcolor{keyword}{const}\ \&...Strs>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::string\_view\ join\_v\ =\ \mbox{\hyperlink{structtempla_1_1algorithms_1_1join}{join}}<Strs...>::value;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ O>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{algorithms_8hpp_a4b86c02bb96b024b95841f2268e6e0f8}{flatten}}(\textcolor{keyword}{const}\ std::vector<T>\ \&in,\ std::vector<O>\ \&out)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ out.insert(out.end(),\ in.begin(),\ in.end());}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ O>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{algorithms_8hpp_a4b86c02bb96b024b95841f2268e6e0f8}{flatten}}(\textcolor{keyword}{const}\ std::vector<std::vector<T>>\ \&in,\ std::vector<O>\ \&out)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&e\ :\ in)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{algorithms_8hpp_a4b86c02bb96b024b95841f2268e6e0f8}{flatten}}(e,\ out);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callable,\ \textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ apply\_to\_tuple\_cat(Callable\ \&\&c,\ Ts\ \&\&...tuples)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ cat\ =\ std::tuple\_cat<Ts...>(std::forward<Ts>(tuples)...);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::apply(std::forward<Callable>(c),\ std::move(cat));}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

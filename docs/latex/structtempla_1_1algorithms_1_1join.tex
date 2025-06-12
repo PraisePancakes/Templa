@@ -1,0 +1,42 @@
+\doxysection{templa\+::algorithms\+::join\texorpdfstring{$<$}{<} Strs \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1algorithms_1_1join}{}\label{structtempla_1_1algorithms_1_1join}\index{templa::algorithms::join$<$ Strs $>$@{templa::algorithms::join$<$ Strs $>$}}
+
+
+Compile-\/time string concatenation of multiple {\ttfamily std\+::string\+\_\+view} references.  
+
+
+
+
+{\ttfamily \#include $<$algorithms.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1algorithms_1_1join_a0b0bec2ac22d682bea3a32618c3e5aa1}\label{structtempla_1_1algorithms_1_1join_a0b0bec2ac22d682bea3a32618c3e5aa1} 
+static constexpr std\+::string\+\_\+view {\bfseries value} = \{arr.\+data(), arr.\+size() -\/ 1\}
+\begin{DoxyCompactList}\small\item\em The resulting joined string as a {\ttfamily std\+::string\+\_\+view}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$const std\+::string\+\_\+view \&... Strs$>$\newline
+struct templa\+::algorithms\+::join$<$ Strs $>$}
+Compile-\/time string concatenation of multiple {\ttfamily std\+::string\+\_\+view} references. 
+
+Joins multiple string literals (passed as {\ttfamily std\+::string\+\_\+view} references) into a single compile-\/time {\ttfamily std\+::string\+\_\+view}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Strs} & Parameter pack of {\ttfamily std\+::string\+\_\+view} references to be joined.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+This struct is useful for generating compile-\/time string identifiers or type names without runtime overhead. 
+\end{DoxyNote}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2aryas_2_one_drive_2_desktop_2_c_09_09_projects_2_templa_2include_2templa-include_2algorithms_8hpp-example}{C\+:/\+Users/aryas/\+One\+Drive/\+Desktop/\+C++\+Projects/\+Templa/include/templa-\/include/algorithms.\+hpp}}.\end{Desc}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C++\+Projects/\+Templa/include/templa-\/include/\mbox{\hyperlink{algorithms_8hpp}{algorithms.\+hpp}}\end{DoxyCompactItemize}
