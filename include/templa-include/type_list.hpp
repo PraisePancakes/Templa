@@ -416,4 +416,42 @@ namespace templa
     public:
         using type = typename type_list_append<head, tail>::type;
     };
+
+    /**
+     * \ingroup type_list
+     * \brief Removes duplicate types from a parameter pack.
+     *
+     * Recursively deduplicates types while preserving the order of first occurrence.
+     *
+     * ### Example
+     * \code
+     * using input = type_list<int, float, int, char, float>;
+     * using result = type_list_unique<int, float, int, char, float>::type;
+     * // result = type_list<int, float, char>
+     * \endcode
+     */
+    template <typename... Ts>
+    struct type_list_unique;
+
+    template <>
+    struct type_list_unique<> : internal::type_list<>
+    {
+    };
+
+    template <typename T, typename... Ts>
+    struct type_list_unique<T, Ts...>
+    {
+    private:
+        using tail = typename type_list_unique<Ts...>::type;
+
+    public:
+        using type = std::conditional_t<
+            type_list_contains<T, tail>::value,
+            tail,
+            typename type_list_append<internal::type_list<T>, tail>::type>;
+    };
+
+    template <typename... Ts>
+    using type_list_unique_t = typename type_list_unique<Ts...>::type;
+
 }

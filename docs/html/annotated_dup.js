@@ -95,6 +95,9 @@ var annotated_dup =
       [ "type_list_prepend< Initial< Inits... >, Prepender< Preps... > >", "structtempla_1_1type__list__prepend_3_01_initial_3_01_inits_8_8_8_01_4_00_01_prepender_3_01_preps_8_8_8_01_4_01_4.html", null ],
       [ "type_list_reverse", "structtempla_1_1type__list__reverse.html", null ],
       [ "type_list_reverse< T, U, Ts... >", "structtempla_1_1type__list__reverse_3_01_t_00_01_u_00_01_ts_8_8_8_01_4.html", null ],
-      [ "type_list_reverse< Tlist< T, U, Ts... > >", "structtempla_1_1type__list__reverse_3_01_tlist_3_01_t_00_01_u_00_01_ts_8_8_8_01_4_01_4.html", null ]
+      [ "type_list_reverse< Tlist< T, U, Ts... > >", "structtempla_1_1type__list__reverse_3_01_tlist_3_01_t_00_01_u_00_01_ts_8_8_8_01_4_01_4.html", null ],
+      [ "type_list_unique", "structtempla_1_1type__list__unique.html", null ],
+      [ "type_list_unique< T, Ts... >", "structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4.html", null ],
+      [ "type_list_unique<>", "structtempla_1_1type__list__unique_3_4.html", null ]
     ] ]
 ];

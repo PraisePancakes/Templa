@@ -195,6 +195,31 @@
 \DoxyCodeLine{00416\ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structtempla_1_1internal_1_1type__list_ada1ac1c5d84c1153953e5b8dfb458390}{type\_list\_append<head,\ tail>::type}};}
 \DoxyCodeLine{00418\ \ \ \ \ \};}
-\DoxyCodeLine{00419\ \}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1type__list__unique}{type\_list\_unique}};}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1type__list__unique}{type\_list\_unique}}<>\ :\ \mbox{\hyperlink{structtempla_1_1internal_1_1type__list}{internal::type\_list}}<>}
+\DoxyCodeLine{00438\ \ \ \ \ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \};}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1type__list__unique}{type\_list\_unique}}<T,\ Ts...>}
+\DoxyCodeLine{00443\ \ \ \ \ \{}
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }tail\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structtempla_1_1type__list__unique}{type\_list\_unique}}<Ts...>::type;}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ std::conditional\_t<}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtempla_1_1type__list__contains_a90e0afd519ab5f69f7edca0b92045bde}{type\_list\_contains<T,\ tail>::value}},}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ tail,}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structtempla_1_1type__list__append}{type\_list\_append<internal::type\_list<T>}},\ tail>::type>;}
+\DoxyCodeLine{00452\ \ \ \ \ \};}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keyword}{using\ }type\_list\_unique\_t\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structtempla_1_1type__list__unique}{type\_list\_unique}}<Ts...>\mbox{\hyperlink{structtempla_1_1type__at__index}{::type}};}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \}}
 
 \end{DoxyCode}

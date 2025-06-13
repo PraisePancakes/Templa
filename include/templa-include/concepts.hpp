@@ -287,4 +287,22 @@ namespace templa::concepts
         []<typename... Args>(Template<Args...> const &)
         { return true; }(t);
     };
+    
+    /**
+     * \ingroup concepts
+     * \brief Concept satisfied only if all boolean conditions are true.
+     *
+     * This concept is useful for requiring that a pack of boolean values
+     * (typically `std::is_*::value` expressions) are all `true`.
+     *
+     * ### Example
+     * \code
+     * template <typename T, typename U>
+     * requires requires_all<std::is_integral_v<T>, std::is_integral_v<U>>
+     * void do_something(T, U);
+     * \endcode
+     */
+    template <bool... Cs>
+    concept requires_all = (Cs && ...);
+
 }

@@ -56,14 +56,21 @@ struct \mbox{\hyperlink{structtempla_1_1type__list__flatten_3_01_t_01_4}{templa\
 struct \mbox{\hyperlink{structtempla_1_1type__list__flatten_3_01internal_1_1type__list_3_01_ts_8_8_8_01_4_01_4}{templa\+::type\+\_\+list\+\_\+flatten$<$ internal\+::type\+\_\+list$<$ Ts... $>$ $>$}}
 \begin{DoxyCompactList}\small\item\em If the input is a type\+\_\+list, recurse into its elements. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structtempla_1_1type__list__flatten_3_01_t_00_01_rest_8_8_8_01_4}{templa\+::type\+\_\+list\+\_\+flatten$<$ T, Rest... $>$}}
-\begin{DoxyCompactList}\small\item\em Recursive case\+: flatten head and tail separately and append results. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Recursive case\+: flatten head and tail separately and append results. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1type__list__unique_3_4}{templa\+::type\+\_\+list\+\_\+unique$<$$>$}}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4}{templa\+::type\+\_\+list\+\_\+unique$<$ T, Ts... $>$}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$std\+::size\+\_\+t x$>$ }\\using \mbox{\hyperlink{type__list_8hpp_a765041b3cf05288a09cd4ca1473c519a}{templa\+::value}} = std\+::integral\+\_\+constant$<$std\+::size\+\_\+t, x$>$
 \begin{DoxyCompactList}\small\item\em Integral constant wrapper for a size\+\_\+t value. \end{DoxyCompactList}\item 
 {\footnotesize template$<$std\+::size\+\_\+t idx, typename... Ts$>$ }\\using \mbox{\hyperlink{type__list_8hpp_ae642b1ac7c701abca921e19c31ca802c}{templa\+::type\+\_\+at\+\_\+index\+\_\+t}} = \mbox{\hyperlink{structtempla_1_1type__at__index}{type\+\_\+at\+\_\+index}}$<$idx, Ts...$>$\+::type
-\begin{DoxyCompactList}\small\item\em Convenience alias for \doxylink{structtempla_1_1type__at__index_a95c7829898c97da75f8376e53e3a0e4a}{type\+\_\+at\+\_\+index\+::type}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Convenience alias for \doxylink{structtempla_1_1type__at__index_a95c7829898c97da75f8376e53e3a0e4a}{type\+\_\+at\+\_\+index\+::type}. \end{DoxyCompactList}\item 
+\Hypertarget{type__list_8hpp_ab45c8aef91fe13cb9caf407243d95634}\label{type__list_8hpp_ab45c8aef91fe13cb9caf407243d95634} 
+{\footnotesize template$<$typename... Ts$>$ }\\using {\bfseries templa\+::type\+\_\+list\+\_\+unique\+\_\+t} = typename \mbox{\hyperlink{structtempla_1_1type__list__unique}{type\+\_\+list\+\_\+unique}}$<$Ts...$>$\+::type
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

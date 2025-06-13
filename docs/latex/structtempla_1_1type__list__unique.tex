@@ -1,0 +1,27 @@
+\doxysection{templa\+::type\+\_\+list\+\_\+unique\texorpdfstring{$<$}{<} Ts \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1type__list__unique}{}\label{structtempla_1_1type__list__unique}\index{templa::type\_list\_unique$<$ Ts $>$@{templa::type\_list\_unique$<$ Ts $>$}}
+
+
+Removes duplicate types from a parameter pack.  
+
+
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename... Ts$>$\newline
+struct templa\+::type\+\_\+list\+\_\+unique$<$ Ts $>$}
+Removes duplicate types from a parameter pack. 
+
+Recursively deduplicates types while preserving the order of first occurrence.\hypertarget{structtempla_1_1type__list__unique_autotoc_md3}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{structtempla_1_1type__list__unique_autotoc_md3}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }input\ =\ type\_list<int,\ float,\ int,\ char,\ float>;}
+\DoxyCodeLine{\textcolor{keyword}{using\ }result\ =\ type\_list\_unique<int,\ float,\ int,\ char,\ float>::type;}
+\DoxyCodeLine{\textcolor{comment}{//\ result\ =\ type\_list<int,\ float,\ char>}}
+
+\end{DoxyCode}
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Templa/include/templa-\/include/\mbox{\hyperlink{type__list_8hpp}{type\+\_\+list.\+hpp}}\end{DoxyCompactItemize}

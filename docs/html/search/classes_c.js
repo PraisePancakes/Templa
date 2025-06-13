@@ -42,5 +42,8 @@ var searchData=
   ['type_5flist_5fprepend_3c_20typename_20type_5flist_5fpop_5fback_3c_20mid_2c_20tail_2e_2e_2e_20_3e_3a_3atype_2c_20head_20_3e_39',['type_list_prepend&lt; typename type_list_pop_back&lt; Mid, Tail... &gt;::type, Head &gt;',['../structtempla_1_1type__list__prepend.html',1,'templa']]],
   ['type_5flist_5freverse_40',['type_list_reverse',['../structtempla_1_1type__list__reverse.html',1,'templa']]],
   ['type_5flist_5freverse_3c_20t_2c_20u_2c_20ts_2e_2e_2e_20_3e_41',['type_list_reverse&lt; T, U, Ts... &gt;',['../structtempla_1_1type__list__reverse_3_01_t_00_01_u_00_01_ts_8_8_8_01_4.html',1,'templa']]],
-  ['type_5flist_5freverse_3c_20tlist_3c_20t_2c_20u_2c_20ts_2e_2e_2e_20_3e_20_3e_42',['type_list_reverse&lt; Tlist&lt; T, U, Ts... &gt; &gt;',['../structtempla_1_1type__list__reverse_3_01_tlist_3_01_t_00_01_u_00_01_ts_8_8_8_01_4_01_4.html',1,'templa']]]
+  ['type_5flist_5freverse_3c_20tlist_3c_20t_2c_20u_2c_20ts_2e_2e_2e_20_3e_20_3e_42',['type_list_reverse&lt; Tlist&lt; T, U, Ts... &gt; &gt;',['../structtempla_1_1type__list__reverse_3_01_tlist_3_01_t_00_01_u_00_01_ts_8_8_8_01_4_01_4.html',1,'templa']]],
+  ['type_5flist_5funique_43',['type_list_unique',['../structtempla_1_1type__list__unique.html',1,'templa']]],
+  ['type_5flist_5funique_3c_20t_2c_20ts_2e_2e_2e_20_3e_44',['type_list_unique&lt; T, Ts... &gt;',['../structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4.html',1,'templa']]],
+  ['type_5flist_5funique_3c_3e_45',['type_list_unique&lt;&gt;',['../structtempla_1_1type__list__unique_3_4.html',1,'templa']]]
 ];

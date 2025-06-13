@@ -108,7 +108,8 @@ var hierarchy =
       [ "templa::type_list_reverse< Tlist< T, U, Ts... > >", "structtempla_1_1type__list__reverse_3_01_tlist_3_01_t_00_01_u_00_01_ts_8_8_8_01_4_01_4.html", null ]
     ] ],
     [ "templa::internal::type_list<>", "structtempla_1_1internal_1_1type__list.html", [
-      [ "templa::type_list_flatten<>", "structtempla_1_1type__list__flatten_3_4.html", null ]
+      [ "templa::type_list_flatten<>", "structtempla_1_1type__list__flatten_3_4.html", null ],
+      [ "templa::type_list_unique<>", "structtempla_1_1type__list__unique_3_4.html", null ]
     ] ],
     [ "templa::type_list_contains< T, Ts >", "structtempla_1_1type__list__contains.html", null ],
     [ "templa::type_list_contains< T, U< Ts... > >", "structtempla_1_1type__list__contains_3_01_t_00_01_u_3_01_ts_8_8_8_01_4_01_4.html", null ],
@@ -122,6 +123,8 @@ var hierarchy =
     [ "templa::type_list_pop_back< Tlist< Ts... > >", "structtempla_1_1type__list__pop__back_3_01_tlist_3_01_ts_8_8_8_01_4_01_4.html", null ],
     [ "templa::type_list_pop_front< T >", "structtempla_1_1type__list__pop__front.html", null ],
     [ "templa::type_list_reverse< T >", "structtempla_1_1type__list__reverse.html", null ],
+    [ "templa::type_list_unique< Ts >", "structtempla_1_1type__list__unique.html", null ],
+    [ "templa::type_list_unique< T, Ts... >", "structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4.html", null ],
     [ "templa::internal::uniform_element_identity< elems >", "structtempla_1_1internal_1_1uniform__element__identity.html", null ],
     [ "templa::internal::uniform_element_identity< elems... >", "structtempla_1_1internal_1_1uniform__element__identity.html", [
       [ "templa::algorithms::reverse< elems >", "structtempla_1_1algorithms_1_1reverse.html", null ]

@@ -24,6 +24,8 @@ var type__list_8hpp =
     [ "templa::type_list_flatten< T >", "structtempla_1_1type__list__flatten_3_01_t_01_4.html", null ],
     [ "templa::type_list_flatten< internal::type_list< Ts... > >", "structtempla_1_1type__list__flatten_3_01internal_1_1type__list_3_01_ts_8_8_8_01_4_01_4.html", null ],
     [ "templa::type_list_flatten< T, Rest... >", "structtempla_1_1type__list__flatten_3_01_t_00_01_rest_8_8_8_01_4.html", null ],
+    [ "templa::type_list_unique<>", "structtempla_1_1type__list__unique_3_4.html", null ],
+    [ "templa::type_list_unique< T, Ts... >", "structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4.html", null ],
     [ "templa::type_at_index_t", "type__list_8hpp.html#ae642b1ac7c701abca921e19c31ca802c", null ],
     [ "templa::value", "type__list_8hpp.html#a765041b3cf05288a09cd4ca1473c519a", null ]
 ];

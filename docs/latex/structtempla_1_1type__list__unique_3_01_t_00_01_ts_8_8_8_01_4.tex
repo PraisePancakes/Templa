@@ -1,0 +1,32 @@
+\doxysection{templa\+::type\+\_\+list\+\_\+unique\texorpdfstring{$<$}{<} T, Ts... \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4}{}\label{structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4}\index{templa::type\_list\_unique$<$ T, Ts... $>$@{templa::type\_list\_unique$<$ T, Ts... $>$}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4_ac6fa3224adf2faadd34b1a41c2bcdaf4}{type}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4_ac6fa3224adf2faadd34b1a41c2bcdaf4}\index{templa::type\_list\_unique$<$ T, Ts... $>$@{templa::type\_list\_unique$<$ T, Ts... $>$}!type@{type}}
+\index{type@{type}!templa::type\_list\_unique$<$ T, Ts... $>$@{templa::type\_list\_unique$<$ T, Ts... $>$}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \label{structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4_ac6fa3224adf2faadd34b1a41c2bcdaf4} 
+template$<$typename T, typename... Ts$>$ \\
+using \mbox{\hyperlink{structtempla_1_1type__list__unique}{templa\+::type\+\_\+list\+\_\+unique}}$<$ T, Ts... $>$\+::type}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::conditional\_t<}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtempla_1_1type__list__contains_a90e0afd519ab5f69f7edca0b92045bde}{type\_list\_contains<T,\ tail>::value}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ tail,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structtempla_1_1type__list__append}{type\_list\_append<internal::type\_list<T>}},\ tail>::type>}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Templa/include/templa-\/include/\mbox{\hyperlink{type__list_8hpp}{type\+\_\+list.\+hpp}}\end{DoxyCompactItemize}

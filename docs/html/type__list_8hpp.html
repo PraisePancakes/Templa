@@ -149,6 +149,8 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the input is a type_list, recurse into its elements.  <a href="structtempla_1_1type__list__flatten_3_01internal_1_1type__list_3_01_ts_8_8_8_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="memitem:templa_3A_3Atype_5Flist_5Fflatten_3C_20T_2C_20Rest_2E_2E_2E_20_3E" id="r_templa_3A_3Atype_5Flist_5Fflatten_3C_20T_2C_20Rest_2E_2E_2E_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtempla_1_1type__list__flatten_3_01_t_00_01_rest_8_8_8_01_4.html">templa::type_list_flatten&lt; T, Rest... &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursive case: flatten head and tail separately and append results.  <a href="structtempla_1_1type__list__flatten_3_01_t_00_01_rest_8_8_8_01_4.html#details">More...</a><br /></td></tr>
+<tr class="memitem:templa_3A_3Atype_5Flist_5Funique_3C_3E" id="r_templa_3A_3Atype_5Flist_5Funique_3C_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtempla_1_1type__list__unique_3_4.html">templa::type_list_unique&lt;&gt;</a></td></tr>
+<tr class="memitem:templa_3A_3Atype_5Flist_5Funique_3C_20T_2C_20Ts_2E_2E_2E_20_3E" id="r_templa_3A_3Atype_5Flist_5Funique_3C_20T_2C_20Ts_2E_2E_2E_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4.html">templa::type_list_unique&lt; T, Ts... &gt;</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -158,6 +160,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ae642b1ac7c701abca921e19c31ca802c" id="r_ae642b1ac7c701abca921e19c31ca802c"><td class="memTemplParams" colspan="2">template&lt;std::size_t idx, typename... Ts&gt; </td></tr>
 <tr class="memitem:ae642b1ac7c701abca921e19c31ca802c template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae642b1ac7c701abca921e19c31ca802c">templa::type_at_index_t</a> = <a class="el" href="structtempla_1_1type__at__index.html">type_at_index</a>&lt;idx, Ts...&gt;::type</td></tr>
 <tr class="memdesc:ae642b1ac7c701abca921e19c31ca802c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience alias for <a class="el" href="structtempla_1_1type__at__index.html#a95c7829898c97da75f8376e53e3a0e4a" title="Type at index idx.">type_at_index::type</a>.  <br /></td></tr>
+<tr class="memitem:ab45c8aef91fe13cb9caf407243d95634" id="r_ab45c8aef91fe13cb9caf407243d95634"><td class="memTemplParams" colspan="2"><a id="ab45c8aef91fe13cb9caf407243d95634" name="ab45c8aef91fe13cb9caf407243d95634"></a>
+template&lt;typename... Ts&gt; </td></tr>
+<tr class="memitem:ab45c8aef91fe13cb9caf407243d95634 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><b>templa::type_list_unique_t</b> = typename <a class="el" href="structtempla_1_1type__list__unique.html">type_list_unique</a>&lt;Ts...&gt;::type</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides utilities for compile time type list manipulation and operations. </p>

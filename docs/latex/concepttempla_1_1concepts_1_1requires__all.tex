@@ -1,0 +1,32 @@
+\doxysection{templa\+::concepts\+::requires\+\_\+all Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1requires__all}{}\label{concepttempla_1_1concepts_1_1requires__all}\index{templa::concepts::requires\_all@{templa::concepts::requires\_all}}
+
+
+Concept satisfied only if all boolean conditions are true.  
+
+
+
+
+{\ttfamily \#include $<$concepts.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keywordtype}{bool}...\ Cs>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1requires__all}{templa::concepts::requires\_all}}\ =\ \ (Cs\ \&\&\ ...)}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Concept satisfied only if all boolean conditions are true. 
+
+This concept is useful for requiring that a pack of boolean values (typically {\ttfamily std\+::is\+\_\+\texorpdfstring{$\ast$}{*}\+::value} expressions) are all {\ttfamily true}.\hypertarget{concepttempla_1_1concepts_1_1requires__all_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{concepttempla_1_1concepts_1_1requires__all_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{\textcolor{keyword}{requires}\ requires\_all<std::is\_integral\_v<T>,\ std::is\_integral\_v<U>>}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ do\_something(T,\ U);}
+
+\end{DoxyCode}
+ 

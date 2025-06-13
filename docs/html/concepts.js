@@ -19,7 +19,8 @@ var concepts =
         [ "AllocatorAware", "concepttempla_1_1concepts_1_1_allocator_aware.html", null ],
         [ "Erasable", "concepttempla_1_1concepts_1_1_erasable.html", null ],
         [ "Container", "concepttempla_1_1concepts_1_1_container.html", null ],
-        [ "is_specialization_of", "concepttempla_1_1concepts_1_1is__specialization__of.html", null ]
+        [ "is_specialization_of", "concepttempla_1_1concepts_1_1is__specialization__of.html", null ],
+        [ "requires_all", "concepttempla_1_1concepts_1_1requires__all.html", null ]
       ] ]
     ] ]
 ];
