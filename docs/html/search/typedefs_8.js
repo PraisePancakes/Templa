@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['value_0',['value',['../type__list_8hpp.html#a765041b3cf05288a09cd4ca1473c519a',1,'templa']]],
-  ['value_5ftype_1',['value_type',['../structtempla_1_1internal_1_1uniform__element__identity.html#a34177c2d47c12125d0992c64cfa62fb3',1,'templa::internal::uniform_element_identity']]]
+  ['underlying_5ft_0',['underlying_t',['../structtempla_1_1_flag_enum.html#a00eb876b588206fd98c4c58977b6fbc9',1,'templa::FlagEnum']]],
+  ['uniform_5ftype_1',['uniform_type',['../structtempla_1_1internal_1_1uniform__element__identity.html#a5513bb858309bb74b6bf4d04bb333c7d',1,'templa::internal::uniform_element_identity']]]
 ];

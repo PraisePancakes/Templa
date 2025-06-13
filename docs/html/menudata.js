@@ -57,10 +57,12 @@ var menudata={children:[
 {text:"v",url:"functions_vars.html#index_v"}]},
 {text:"Typedefs",url:"functions_type.html",children:[
 {text:"a",url:"functions_type.html#index_a"},
+{text:"f",url:"functions_type.html#index_f"},
 {text:"i",url:"functions_type.html#index_i"},
 {text:"o",url:"functions_type.html#index_o"},
 {text:"p",url:"functions_type.html#index_p"},
 {text:"r",url:"functions_type.html#index_r"},
+{text:"s",url:"functions_type.html#index_s"},
 {text:"t",url:"functions_type.html#index_t"},
 {text:"u",url:"functions_type.html#index_u"},
 {text:"v",url:"functions_type.html#index_v"}]}]}]},

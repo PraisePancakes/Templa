@@ -4,9 +4,7 @@
 int main(int argc, char **argv)
 {
 
-  constexpr auto v = templa::index_at_type_v<char, char, int, bool>;
-
-  static_assert(v == 0);
+  using t = templa::type_list_split_half<templa::internal::type_list<int, char, float>>::first;
 
 #if TEMPLA_TEST_INSTANCE
   using namespace templa;

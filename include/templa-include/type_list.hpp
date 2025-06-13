@@ -311,10 +311,11 @@ namespace templa
     /**
      * @brief Get the index of a type in a type list.
      *
-     * Requires the type to be present in the list.
+     *
      *
      * @tparam T Type to find.
      * @tparam List Types in the list.
+     * @return returns -1 if index is not found else returns index (0-indexed value)
      */
     template <typename T, typename... List>
     struct index_at_type
@@ -323,7 +324,7 @@ namespace templa
         constexpr static auto index = []()
         {
             return (type_list_contains<T, List...>::value ? []()
-                        {std::size_t i = 0;
+                        {signed i = 0;
             (... && (!std::is_same_v<T, List> && ++i));
             return i; }()                             : -1);
         }();
@@ -332,17 +333,18 @@ namespace templa
     /**
      * @brief Get the index of a type in a templated type list.
      *
-     * Requires the type to be present in the list.
+     *
      *
      * @tparam T Type to find.
      * @tparam U Template type list.
      * @tparam List Types in the list.
+     * @return returns -1 if index is not found else returns index (0-indexed value)
      */
     template <typename T, template <typename...> class U, typename... List>
     struct index_at_type<T, U<List...>>
     {
         /// Index of type T in List.
-        constexpr static std::size_t index = index_at_type<T, List...>::index;
+        constexpr static auto index = index_at_type<T, List...>::index;
     };
 
     /**
@@ -350,6 +352,7 @@ namespace templa
      *
      * @tparam T Type to find.
      * @tparam List Types in the list.
+     * @return returns -1 if index is not found else returns index (0-indexed value)
      */
     template <typename T, typename... List>
     constexpr static auto index_at_type_v = index_at_type<T, List...>::index;
@@ -452,4 +455,103 @@ namespace templa
     template <typename... Ts>
     using type_list_unique_t = typename type_list_unique<Ts...>::type;
 
+    /**
+     * @brief Utility to create an offset std::index_sequence.
+     *
+     * Given a base index sequence and an offset, this struct generates
+     * a new index sequence with each index incremented by the offset.
+     *
+     * @tparam Offset The starting offset to add to each index.
+     * @tparam Seq The original std::index_sequence.
+     */
+    template <std::size_t Offset, typename Seq>
+    struct offset_index_sequence;
+
+    /**
+     * @brief Specialization for generating an offset index sequence.
+     *
+     * @tparam Offset The value to add to each index.
+     * @tparam Is The original indices.
+     */
+    template <std::size_t Offset, std::size_t... Is>
+    struct offset_index_sequence<Offset, std::index_sequence<Is...>>
+    {
+        /// Resulting index sequence with offset applied.
+        using type = std::index_sequence<(Is + Offset)...>;
+    };
+
+    /**
+     * @brief Splits a type list into two sublists using index sequences.
+     *
+     * This template extracts the types at positions specified by two index sequences
+     * and places them into two separate template instances.
+     *
+     * @tparam T The template type to reconstruct the result (e.g., a type list).
+     * @tparam F Index sequence for the first half.
+     * @tparam S Index sequence for the second half.
+     */
+    template <typename T, typename F, typename S>
+    struct type_list_split;
+
+    /**
+     * @brief Specialization of type_list_split for variadic type lists.
+     *
+     * @tparam T The outer template (e.g., type_list).
+     * @tparam Args The types contained in the list.
+     * @tparam Is Indices for the first half.
+     * @tparam Js Indices for the second half.
+     */
+    template <template <typename...> class T, typename... Args, std::size_t... Is, std::size_t... Js>
+    struct type_list_split<T<Args...>, std::index_sequence<Is...>, std::index_sequence<Js...>>
+    {
+        /// First half of the split type list.
+        using first = T<std::tuple_element_t<Is, std::tuple<Args...>>...>;
+
+        /// Second half of the split type list.
+        using second = T<std::tuple_element_t<Js, std::tuple<Args...>>...>;
+    };
+
+    /**
+     * @brief Splits a type list into two halves.
+     *
+     * This struct uses index sequences to divide a variadic template list
+     * into two halves. The resulting `first` and `second` types contain
+     * the two parts.
+     *
+     * @tparam Ts The full type list to split.
+     */
+    template <typename Ts>
+    struct type_list_split_half;
+
+    /**
+     * @brief Specialization to split T<Args...> into two halves.
+     *
+     * @tparam T The template type (e.g., type_list).
+     * @tparam Args The parameter pack of types.
+     */
+    template <template <typename...> class T, typename... Args>
+    struct type_list_split_half<T<Args...>>
+    {
+    private:
+        /// Midpoint index for splitting the list.
+        static constexpr std::size_t mid = sizeof...(Args) / 2;
+
+        /// Index sequence for the first half.
+        using first_indices = std::make_index_sequence<mid>;
+
+        /// Index sequence for the second half (offset from mid).
+        using second_indices = typename offset_index_sequence<
+            mid,
+            std::make_index_sequence<sizeof...(Args) - mid>>::type;
+
+        /// Intermediate struct that performs the actual split.
+        using full_type = type_list_split<T<Args...>, first_indices, second_indices>;
+
+    public:
+        /// First half of the split type list.
+        using first = typename full_type::first;
+
+        /// Second half of the split type list.
+        using second = typename full_type::second;
+    };
 }

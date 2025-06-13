@@ -1,0 +1,43 @@
+\doxysection{templa\+::type\+\_\+list\+\_\+split\texorpdfstring{$<$}{<} T\texorpdfstring{$<$}{<} Args... \texorpdfstring{$>$}{>}, std\+::index\+\_\+sequence\texorpdfstring{$<$}{<} Is... \texorpdfstring{$>$}{>}, std\+::index\+\_\+sequence\texorpdfstring{$<$}{<} Js... \texorpdfstring{$>$}{>} \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1type__list__split_3_01_t_3_01_args_8_8_8_01_4_00_01std_1_1index__sequence_3_01_i9d1c394b3d1f2b4f11cec6e450281f25}{}\label{structtempla_1_1type__list__split_3_01_t_3_01_args_8_8_8_01_4_00_01std_1_1index__sequence_3_01_i9d1c394b3d1f2b4f11cec6e450281f25}\index{templa::type\_list\_split$<$ T$<$ Args... $>$, std::index\_sequence$<$ Is... $>$, std::index\_sequence$<$ Js... $>$ $>$@{templa::type\_list\_split$<$ T$<$ Args... $>$, std::index\_sequence$<$ Is... $>$, std::index\_sequence$<$ Js... $>$ $>$}}
+
+
+Specialization of \doxylink{structtempla_1_1type__list__split}{type\+\_\+list\+\_\+split} for variadic type lists.  
+
+
+
+
+{\ttfamily \#include $<$type\+\_\+list.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1type__list__split_3_01_t_3_01_args_8_8_8_01_4_00_01std_1_1index__sequence_3_01_i9d1c394b3d1f2b4f11cec6e450281f25_ab78445142b6390278a7113d24cd1a051}\label{structtempla_1_1type__list__split_3_01_t_3_01_args_8_8_8_01_4_00_01std_1_1index__sequence_3_01_i9d1c394b3d1f2b4f11cec6e450281f25_ab78445142b6390278a7113d24cd1a051} 
+using {\bfseries first} = T$<$std\+::tuple\+\_\+element\+\_\+t$<$Is, std\+::tuple$<$Args...$>$$>$...$>$
+\begin{DoxyCompactList}\small\item\em First half of the split type list. \end{DoxyCompactList}\item 
+\Hypertarget{structtempla_1_1type__list__split_3_01_t_3_01_args_8_8_8_01_4_00_01std_1_1index__sequence_3_01_i9d1c394b3d1f2b4f11cec6e450281f25_a1326081400c1209d52c3e58f1dd7bbff}\label{structtempla_1_1type__list__split_3_01_t_3_01_args_8_8_8_01_4_00_01std_1_1index__sequence_3_01_i9d1c394b3d1f2b4f11cec6e450281f25_a1326081400c1209d52c3e58f1dd7bbff} 
+using {\bfseries second} = T$<$std\+::tuple\+\_\+element\+\_\+t$<$Js, std\+::tuple$<$Args...$>$$>$...$>$
+\begin{DoxyCompactList}\small\item\em Second half of the split type list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$template$<$ typename... $>$ class T, typename... Args, std\+::size\+\_\+t... Is, std\+::size\+\_\+t... Js$>$\newline
+struct templa\+::type\+\_\+list\+\_\+split$<$ T$<$ Args... $>$, std\+::index\+\_\+sequence$<$ Is... $>$, std\+::index\+\_\+sequence$<$ Js... $>$ $>$}
+Specialization of \doxylink{structtempla_1_1type__list__split}{type\+\_\+list\+\_\+split} for variadic type lists. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The outer template (e.\+g., type\+\_\+list). \\
+\hline
+{\em Args} & The types contained in the list. \\
+\hline
+{\em Is} & Indices for the first half. \\
+\hline
+{\em Js} & Indices for the second half. \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Templa/include/templa-\/include/\mbox{\hyperlink{type__list_8hpp}{type\+\_\+list.\+hpp}}\end{DoxyCompactItemize}

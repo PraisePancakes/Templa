@@ -12,18 +12,15 @@ Get the index of a type in a templated type list.
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{structtempla_1_1index__at__type_3_01_t_00_01_u_3_01_list_8_8_8_01_4_01_4_af29616b0ce6eadb7228043f3d6bcf70b}\label{structtempla_1_1index__at__type_3_01_t_00_01_u_3_01_list_8_8_8_01_4_01_4_af29616b0ce6eadb7228043f3d6bcf70b} 
-static constexpr std\+::size\+\_\+t {\bfseries index} = \mbox{\hyperlink{structtempla_1_1index__at__type}{index\+\_\+at\+\_\+type}}$<$T, List...$>$\+::index
+\Hypertarget{structtempla_1_1index__at__type_3_01_t_00_01_u_3_01_list_8_8_8_01_4_01_4_a30271f5b9cacddf81ad6b6361e87804a}\label{structtempla_1_1index__at__type_3_01_t_00_01_u_3_01_list_8_8_8_01_4_01_4_a30271f5b9cacddf81ad6b6361e87804a} 
+static constexpr auto {\bfseries index} = \mbox{\hyperlink{structtempla_1_1index__at__type}{index\+\_\+at\+\_\+type}}$<$T, List...$>$\+::index
 \begin{DoxyCompactList}\small\item\em Index of type T in List. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename T, template$<$ typename... $>$ class U, typename... List$>$\newline
-requires (\mbox{\hyperlink{structtempla_1_1type__list__contains}{type\+\_\+list\+\_\+contains}}$<$T, List...$>$\mbox{\hyperlink{type__list_8hpp_a765041b3cf05288a09cd4ca1473c519a}{\+::value}})\newline
 struct templa\+::index\+\_\+at\+\_\+type$<$ T, U$<$ List... $>$ $>$}
 Get the index of a type in a templated type list. 
-
-Requires the type to be present in the list.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -34,6 +31,9 @@ Requires the type to be present in the list.
 {\em List} & Types in the list. \\
 \hline
 \end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+returns -\/1 if index is not found else returns index (0-\/indexed value) 
+\end{DoxyReturn}
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}

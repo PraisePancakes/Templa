@@ -26,6 +26,9 @@ var type__list_8hpp =
     [ "templa::type_list_flatten< T, Rest... >", "structtempla_1_1type__list__flatten_3_01_t_00_01_rest_8_8_8_01_4.html", null ],
     [ "templa::type_list_unique<>", "structtempla_1_1type__list__unique_3_4.html", null ],
     [ "templa::type_list_unique< T, Ts... >", "structtempla_1_1type__list__unique_3_01_t_00_01_ts_8_8_8_01_4.html", null ],
+    [ "templa::offset_index_sequence< Offset, std::index_sequence< Is... > >", "structtempla_1_1offset__index__sequence_3_01_offset_00_01std_1_1index__sequence_3_01_is_8_8_8_01_4_01_4.html", "structtempla_1_1offset__index__sequence_3_01_offset_00_01std_1_1index__sequence_3_01_is_8_8_8_01_4_01_4" ],
+    [ "templa::type_list_split< T< Args... >, std::index_sequence< Is... >, std::index_sequence< Js... > >", "structtempla_1_1type__list__split_3_01_t_3_01_args_8_8_8_01_4_00_01std_1_1index__sequence_3_01_i9d1c394b3d1f2b4f11cec6e450281f25.html", "structtempla_1_1type__list__split_3_01_t_3_01_args_8_8_8_01_4_00_01std_1_1index__sequence_3_01_i9d1c394b3d1f2b4f11cec6e450281f25" ],
+    [ "templa::type_list_split_half< T< Args... > >", "structtempla_1_1type__list__split__half_3_01_t_3_01_args_8_8_8_01_4_01_4.html", "structtempla_1_1type__list__split__half_3_01_t_3_01_args_8_8_8_01_4_01_4" ],
     [ "templa::type_at_index_t", "type__list_8hpp.html#ae642b1ac7c701abca921e19c31ca802c", null ],
     [ "templa::value", "type__list_8hpp.html#a765041b3cf05288a09cd4ca1473c519a", null ]
 ];

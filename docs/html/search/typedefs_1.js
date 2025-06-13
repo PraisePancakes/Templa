@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['identity_5ftype_0',['identity_type',['../structtempla_1_1algorithms_1_1min.html#a66b7ca991841bfc39b1e80f434c1ce47',1,'templa::algorithms::min::identity_type'],['../structtempla_1_1algorithms_1_1max.html#a47b1051362cc5377535d0ec540ce08e5',1,'templa::algorithms::max::identity_type'],['../structtempla_1_1algorithms_1_1unique.html#a57ca143798c64061e87a587e379f1256',1,'templa::algorithms::unique::identity_type'],['../structtempla_1_1algorithms_1_1reverse.html#a46438f8acfd35aafa66adc85e3830676',1,'templa::algorithms::reverse::identity_type']]]
+  ['first_0',['first',['../structtempla_1_1type__list__split_3_01_t_3_01_args_8_8_8_01_4_00_01std_1_1index__sequence_3_01_i9d1c394b3d1f2b4f11cec6e450281f25.html#ab78445142b6390278a7113d24cd1a051',1,'templa::type_list_split&lt; T&lt; Args... &gt;, std::index_sequence&lt; Is... &gt;, std::index_sequence&lt; Js... &gt; &gt;::first'],['../structtempla_1_1type__list__split__half_3_01_t_3_01_args_8_8_8_01_4_01_4.html#a56de8731b00a56c3995b9d763981ce78',1,'templa::type_list_split_half&lt; T&lt; Args... &gt; &gt;::first']]]
 ];

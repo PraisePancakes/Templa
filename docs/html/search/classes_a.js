@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['reverse_0',['reverse',['../structtempla_1_1algorithms_1_1reverse.html',1,'templa::algorithms']]],
-  ['reverse_5ffrom_1',['reverse_from',['../structtempla_1_1algorithms_1_1reverse__from.html',1,'templa::algorithms']]]
+  ['pack_0',['pack',['../structtempla_1_1internal_1_1hidden_1_1pack.html',1,'templa::internal::hidden']]],
+  ['pack_3c_20ts_2e_2e_2e_20_3e_1',['pack&lt; Ts... &gt;',['../structtempla_1_1internal_1_1hidden_1_1pack.html',1,'templa::internal::hidden']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['popped_0',['popped',['../structtempla_1_1type__list__pop__front_3_01_t_00_01_ts_8_8_8_01_4.html#a039d90332b3ffa34dbe231d303018294',1,'templa::type_list_pop_front&lt; T, Ts... &gt;::popped'],['../structtempla_1_1type__list__pop__front_3_01_tlist_3_01_u_00_01_ts_8_8_8_01_4_01_4.html#a5c6bdfde750d585ac7c027c5511e91f9',1,'templa::type_list_pop_front&lt; Tlist&lt; U, Ts... &gt; &gt;::popped'],['../structtempla_1_1type__list__pop__back_3_01_head_00_01_tail_01_4.html#ad8f6bb89f38a6136c4b9291541552bfa',1,'templa::type_list_pop_back&lt; Head, Tail &gt;::popped'],['../structtempla_1_1type__list__pop__back_3_01_head_00_01_mid_00_01_tail_8_8_8_01_4.html#a957dffd35a7fa2c899b877923908f781',1,'templa::type_list_pop_back&lt; Head, Mid, Tail... &gt;::popped'],['../structtempla_1_1type__list__pop__back_3_01_tlist_3_01_ts_8_8_8_01_4_01_4.html#a7fa2ae2f34e5d56742a6855318ca0723',1,'templa::type_list_pop_back&lt; Tlist&lt; Ts... &gt; &gt;::popped']]]
+  ['old_5farray_5ftype_0',['old_array_type',['../structtempla_1_1algorithms_1_1unique.html#acc0d2c188afe3cd0ae5406397b7275b0',1,'templa::algorithms::unique']]]
 ];
