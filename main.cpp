@@ -4,6 +4,10 @@
 int main(int argc, char **argv)
 {
 
+  constexpr auto v = templa::index_at_type_v<char, char, int, bool>;
+
+  static_assert(v == 0);
+
 #if TEMPLA_TEST_INSTANCE
   using namespace templa;
   using namespace templa::algorithms;

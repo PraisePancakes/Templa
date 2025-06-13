@@ -317,15 +317,15 @@ namespace templa
      * @tparam List Types in the list.
      */
     template <typename T, typename... List>
-        requires(type_list_contains<T, List...>::value)
     struct index_at_type
     {
         /// Index of type T in List.
-        constexpr static std::size_t index = []()
+        constexpr static auto index = []()
         {
-            std::size_t i = 0;
-            (... && (!std::is_same_v<T, List> && i++));
-            return i;
+            return (type_list_contains<T, List...>::value ? []()
+                        {std::size_t i = 0;
+            (... && (!std::is_same_v<T, List> && ++i));
+            return i; }()                             : -1);
         }();
     };
 
@@ -339,7 +339,6 @@ namespace templa
      * @tparam List Types in the list.
      */
     template <typename T, template <typename...> class U, typename... List>
-        requires(type_list_contains<T, List...>::value)
     struct index_at_type<T, U<List...>>
     {
         /// Index of type T in List.
@@ -353,8 +352,7 @@ namespace templa
      * @tparam List Types in the list.
      */
     template <typename T, typename... List>
-        requires(type_list_contains<T, List...>::value)
-    constexpr static std::size_t index_at_type_v = index_at_type<T, List...>::index;
+    constexpr static auto index_at_type_v = index_at_type<T, List...>::index;
 
     /**
      * \ingroup type_list
