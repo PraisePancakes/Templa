@@ -241,7 +241,15 @@ $(function(){initNavTree('concepts_8hpp_source.html','',''); });
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        { a.empty() } -&gt; std::convertible_to&lt;bool&gt;;</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    };</div>
 </div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>}</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keyword">template</span> &lt;<span class="keyword">class </span>T, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Template&gt;</div>
+<div class="foldopen" id="foldopen00286" data-start="{" data-end="}">
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno"><a class="line" href="concepttempla_1_1concepts_1_1is__specialization__of.html">  286</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="concepttempla_1_1concepts_1_1is__specialization__of.html">is_specialization_of</a> = <span class="keyword">requires</span>(T <span class="keyword">const</span> &amp;t) {</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        []&lt;<span class="keyword">typename</span>... Args&gt;(Template&lt;Args...&gt; <span class="keyword">const</span> &amp;)</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        { <span class="keywordflow">return</span> <span class="keyword">true</span>; }(t);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    };</div>
+</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>}</div>
 <div class="ttc" id="aconcepts_8hpp_html_af447551be951ac8b303dbb460a91d499"><div class="ttname"><a href="concepts_8hpp.html#af447551be951ac8b303dbb460a91d499">templa::concepts::is_basic_string_v</a></div><div class="ttdeci">constexpr bool is_basic_string_v</div><div class="ttdoc">Variable template shortcut for is_basic_string.</div><div class="ttdef"><b>Definition</b> concepts.hpp:216</div></div>
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_addable_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_addable.html">templa::concepts::Addable</a></div><div class="ttdoc">Concept to check if a type supports addition operations.</div><div class="ttdef"><b>Definition</b> concepts.hpp:94</div></div>
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_allocator_aware_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_allocator_aware.html">templa::concepts::AllocatorAware</a></div><div class="ttdoc">Concept checking if a type has a get_allocator() method returning allocator_type.</div><div class="ttdef"><b>Definition</b> concepts.hpp:191</div></div>
@@ -260,6 +268,7 @@ $(function(){initNavTree('concepts_8hpp_source.html','',''); });
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_streamable_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_streamable.html">templa::concepts::Streamable</a></div><div class="ttdoc">Concept to check if a type can be streamed to an std::ostream.</div><div class="ttdef"><b>Definition</b> concepts.hpp:156</div></div>
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_subtractable_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_subtractable.html">templa::concepts::Subtractable</a></div><div class="ttdoc">Concept to check if a type supports subtraction operations.</div><div class="ttdef"><b>Definition</b> concepts.hpp:107</div></div>
 <div class="ttc" id="aconcepttempla_1_1concepts_1_1_unsigned_integral_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1_unsigned_integral.html">templa::concepts::UnsignedIntegral</a></div><div class="ttdoc">Concept to check if a type is an unsigned integral type.</div><div class="ttdef"><b>Definition</b> concepts.hpp:74</div></div>
+<div class="ttc" id="aconcepttempla_1_1concepts_1_1is__specialization__of_html"><div class="ttname"><a href="concepttempla_1_1concepts_1_1is__specialization__of.html">templa::concepts::is_specialization_of</a></div><div class="ttdoc">Checks whether a given type T is a specialization of the class template Template.</div><div class="ttdef"><b>Definition</b> concepts.hpp:286</div></div>
 <div class="ttc" id="astructtempla_1_1concepts_1_1is__basic__string_html"><div class="ttname"><a href="structtempla_1_1concepts_1_1is__basic__string.html">templa::concepts::is_basic_string</a></div><div class="ttdoc">Helper struct to detect if a type is std::basic_string.</div><div class="ttdef"><b>Definition</b> concepts.hpp:204</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

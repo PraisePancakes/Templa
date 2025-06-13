@@ -9,5 +9,6 @@ var searchData=
   ['integral_6',['Integral',['../concepttempla_1_1concepts_1_1_integral.html',1,'templa::concepts']]],
   ['is_5fbasic_5fstring_7',['is_basic_string',['../structtempla_1_1concepts_1_1is__basic__string.html',1,'templa::concepts']]],
   ['is_5fbasic_5fstring_3c_20std_3a_3abasic_5fstring_3c_20c_2c_20t_2c_20a_20_3e_20_3e_8',['is_basic_string&lt; std::basic_string&lt; C, T, A &gt; &gt;',['../structtempla_1_1concepts_1_1is__basic__string_3_01std_1_1basic__string_3_01_c_00_01_t_00_01_a_01_4_01_4.html',1,'templa::concepts']]],
-  ['is_5fbasic_5fstring_5fv_9',['is_basic_string_v',['../concepts_8hpp.html#af447551be951ac8b303dbb460a91d499',1,'templa::concepts']]]
+  ['is_5fbasic_5fstring_5fv_9',['is_basic_string_v',['../concepts_8hpp.html#af447551be951ac8b303dbb460a91d499',1,'templa::concepts']]],
+  ['is_5fspecialization_5fof_10',['is_specialization_of',['../concepttempla_1_1concepts_1_1is__specialization__of.html',1,'templa::concepts']]]
 ];

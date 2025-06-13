@@ -1,0 +1,27 @@
+\doxysection{templa\+::type\+\_\+list\+\_\+flatten\texorpdfstring{$<$}{<} Ts \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1type__list__flatten}{}\label{structtempla_1_1type__list__flatten}\index{templa::type\_list\_flatten$<$ Ts $>$@{templa::type\_list\_flatten$<$ Ts $>$}}
+
+
+Recursively flattens nested type\+\_\+lists into a single flat type\+\_\+list.  
+
+
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename... Ts$>$\newline
+struct templa\+::type\+\_\+list\+\_\+flatten$<$ Ts $>$}
+Recursively flattens nested type\+\_\+lists into a single flat type\+\_\+list. 
+
+Given arbitrarily nested {\ttfamily type\+\_\+list$<$\+Ts...$>$} structures, this metafunction produces a single-\/level type list containing all inner types.\hypertarget{structtempla_1_1type__list__flatten_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{structtempla_1_1type__list__flatten_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }t1\ =\ internal::type\_list<int,\ float>;}
+\DoxyCodeLine{\textcolor{keyword}{using\ }t2\ =\ internal::type\_list<char,\ t1,\ double>;}
+\DoxyCodeLine{\textcolor{keyword}{using\ }flat\ =\ flatten<t2>::type;\ \textcolor{comment}{//\ type\_list<char,\ int,\ float,\ double>}}
+
+\end{DoxyCode}
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Templa/include/templa-\/include/\mbox{\hyperlink{type__list_8hpp}{type\+\_\+list.\+hpp}}\end{DoxyCompactItemize}

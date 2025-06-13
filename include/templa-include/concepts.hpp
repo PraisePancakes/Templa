@@ -263,4 +263,28 @@ namespace templa::concepts
         { a.max_size() } -> std::same_as<typename T::size_type>;
         { a.empty() } -> std::convertible_to<bool>;
     };
+
+    /**
+     * \ingroup concepts
+     * \brief Checks whether a given type \c T is a specialization of the class template \c Template.
+     *
+     * This concept is satisfied if \c T is an instantiation of \c Template with any number of template arguments.
+     *
+     * ### Example
+     * \code
+     * template <typename...>
+     * struct my_template {};
+     *
+     * static_assert(is_specialization_of<my_template<int>, my_template>);
+     * static_assert(!is_specialization_of<int, my_template>);
+     * \endcode
+     *
+     * \tparam T The type to check.
+     * \tparam Template The class template to check against (e.g., \c std::tuple, \c std::vector).
+     */
+    template <class T, template <typename...> class Template>
+    concept is_specialization_of = requires(T const &t) {
+        []<typename... Args>(Template<Args...> const &)
+        { return true; }(t);
+    };
 }

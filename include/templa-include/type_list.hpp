@@ -356,4 +356,64 @@ namespace templa
         requires(type_list_contains<T, List...>::value)
     constexpr static std::size_t index_at_type_v = index_at_type<T, List...>::index;
 
-};
+    /**
+     * \ingroup type_list
+     * \brief Recursively flattens nested type_lists into a single flat type_list.
+     *
+     * Given arbitrarily nested \c type_list<Ts...> structures, this metafunction
+     * produces a single-level type list containing all inner types.
+     *
+     * ### Example
+     * \code
+     * using t1 = internal::type_list<int, float>;
+     * using t2 = internal::type_list<char, t1, double>;
+     * using flat = flatten<t2>::type; // type_list<char, int, float, double>
+     * \endcode
+     */
+    template <typename... Ts>
+    struct type_list_flatten;
+
+    /**
+     * \brief Base case: flattening an empty list yields an empty type_list.
+     */
+    template <>
+    struct type_list_flatten<> : internal::type_list<>
+    {
+    };
+
+    /**
+     * \brief If the input is a non-type_list type, return it as a single-element type_list.
+     */
+    template <typename T>
+    struct type_list_flatten<T> : internal::type_list<T>
+    {
+    };
+
+    /**
+     * \brief If the input is a type_list, recurse into its elements.
+     *
+     * This case handles flattening nested type_lists by unpacking and re-flattening
+     * their individual elements.
+     */
+    template <typename... Ts>
+    struct type_list_flatten<internal::type_list<Ts...>> : type_list_flatten<Ts...>
+    {
+    };
+
+    /**
+     * \brief Recursive case: flatten head and tail separately and append results.
+     *
+     * Splits the pack into head and tail, flattens each, then merges them
+     * using \ref type_list_append.
+     */
+    template <typename T, typename... Rest>
+    struct type_list_flatten<T, Rest...>
+    {
+    private:
+        using head = typename type_list_flatten<T>::type;
+        using tail = typename type_list_flatten<Rest...>::type;
+
+    public:
+        using type = typename type_list_append<head, tail>::type;
+    };
+}

@@ -167,6 +167,34 @@
 \DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}(\mbox{\hyperlink{structtempla_1_1type__list__contains}{type\_list\_contains}}<T,\ List...>\mbox{\hyperlink{type__list_8hpp_a765041b3cf05288a09cd4ca1473c519a}{::value}})}
 \DoxyCodeLine{00357\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::size\_t\ index\_at\_type\_v\ =\ \mbox{\hyperlink{structtempla_1_1index__at__type_a621d4ac90b748f370b33c3f810cefde5}{index\_at\_type<T,\ List...>::index}};}
 \DoxyCodeLine{00358\ }
-\DoxyCodeLine{00359\ \};}
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1type__list__flatten}{type\_list\_flatten}};}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1type__list__flatten}{type\_list\_flatten}}<>\ :\ \mbox{\hyperlink{structtempla_1_1internal_1_1type__list}{internal::type\_list}}<>}
+\DoxyCodeLine{00381\ \ \ \ \ \{}
+\DoxyCodeLine{00382\ \ \ \ \ \};}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1type__list__flatten}{type\_list\_flatten}}<T>\ :\ \mbox{\hyperlink{structtempla_1_1internal_1_1type__list}{internal::type\_list}}<T>}
+\DoxyCodeLine{00389\ \ \ \ \ \{}
+\DoxyCodeLine{00390\ \ \ \ \ \};}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1type__list__flatten}{type\_list\_flatten}}<internal::type\_list<Ts...>>\ :\ \mbox{\hyperlink{structtempla_1_1type__list__flatten}{type\_list\_flatten}}<Ts...>}
+\DoxyCodeLine{00400\ \ \ \ \ \{}
+\DoxyCodeLine{00401\ \ \ \ \ \};}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Rest>}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1type__list__flatten}{type\_list\_flatten}}<T,\ Rest...>}
+\DoxyCodeLine{00411\ \ \ \ \ \{}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }head\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structtempla_1_1type__list__flatten}{type\_list\_flatten<T>::type}};}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }tail\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structtempla_1_1type__list__flatten}{type\_list\_flatten}}<Rest...>::type;}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structtempla_1_1internal_1_1type__list_ada1ac1c5d84c1153953e5b8dfb458390}{type\_list\_append<head,\ tail>::type}};}
+\DoxyCodeLine{00418\ \ \ \ \ \};}
+\DoxyCodeLine{00419\ \}}
 
 \end{DoxyCode}

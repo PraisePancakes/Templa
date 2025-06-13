@@ -8,7 +8,8 @@ var indexSectionsWithContent =
   5: "aimrsuv",
   6: "aioprstuv",
   7: "acfpt",
-  8: "acdehimsu"
+  8: "e",
+  9: "acdehimsu"
 };
 
 var indexSectionNames =
@@ -21,7 +22,8 @@ var indexSectionNames =
   5: "variables",
   6: "typedefs",
   7: "groups",
-  8: "concepts"
+  8: "pages",
+  9: "concepts"
 };
 
 var indexSectionLabels =
@@ -34,6 +36,7 @@ var indexSectionLabels =
   5: "Variables",
   6: "Typedefs",
   7: "Modules",
-  8: "Concepts"
+  8: "Pages",
+  9: "Concepts"
 };
 

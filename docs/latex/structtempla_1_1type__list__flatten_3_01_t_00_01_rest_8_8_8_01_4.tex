@@ -1,0 +1,29 @@
+\doxysection{templa\+::type\+\_\+list\+\_\+flatten\texorpdfstring{$<$}{<} T, Rest... \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1type__list__flatten_3_01_t_00_01_rest_8_8_8_01_4}{}\label{structtempla_1_1type__list__flatten_3_01_t_00_01_rest_8_8_8_01_4}\index{templa::type\_list\_flatten$<$ T, Rest... $>$@{templa::type\_list\_flatten$<$ T, Rest... $>$}}
+
+
+Recursive case\+: flatten head and tail separately and append results.  
+
+
+
+
+{\ttfamily \#include $<$type\+\_\+list.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1type__list__flatten_3_01_t_00_01_rest_8_8_8_01_4_a779159d80d18a5a7f1f93853b28ef1a3}\label{structtempla_1_1type__list__flatten_3_01_t_00_01_rest_8_8_8_01_4_a779159d80d18a5a7f1f93853b28ef1a3} 
+using {\bfseries type} = typename \mbox{\hyperlink{structtempla_1_1type__list__append}{type\+\_\+list\+\_\+append}}$<$head, tail$>$\+::type
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename... Rest$>$\newline
+struct templa\+::type\+\_\+list\+\_\+flatten$<$ T, Rest... $>$}
+Recursive case\+: flatten head and tail separately and append results. 
+
+Splits the pack into head and tail, flattens each, then merges them using \doxylink{structtempla_1_1type__list__append}{type\+\_\+list\+\_\+append}. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Templa/include/templa-\/include/\mbox{\hyperlink{type__list_8hpp}{type\+\_\+list.\+hpp}}\end{DoxyCompactItemize}

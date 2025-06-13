@@ -95,6 +95,9 @@ var hierarchy =
     [ "templa::internal::type_list< Preps..., Inits... >", "structtempla_1_1internal_1_1type__list.html", [
       [ "templa::type_list_prepend< Initial< Inits... >, Prepender< Preps... > >", "structtempla_1_1type__list__prepend_3_01_initial_3_01_inits_8_8_8_01_4_00_01_prepender_3_01_preps_8_8_8_01_4_01_4.html", null ]
     ] ],
+    [ "templa::internal::type_list< T >", "structtempla_1_1internal_1_1type__list.html", [
+      [ "templa::type_list_flatten< T >", "structtempla_1_1type__list__flatten_3_01_t_01_4.html", null ]
+    ] ],
     [ "templa::internal::type_list< T< Ts... > >", "structtempla_1_1internal_1_1type__list_3_01_t_3_01_ts_8_8_8_01_4_01_4.html", null ],
     [ "templa::internal::type_list< Ts... >", "structtempla_1_1internal_1_1type__list.html", [
       [ "templa::type_list_pop_front< T, Ts... >", "structtempla_1_1type__list__pop__front_3_01_t_00_01_ts_8_8_8_01_4.html", null ],
@@ -104,8 +107,16 @@ var hierarchy =
       [ "templa::type_list_reverse< T, U, Ts... >", "structtempla_1_1type__list__reverse_3_01_t_00_01_u_00_01_ts_8_8_8_01_4.html", null ],
       [ "templa::type_list_reverse< Tlist< T, U, Ts... > >", "structtempla_1_1type__list__reverse_3_01_tlist_3_01_t_00_01_u_00_01_ts_8_8_8_01_4_01_4.html", null ]
     ] ],
+    [ "templa::internal::type_list<>", "structtempla_1_1internal_1_1type__list.html", [
+      [ "templa::type_list_flatten<>", "structtempla_1_1type__list__flatten_3_4.html", null ]
+    ] ],
     [ "templa::type_list_contains< T, Ts >", "structtempla_1_1type__list__contains.html", null ],
     [ "templa::type_list_contains< T, U< Ts... > >", "structtempla_1_1type__list__contains_3_01_t_00_01_u_3_01_ts_8_8_8_01_4_01_4.html", null ],
+    [ "templa::type_list_flatten< Ts >", "structtempla_1_1type__list__flatten.html", null ],
+    [ "templa::type_list_flatten< T, Rest... >", "structtempla_1_1type__list__flatten_3_01_t_00_01_rest_8_8_8_01_4.html", null ],
+    [ "templa::type_list_flatten< Ts... >", "structtempla_1_1type__list__flatten.html", [
+      [ "templa::type_list_flatten< internal::type_list< Ts... > >", "structtempla_1_1type__list__flatten_3_01internal_1_1type__list_3_01_ts_8_8_8_01_4_01_4.html", null ]
+    ] ],
     [ "templa::type_list_pop_back< Ts >", "structtempla_1_1type__list__pop__back.html", null ],
     [ "templa::type_list_pop_back< Head, Mid, Tail... >", "structtempla_1_1type__list__pop__back_3_01_head_00_01_mid_00_01_tail_8_8_8_01_4.html", null ],
     [ "templa::type_list_pop_back< Tlist< Ts... > >", "structtempla_1_1type__list__pop__back_3_01_tlist_3_01_ts_8_8_8_01_4_01_4.html", null ],

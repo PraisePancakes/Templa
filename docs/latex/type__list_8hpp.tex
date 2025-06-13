@@ -48,7 +48,15 @@ struct \mbox{\hyperlink{structtempla_1_1type__list__contains_3_01_t_00_01_u_3_01
 struct \mbox{\hyperlink{structtempla_1_1index__at__type}{templa\+::index\+\_\+at\+\_\+type$<$ T, List $>$}}
 \begin{DoxyCompactList}\small\item\em Get the index of a type in a type list. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structtempla_1_1index__at__type_3_01_t_00_01_u_3_01_list_8_8_8_01_4_01_4}{templa\+::index\+\_\+at\+\_\+type$<$ T, U$<$ List... $>$ $>$}}
-\begin{DoxyCompactList}\small\item\em Get the index of a type in a templated type list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the index of a type in a templated type list. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1type__list__flatten_3_4}{templa\+::type\+\_\+list\+\_\+flatten$<$$>$}}
+\begin{DoxyCompactList}\small\item\em Base case\+: flattening an empty list yields an empty type\+\_\+list. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1type__list__flatten_3_01_t_01_4}{templa\+::type\+\_\+list\+\_\+flatten$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em If the input is a non-\/type\+\_\+list type, return it as a single-\/element type\+\_\+list. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1type__list__flatten_3_01internal_1_1type__list_3_01_ts_8_8_8_01_4_01_4}{templa\+::type\+\_\+list\+\_\+flatten$<$ internal\+::type\+\_\+list$<$ Ts... $>$ $>$}}
+\begin{DoxyCompactList}\small\item\em If the input is a type\+\_\+list, recurse into its elements. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1type__list__flatten_3_01_t_00_01_rest_8_8_8_01_4}{templa\+::type\+\_\+list\+\_\+flatten$<$ T, Rest... $>$}}
+\begin{DoxyCompactList}\small\item\em Recursive case\+: flatten head and tail separately and append results. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 

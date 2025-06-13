@@ -123,6 +123,12 @@
 \DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \{\ a.max\_size()\ \}\ -\/>\ std::same\_as<typename\ T::size\_type>;}
 \DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \{\ a.empty()\ \}\ -\/>\ std::convertible\_to<bool>;}
 \DoxyCodeLine{00265\ \ \ \ \ \};}
-\DoxyCodeLine{00266\ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class\ }T,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...>\ \textcolor{keyword}{class\ }Template>}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concepttempla_1_1concepts_1_1is__specialization__of}{is\_specialization\_of}}\ =\ \textcolor{keyword}{requires}(T\ \textcolor{keyword}{const}\ \&t)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ []<\textcolor{keyword}{typename}...\ Args>(Template<Args...>\ \textcolor{keyword}{const}\ \&)}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}(t);}
+\DoxyCodeLine{00289\ \ \ \ \ \};}
+\DoxyCodeLine{00290\ \}}
 
 \end{DoxyCode}

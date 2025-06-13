@@ -1,0 +1,45 @@
+\doxysection{templa\+::concepts\+::is\+\_\+specialization\+\_\+of Concept Reference}
+\hypertarget{concepttempla_1_1concepts_1_1is__specialization__of}{}\label{concepttempla_1_1concepts_1_1is__specialization__of}\index{templa::concepts::is\_specialization\_of@{templa::concepts::is\_specialization\_of}}
+
+
+Checks whether a given type {\ttfamily T} is a specialization of the class template {\ttfamily Template}.  
+
+
+
+
+{\ttfamily \#include $<$concepts.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class\ }T,\ \textcolor{keyword}{template}<\ \textcolor{keyword}{typename}...\ >\ \textcolor{keyword}{class\ }Template>}
+\DoxyCodeLine{concept\ templa::\mbox{\hyperlink{concepttempla_1_1concepts_1_1is__specialization__of}{concepts::is\_specialization\_of}}\ =\ \ requires(T\ const\ \&t)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ []<\textcolor{keyword}{typename}...\ Args>(Template<Args...>\ \textcolor{keyword}{const}\ \&)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}(t);}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Checks whether a given type {\ttfamily T} is a specialization of the class template {\ttfamily Template}. 
+
+This concept is satisfied if {\ttfamily T} is an instantiation of {\ttfamily Template} with any number of template arguments.\hypertarget{concepttempla_1_1concepts_1_1is__specialization__of_autotoc_md0}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{concepttempla_1_1concepts_1_1is__specialization__of_autotoc_md0}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...>}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_template\ \{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(is\_specialization\_of<my\_template<int>,\ my\_template>);}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(!is\_specialization\_of<int,\ my\_template>);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type to check. \\
+\hline
+{\em Template} & The class template to check against (e.\+g., {\ttfamily std\+::tuple}, {\ttfamily std\+::vector}). \\
+\hline
+\end{DoxyTemplParams}
