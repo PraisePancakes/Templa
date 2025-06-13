@@ -1,0 +1,51 @@
+\doxysection{templa\+::traits\+::function\+\_\+traits\texorpdfstring{$<$}{<} F \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1traits_1_1function__traits}{}\label{structtempla_1_1traits_1_1function__traits}\index{templa::traits::function\_traits$<$ F $>$@{templa::traits::function\_traits$<$ F $>$}}
+
+
+Primary template for function traits. Specialization used to extract traits from functor types (e.\+g., lambdas).  
+
+
+
+
+{\ttfamily \#include $<$traits.\+hpp$>$}
+
+Inheritance diagram for templa\+::traits\+::function\+\_\+traits\texorpdfstring{$<$}{<} F \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structtempla_1_1traits_1_1function__traits}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_1_1argument}{argument}}
+\begin{DoxyCompactList}\small\item\em Retrieves the type of the N-\/th argument. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1traits_1_1function__traits_a574aaa78674cacfa51c75317b9754221}\label{structtempla_1_1traits_1_1function__traits_a574aaa78674cacfa51c75317b9754221} 
+using {\bfseries return\+\_\+type} = typename \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_a574aaa78674cacfa51c75317b9754221}{call\+\_\+type\+::return\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em The return type of the function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1traits_1_1function__traits_aa64ffafb80b51ee195e7cace93c3cac2}\label{structtempla_1_1traits_1_1function__traits_aa64ffafb80b51ee195e7cace93c3cac2} 
+static constexpr std\+::size\+\_\+t {\bfseries arity} = call\+\_\+type\+::arity -\/ 1
+\begin{DoxyCompactList}\small\item\em The number of arguments (excluding the implicit object parameter). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class F$>$\newline
+struct templa\+::traits\+::function\+\_\+traits$<$ F $>$}
+Primary template for function traits. Specialization used to extract traits from functor types (e.\+g., lambdas). 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em F} & Functor type (i.\+e., any type with operator()). \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{traits_8hpp}{traits.\+hpp}}\end{DoxyCompactItemize}

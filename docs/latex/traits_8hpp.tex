@@ -26,14 +26,26 @@ struct \mbox{\hyperlink{structtempla_1_1traits_1_1strip_3_01volatile_01_t_01_5_0
 \item 
 struct \mbox{\hyperlink{structtempla_1_1traits_1_1strip_3_01const_01volatile_01_t_01_5_01_4}{templa\+::traits\+::strip$<$ const volatile T \texorpdfstring{$\ast$}{*} $>$}}
 \item 
-struct \mbox{\hyperlink{structtempla_1_1traits_1_1return__type}{templa\+::traits\+::return\+\_\+type$<$ R, Args $>$}}
-\begin{DoxyCompactList}\small\item\em Extracts the return type of a callable or function signature. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structtempla_1_1traits_1_1return__type_3_01_r_07_args_8_8_8_08_4}{templa\+::traits\+::return\+\_\+type$<$ R(\+Args...)$>$}}
-\item 
-struct \mbox{\hyperlink{structtempla_1_1traits_1_1return__type_3_01std_1_1function_3_01_r_07_args_8_8_8_08_4_01_4}{templa\+::traits\+::return\+\_\+type$<$ std\+::function$<$ R(\+Args...)$>$ $>$}}
-\item 
-struct \mbox{\hyperlink{structtempla_1_1traits_1_1is__same__return__type__callable}{templa\+::traits\+::is\+\_\+same\+\_\+return\+\_\+type\+\_\+callable$<$ T, U, Args $>$}}
-\begin{DoxyCompactList}\small\item\em Trait to check if two callable types have the same return type when called with Args... \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{templa\+::traits\+::function\+\_\+traits$<$ F $>$}}
+\begin{DoxyCompactList}\small\item\em Primary template for function traits. Specialization used to extract traits from functor types (e.\+g., lambdas). \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_1_1argument}{templa\+::traits\+::function\+\_\+traits$<$ F $>$\+::argument$<$ N $>$}}
+\begin{DoxyCompactList}\small\item\em Retrieves the type of the N-\/th argument. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4}{templa\+::traits\+::function\+\_\+traits$<$ R(\+Args...)$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for regular function types. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_1_1argument}{templa\+::traits\+::function\+\_\+traits$<$ R(\+Args...)$>$\+::argument$<$ N $>$}}
+\begin{DoxyCompactList}\small\item\em Retrieves the type of the N-\/th argument. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_5_08_07_args_8_8_8_08_4}{templa\+::traits\+::function\+\_\+traits$<$ R(\texorpdfstring{$\ast$}{*})(\+Args...)$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for function pointer types. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_4}{templa\+::traits\+::function\+\_\+traits$<$ R(\+C\+::\texorpdfstring{$\ast$}{*})(\+Args...)$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for member function pointers. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_01const_01_4}{templa\+::traits\+::function\+\_\+traits$<$ R(\+C\+::\texorpdfstring{$\ast$}{*})(\+Args...) const $>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for const member function pointers. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_4}{templa\+::traits\+::function\+\_\+traits$<$ R(\+C\+::\texorpdfstring{$\ast$}{*})$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for pointer-\/to-\/member types. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_f_01_6_01_4}{templa\+::traits\+::function\+\_\+traits$<$ F \& $>$}}
+\begin{DoxyCompactList}\small\item\em Lvalue reference specialization. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_f_01_6_6_01_4}{templa\+::traits\+::function\+\_\+traits$<$ F \&\& $>$}}
+\begin{DoxyCompactList}\small\item\em Rvalue reference specialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -43,16 +55,13 @@ namespace \mbox{\hyperlink{namespacetraits}{traits}}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename T$>$ }\\using \mbox{\hyperlink{traits_8hpp_ad07122d14c6a2229ebb7d50d58aed7b3}{templa\+::traits\+::strip\+\_\+t}} = \mbox{\hyperlink{structtempla_1_1traits_1_1strip}{strip}}$<$T$>$\+::type
-\begin{DoxyCompactList}\small\item\em Helper alias for strip. \end{DoxyCompactList}\item 
-\Hypertarget{traits_8hpp_a18fce0f1532de964e39f447f5c04cab5}\label{traits_8hpp_a18fce0f1532de964e39f447f5c04cab5} 
-{\footnotesize template$<$typename T$>$ }\\using {\bfseries templa\+::traits\+::return\+\_\+type\+\_\+t} = \mbox{\hyperlink{structtempla_1_1traits_1_1return__type}{return\+\_\+type}}$<$T$>$\+::type
-\begin{DoxyCompactList}\small\item\em Helper alias to extract return type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Helper alias for strip. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Utility templates for type manipulation and traits detection. 
 
-
+Traits to extract function signature information.
 
 \label{doc-typedef-members}
 \Hypertarget{traits_8hpp_doc-typedef-members}

@@ -35,10 +35,14 @@ var annotated_dup =
         [ "visitor", "structtempla_1_1internal_1_1visitor.html", null ]
       ] ],
       [ "traits", null, [
-        [ "is_same_return_type_callable", "structtempla_1_1traits_1_1is__same__return__type__callable.html", null ],
-        [ "return_type", "structtempla_1_1traits_1_1return__type.html", null ],
-        [ "return_type< R(Args...)>", "structtempla_1_1traits_1_1return__type_3_01_r_07_args_8_8_8_08_4.html", null ],
-        [ "return_type< std::function< R(Args...)> >", "structtempla_1_1traits_1_1return__type_3_01std_1_1function_3_01_r_07_args_8_8_8_08_4_01_4.html", null ],
+        [ "function_traits", "structtempla_1_1traits_1_1function__traits.html", "structtempla_1_1traits_1_1function__traits" ],
+        [ "function_traits< F & >", "structtempla_1_1traits_1_1function__traits_3_01_f_01_6_01_4.html", "structtempla_1_1traits_1_1function__traits_3_01_f_01_6_01_4" ],
+        [ "function_traits< F && >", "structtempla_1_1traits_1_1function__traits_3_01_f_01_6_6_01_4.html", "structtempla_1_1traits_1_1function__traits_3_01_f_01_6_6_01_4" ],
+        [ "function_traits< R(*)(Args...)>", "structtempla_1_1traits_1_1function__traits_3_01_r_07_5_08_07_args_8_8_8_08_4.html", "structtempla_1_1traits_1_1function__traits_3_01_r_07_5_08_07_args_8_8_8_08_4" ],
+        [ "function_traits< R(Args...)>", "structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4.html", "structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4" ],
+        [ "function_traits< R(C::*)(Args...) const >", "structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_01const_01_4.html", "structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_01const_01_4" ],
+        [ "function_traits< R(C::*)(Args...)>", "structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_4.html", "structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_4" ],
+        [ "function_traits< R(C::*)>", "structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_4.html", "structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_4" ],
         [ "strip", "structtempla_1_1traits_1_1strip.html", null ],
         [ "strip< const T * >", "structtempla_1_1traits_1_1strip_3_01const_01_t_01_5_01_4.html", null ],
         [ "strip< const T >", "structtempla_1_1traits_1_1strip_3_01const_01_t_01_4.html", null ],

@@ -6,6 +6,7 @@ var topics =
     [ "Flag_enum", "group__flag__enum.html", "group__flag__enum" ],
     [ "Pack", "group__pack.html", "group__pack" ],
     [ "Traits", "group__traits.html", "group__traits" ],
+    [ "Function Traits", "group__function__traits.html", "group__function__traits" ],
     [ "Type_info", "group__type__info.html", "group__type__info" ],
     [ "Type_list", "group__type__list.html", "group__type__list" ]
 ];

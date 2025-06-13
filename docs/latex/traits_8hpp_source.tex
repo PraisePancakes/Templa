@@ -61,38 +61,73 @@
 \DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
 \DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{traits_8hpp_ad07122d14c6a2229ebb7d50d58aed7b3}{strip\_t}}\ =\ strip<T>::type;}
 \DoxyCodeLine{00091\ }
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1return__type}{return\_type}}}
-\DoxyCodeLine{00107\ \ \ \ \ \{}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ std::invoke\_result\_t<R,\ Args...>;}
-\DoxyCodeLine{00109\ \ \ \ \ \};}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1return__type}{return\_type}}<R(Args...)>}
-\DoxyCodeLine{00113\ \ \ \ \ \{}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ R;}
-\DoxyCodeLine{00115\ \ \ \ \ \};}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1return__type}{return\_type}}<std::function<R(Args...)>>}
-\DoxyCodeLine{00119\ \ \ \ \ \{}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ R;}
-\DoxyCodeLine{00121\ \ \ \ \ \};}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{traits_8hpp_a18fce0f1532de964e39f447f5c04cab5}{return\_type\_t}}\ =\ return\_type<T>::type;}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1is__same__return__type__callable}{is\_same\_return\_type\_callable}}}
-\DoxyCodeLine{00140\ \ \ \ \ \{}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ value\ =\ std::is\_same\_v<std::invoke\_result\_t<T,\ Args...>,\ std::invoke\_result\_t<U,\ Args...>>;}
-\DoxyCodeLine{00142\ \ \ \ \ \};}
-\DoxyCodeLine{00143\ }
-\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U>}
-\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ is\_same\_return\_type\_v\ =\ std::is\_same\_v<return\_type\_t<T>,\ \mbox{\hyperlink{traits_8hpp_a18fce0f1532de964e39f447f5c04cab5}{return\_type\_t<U>}}>;}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ is\_same\_return\_type\_callable\_v\ =\ \mbox{\hyperlink{structtempla_1_1traits_1_1is__same__return__type__callable}{is\_same\_return\_type\_callable}}<T,\ U,\ Args...>\mbox{\hyperlink{type__list_8hpp_a765041b3cf05288a09cd4ca1473c519a}{::value}};}
-\DoxyCodeLine{00155\ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ F>}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }call\_type\ =\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<\textcolor{keyword}{decltype}(\&F::type::operator())>;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_a574aaa78674cacfa51c75317b9754221}{return\_type}}\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_a574aaa78674cacfa51c75317b9754221}{call\_type::return\_type}};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ std::size\_t\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_aa64ffafb80b51ee195e7cace93c3cac2}{arity}}\ =\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_aa64ffafb80b51ee195e7cace93c3cac2}{call\_type::arity}}\ -\/\ 1;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <std::\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_1_1argument}{argument}}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(N\ <\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_aa64ffafb80b51ee195e7cace93c3cac2}{arity}},\ \textcolor{stringliteral}{"{}error:\ invalid\ parameter\ index."{}});}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_1_1argument_a03ab6fab73c9b18a9c8dfa405dc10c9b}{type}}\ =\ \textcolor{keyword}{typename}\ call\_type::template\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_1_1argument_a03ab6fab73c9b18a9c8dfa405dc10c9b}{argument<N\ +\ 1>::type}};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00132\ \ \ \ \ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<R(Args...)>}
+\DoxyCodeLine{00142\ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_a0deb05507d286477d6e97748180e5868}{return\_type}}\ =\ R;}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ std::size\_t\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_abd0cef0bc3a7ce84e6ff3e60147e504b}{arity}}\ =\ \textcolor{keyword}{sizeof}...(Args);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <std::\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_1_1argument}{argument}}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(N\ <\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_abd0cef0bc3a7ce84e6ff3e60147e504b}{arity}},\ \textcolor{stringliteral}{"{}error:\ invalid\ parameter\ index."{}});}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_1_1argument_a652f2224f33c6744ba640d1a34951b44}{type}}\ =\ \textcolor{keyword}{typename}\ std::tuple\_element<N,\ std::tuple<Args...>>\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_1_1argument_a652f2224f33c6744ba640d1a34951b44}{::type}};}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00160\ \ \ \ \ \};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class\ }R,\ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<R\ (*)(Args...)>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<R(Args...)>}
+\DoxyCodeLine{00167\ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class\ }C,\ \textcolor{keyword}{class\ }R,\ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<R\ (C::*)(Args...)>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<R(C\ \&,\ Args...)>}
+\DoxyCodeLine{00175\ \ \ \ \ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class\ }C,\ \textcolor{keyword}{class\ }R,\ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<R\ (C::*)(Args...)\ const>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<R(C\ \&,\ Args...)>}
+\DoxyCodeLine{00183\ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \};}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ C,\ \textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<R(C::*)>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<R(C\ \&)>}
+\DoxyCodeLine{00191\ \ \ \ \ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ F>}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<F\ \&>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits<F>}}}
+\DoxyCodeLine{00199\ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \};}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ F>}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits}}<F\ \&\&>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{function\_traits<F>}}}
+\DoxyCodeLine{00207\ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \}}
 
 \end{DoxyCode}

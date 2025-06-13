@@ -9,6 +9,5 @@ var searchData=
   ['integral_6',['Integral',['../concepttempla_1_1concepts_1_1_integral.html',1,'templa::concepts']]],
   ['is_5fbasic_5fstring_7',['is_basic_string',['../structtempla_1_1concepts_1_1is__basic__string.html',1,'templa::concepts']]],
   ['is_5fbasic_5fstring_3c_20std_3a_3abasic_5fstring_3c_20c_2c_20t_2c_20a_20_3e_20_3e_8',['is_basic_string&lt; std::basic_string&lt; C, T, A &gt; &gt;',['../structtempla_1_1concepts_1_1is__basic__string_3_01std_1_1basic__string_3_01_c_00_01_t_00_01_a_01_4_01_4.html',1,'templa::concepts']]],
-  ['is_5fbasic_5fstring_5fv_9',['is_basic_string_v',['../concepts_8hpp.html#af447551be951ac8b303dbb460a91d499',1,'templa::concepts']]],
-  ['is_5fsame_5freturn_5ftype_5fcallable_10',['is_same_return_type_callable',['../structtempla_1_1traits_1_1is__same__return__type__callable.html',1,'templa::traits']]]
+  ['is_5fbasic_5fstring_5fv_9',['is_basic_string_v',['../concepts_8hpp.html#af447551be951ac8b303dbb460a91d499',1,'templa::concepts']]]
 ];

@@ -1,0 +1,35 @@
+\doxysection{templa\+::traits\+::function\+\_\+traits\texorpdfstring{$<$}{<} R(Args...)\texorpdfstring{$>$}{>}\+::argument\texorpdfstring{$<$}{<} N \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_1_1argument}{}\label{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_1_1argument}\index{templa::traits::function\_traits$<$ R(Args...)$>$::argument$<$ N $>$@{templa::traits::function\_traits$<$ R(Args...)$>$::argument$<$ N $>$}}
+
+
+Retrieves the type of the N-\/th argument.  
+
+
+
+
+{\ttfamily \#include $<$traits.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_1_1argument_a652f2224f33c6744ba640d1a34951b44}\label{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_1_1argument_a652f2224f33c6744ba640d1a34951b44} 
+using {\bfseries type} = typename std\+::tuple\+\_\+element$<$N, std\+::tuple$<$Args...$>$$>$\+::type
+\begin{DoxyCompactList}\small\item\em Type of the N-\/th argument. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename R, typename... Args$>$\newline
+template$<$std\+::size\+\_\+t N$>$\newline
+struct templa\+::traits\+::function\+\_\+traits$<$ R(\+Args...)$>$\+::argument$<$ N $>$}
+Retrieves the type of the N-\/th argument. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & Index of the argument (0-\/based). \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{traits_8hpp}{traits.\+hpp}}\end{DoxyCompactItemize}

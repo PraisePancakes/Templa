@@ -1,5 +1,7 @@
 var hierarchy =
 [
+    [ "templa::traits::function_traits< F >::argument< N >", "structtempla_1_1traits_1_1function__traits_1_1argument.html", null ],
+    [ "templa::traits::function_traits< R(Args...)>::argument< N >", "structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_1_1argument.html", null ],
     [ "templa::internal::hidden::element_pack< T, elems >", "structtempla_1_1internal_1_1hidden_1_1element__pack.html", null ],
     [ "std::false_type", null, [
       [ "templa::concepts::is_basic_string< std::basic_string< C, T, A > >", "structtempla_1_1concepts_1_1is__basic__string_3_01std_1_1basic__string_3_01_c_00_01_t_00_01_a_01_4_01_4.html", null ],
@@ -11,10 +13,23 @@ var hierarchy =
     ] ],
     [ "templa::internal::forward_elements< T, N, elems >", "structtempla_1_1internal_1_1forward__elements.html", null ],
     [ "templa::internal::forward_elements_from< a >", "structtempla_1_1internal_1_1forward__elements__from.html", null ],
+    [ "templa::traits::function_traits< F >", "structtempla_1_1traits_1_1function__traits.html", [
+      [ "templa::traits::function_traits< F & >", "structtempla_1_1traits_1_1function__traits_3_01_f_01_6_01_4.html", null ],
+      [ "templa::traits::function_traits< F && >", "structtempla_1_1traits_1_1function__traits_3_01_f_01_6_6_01_4.html", null ]
+    ] ],
+    [ "templa::traits::function_traits< R(Args...)>", "structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4.html", [
+      [ "templa::traits::function_traits< R(*)(Args...)>", "structtempla_1_1traits_1_1function__traits_3_01_r_07_5_08_07_args_8_8_8_08_4.html", null ]
+    ] ],
+    [ "templa::traits::function_traits< R(C &)>", "structtempla_1_1traits_1_1function__traits.html", [
+      [ "templa::traits::function_traits< R(C::*)>", "structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_4.html", null ]
+    ] ],
+    [ "templa::traits::function_traits< R(C &, Args...)>", "structtempla_1_1traits_1_1function__traits.html", [
+      [ "templa::traits::function_traits< R(C::*)(Args...) const >", "structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_01const_01_4.html", null ],
+      [ "templa::traits::function_traits< R(C::*)(Args...)>", "structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_4.html", null ]
+    ] ],
     [ "templa::type_info::ctti::hash_t< C >", "structtempla_1_1type__info_1_1ctti_1_1hash__t.html", null ],
     [ "templa::index_at_type< T, List >", "structtempla_1_1index__at__type.html", null ],
     [ "templa::index_at_type< T, U< List... > >", "structtempla_1_1index__at__type_3_01_t_00_01_u_3_01_list_8_8_8_01_4_01_4.html", null ],
-    [ "templa::traits::is_same_return_type_callable< T, U, Args >", "structtempla_1_1traits_1_1is__same__return__type__callable.html", null ],
     [ "templa::algorithms::join< Strs >", "structtempla_1_1algorithms_1_1join.html", null ],
     [ "templa::algorithms::max_from< e >", "structtempla_1_1algorithms_1_1max__from.html", null ],
     [ "templa::algorithms::min_from< e >", "structtempla_1_1algorithms_1_1min__from.html", null ],
@@ -29,9 +44,6 @@ var hierarchy =
     [ "templa::type_info::name_of< std::uint8_t >", "structtempla_1_1type__info_1_1name__of_3_01std_1_1uint8__t_01_4.html", null ],
     [ "templa::type_info::name_of< void >", "structtempla_1_1type__info_1_1name__of_3_01void_01_4.html", null ],
     [ "templa::internal::hidden::pack< Ts >", "structtempla_1_1internal_1_1hidden_1_1pack.html", null ],
-    [ "templa::traits::return_type< R, Args >", "structtempla_1_1traits_1_1return__type.html", null ],
-    [ "templa::traits::return_type< R(Args...)>", "structtempla_1_1traits_1_1return__type_3_01_r_07_args_8_8_8_08_4.html", null ],
-    [ "templa::traits::return_type< std::function< R(Args...)> >", "structtempla_1_1traits_1_1return__type_3_01std_1_1function_3_01_r_07_args_8_8_8_08_4_01_4.html", null ],
     [ "templa::algorithms::reverse_from< a >", "structtempla_1_1algorithms_1_1reverse__from.html", null ],
     [ "templa::traits::strip< T >", "structtempla_1_1traits_1_1strip.html", null ],
     [ "templa::traits::strip< const T * >", "structtempla_1_1traits_1_1strip_3_01const_01_t_01_5_01_4.html", null ],

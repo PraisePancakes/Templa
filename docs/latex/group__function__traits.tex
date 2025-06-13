@@ -1,0 +1,25 @@
+\doxysection{Function Traits }
+\hypertarget{group__function__traits}{}\label{group__function__traits}\index{Function Traits@{Function Traits}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits}{templa\+::traits\+::function\+\_\+traits$<$ F $>$}}
+\begin{DoxyCompactList}\small\item\em Primary template for function traits. Specialization used to extract traits from functor types (e.\+g., lambdas). \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4}{templa\+::traits\+::function\+\_\+traits$<$ R(\+Args...)$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for regular function types. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_5_08_07_args_8_8_8_08_4}{templa\+::traits\+::function\+\_\+traits$<$ R(\texorpdfstring{$\ast$}{*})(\+Args...)$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for function pointer types. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_4}{templa\+::traits\+::function\+\_\+traits$<$ R(\+C\+::\texorpdfstring{$\ast$}{*})(\+Args...)$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for member function pointers. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_01const_01_4}{templa\+::traits\+::function\+\_\+traits$<$ R(\+C\+::\texorpdfstring{$\ast$}{*})(\+Args...) const $>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for const member function pointers. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_r_07_c_1_1_5_08_4}{templa\+::traits\+::function\+\_\+traits$<$ R(\+C\+::\texorpdfstring{$\ast$}{*})$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for pointer-\/to-\/member types. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_f_01_6_01_4}{templa\+::traits\+::function\+\_\+traits$<$ F \& $>$}}
+\begin{DoxyCompactList}\small\item\em Lvalue reference specialization. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtempla_1_1traits_1_1function__traits_3_01_f_01_6_6_01_4}{templa\+::traits\+::function\+\_\+traits$<$ F \&\& $>$}}
+\begin{DoxyCompactList}\small\item\em Rvalue reference specialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compile-\/time utilities to introspect function signatures. 

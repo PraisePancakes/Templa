@@ -8,10 +8,7 @@ var traits_8hpp =
     [ "templa::traits::strip< const T * >", "structtempla_1_1traits_1_1strip_3_01const_01_t_01_5_01_4.html", null ],
     [ "templa::traits::strip< volatile T * >", "structtempla_1_1traits_1_1strip_3_01volatile_01_t_01_5_01_4.html", null ],
     [ "templa::traits::strip< const volatile T * >", "structtempla_1_1traits_1_1strip_3_01const_01volatile_01_t_01_5_01_4.html", null ],
-    [ "templa::traits::return_type< R, Args >", "structtempla_1_1traits_1_1return__type.html", null ],
-    [ "templa::traits::return_type< R(Args...)>", "structtempla_1_1traits_1_1return__type_3_01_r_07_args_8_8_8_08_4.html", null ],
-    [ "templa::traits::return_type< std::function< R(Args...)> >", "structtempla_1_1traits_1_1return__type_3_01std_1_1function_3_01_r_07_args_8_8_8_08_4_01_4.html", null ],
-    [ "templa::traits::is_same_return_type_callable< T, U, Args >", "structtempla_1_1traits_1_1is__same__return__type__callable.html", null ],
-    [ "templa::traits::return_type_t", "traits_8hpp.html#a18fce0f1532de964e39f447f5c04cab5", null ],
+    [ "templa::traits::function_traits< F >::argument< N >", "structtempla_1_1traits_1_1function__traits_1_1argument.html", "structtempla_1_1traits_1_1function__traits_1_1argument" ],
+    [ "templa::traits::function_traits< R(Args...)>::argument< N >", "structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_1_1argument.html", "structtempla_1_1traits_1_1function__traits_3_01_r_07_args_8_8_8_08_4_1_1argument" ],
     [ "templa::traits::strip_t", "traits_8hpp.html#ad07122d14c6a2229ebb7d50d58aed7b3", null ]
 ];
