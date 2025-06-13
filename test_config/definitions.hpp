@@ -1,7 +1,7 @@
 #pragma once
 #include "../include/templa.hpp"
 
-#define TEMPLA_TEST_INSTANCE 1
+#define TEMPLA_TEST_INSTANCE 0
 #define TEMPLA_TEST_ALL 1
 
 #if TEMPLA_TEST_ALL

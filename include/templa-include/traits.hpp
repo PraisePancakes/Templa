@@ -90,66 +90,123 @@ namespace templa::traits
     using strip_t = strip<T>::type;
 
     /**
-     * @brief Extracts the return type of a callable or function signature.
+     * @file
+     * @brief Traits to extract function signature information.
+     * @ingroup type_traits
+     */
+
+    /// @defgroup function_traits Function Traits
+    /// Compile-time utilities to introspect function signatures.
+    /// @{
+
+    /**
+     * @brief Primary template for function traits.
+     * Specialization used to extract traits from functor types (e.g., lambdas).
      *
-     * @tparam T Callable type or function signature.
+     * @tparam F Functor type (i.e., any type with operator()).
+     */
+    template <class F>
+    struct function_traits
+    {
+    private:
+        using call_type = function_traits<decltype(&F::type::operator())>;
+
+    public:
+        /// The return type of the function.
+        using return_type = typename call_type::return_type;
+
+        /// The number of arguments (excluding the implicit object parameter).
+        static constexpr std::size_t arity = call_type::arity - 1;
+
+        /**
+         * @brief Retrieves the type of the N-th argument.
+         * @tparam N Index of the argument (0-based).
+         */
+        template <std::size_t N>
+        struct argument
+        {
+            static_assert(N < arity, "error: invalid parameter index.");
+            /// The type of the N-th argument.
+            using type = typename call_type::template argument<N + 1>::type;
+        };
+    };
+
+    /**
+     * @brief Specialization for regular function types.
      *
-     * This template provides the nested member `type` representing the return type.
-     *
-     * Specializations:
-     * - For function signatures: `return_type<R(Args...)>` extracts R.
-     * - For std::function: extracts the return type R.
-     *
-     * @note Uses `std::invoke_result_t` for general callables.
+     * @tparam R Return type.
+     * @tparam Args Argument types.
      */
     template <typename R, typename... Args>
-    struct return_type
+    struct function_traits<R(Args...)>
     {
-        using type = std::invoke_result_t<R, Args...>;
-    };
+        /// Return type of the function.
+        using return_type = R;
 
-    template <typename R, typename... Args>
-    struct return_type<R(Args...)>
-    {
-        using type = R;
-    };
+        /// Number of function parameters.
+        static constexpr std::size_t arity = sizeof...(Args);
 
-    template <typename R, typename... Args>
-    struct return_type<std::function<R(Args...)>>
-    {
-        using type = R;
-    };
-
-    /**
-     * @brief Helper alias to extract return type.
-     */
-    template <typename T>
-    using return_type_t = return_type<T>::type;
-
-    /**
-     * @brief Trait to check if two callable types have the same return type when called with Args...
-     *
-     * @tparam T First callable type.
-     * @tparam U Second callable type.
-     * @tparam Args Argument types to call with.
-     *
-     * Provides constexpr static bool member `value`.
-     */
-    template <typename T, typename U, typename... Args>
-    struct is_same_return_type_callable
-    {
-        constexpr static bool value = std::is_same_v<std::invoke_result_t<T, Args...>, std::invoke_result_t<U, Args...>>;
+        /**
+         * @brief Retrieves the type of the N-th argument.
+         * @tparam N Index of the argument (0-based).
+         */
+        template <std::size_t N>
+        struct argument
+        {
+            static_assert(N < arity, "error: invalid parameter index.");
+            /// Type of the N-th argument.
+            using type = typename std::tuple_element<N, std::tuple<Args...>>::type;
+        };
     };
 
     /**
-     * @brief Convenience variable template for checking if two types have the same return type.
+     * @brief Specialization for function pointer types.
      */
-    template <typename T, typename U>
-    constexpr static bool is_same_return_type_v = std::is_same_v<return_type_t<T>, return_type_t<U>>;
+    template <class R, class... Args>
+    struct function_traits<R (*)(Args...)> : public function_traits<R(Args...)>
+    {
+    };
 
     /**
-     * @brief Convenience variable template for checking if two callables have the same return type given Args.
+     * @brief Specialization for member function pointers.
      */
-    template <typename T, typename U, typename... Args>
-    constexpr static bool is_same_return_type_callable_v = is_same_return_type_callable<T, U, Args...>::value;
+    template <class C, class R, class... Args>
+    struct function_traits<R (C::*)(Args...)> : public function_traits<R(C &, Args...)>
+    {
+    };
+
+    /**
+     * @brief Specialization for const member function pointers.
+     */
+    template <class C, class R, class... Args>
+    struct function_traits<R (C::*)(Args...) const> : public function_traits<R(C &, Args...)>
+    {
+    };
+
+    /**
+     * @brief Specialization for pointer-to-member types.
+     */
+    template <class C, class R>
+    struct function_traits<R(C::*)> : public function_traits<R(C &)>
+    {
+    };
+
+    /**
+     * @brief Lvalue reference specialization.
+     */
+    template <class F>
+    struct function_traits<F &> : public function_traits<F>
+    {
+    };
+
+    /**
+     * @brief Rvalue reference specialization.
+     */
+    template <class F>
+    struct function_traits<F &&> : public function_traits<F>
+    {
+    };
+
+    /// @}
+
 }
