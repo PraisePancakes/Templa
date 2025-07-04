@@ -554,4 +554,28 @@ namespace templa
         /// Second half of the split type list.
         using second = typename full_type::second;
     };
+
+    /**
+     * @brief Intersection of two lists of types.
+     *
+     * @tparam T The first type list.
+     * @tparam U The second type list.
+     */
+
+    template <typename T, typename U>
+    struct type_list_intersect;
+
+    template <typename... Ts, typename... Us>
+    struct type_list_intersect<internal::type_list<Ts...>, internal::type_list<Us...>>
+    {
+    private:
+        using common_types = decltype(std::tuple_cat(
+            (std::conditional_t<exists<Ts, Us...>::value, std::tuple<Ts>, std::tuple<>>{})...));
+
+        template <typename... Tys>
+        constexpr static internal::type_list<Tys...> to_type_list(std::tuple<Tys...>);
+
+    public:
+        using type = decltype(to_type_list(common_types{}));
+    };
 }
