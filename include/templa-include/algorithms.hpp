@@ -435,9 +435,12 @@ namespace templa::algorithms
      * @note This struct is useful for generating compile-time string identifiers or
      *       type names without runtime overhead.
      */
-    template <const std::string_view &...Strs>
-    struct join
+    template <const std::string_view &...args>
+    struct cxpr_stream
     {
+    public:
+        constexpr static std::size_t size = (args.size() + ... + 0);
+
     private:
         /**
          * @brief Internal compile-time character array holding the joined string.
@@ -445,27 +448,21 @@ namespace templa::algorithms
          * Allocates an array of total character length (+1 for null terminator),
          * then inserts each character of every input string in sequence.
          */
-        constexpr static auto arr = []() consteval
+        constexpr static std::array<char, size> arr = []<typename... Args>(Args &&...as) consteval
         {
-            constexpr std::size_t length = (Strs.size() + ... + 0);
-            std::array<char, length + 1> arr;
-            auto Joiner = [i = 0, &arr](const std::string_view &s) consteval mutable
-            {
-                for (auto c : s)
-                {
-                    arr[i++] = c;
-                }
-            };
-            (Joiner(Strs), ...);
-            arr[length] = 0;
+            std::array<char, size> arr;
+            std::size_t index = 0;
+            (std::for_each(as.begin(), as.end(), [&](char c)
+                           { arr[index++] = c; }),
+             ...);
             return arr;
-        }();
+        }(std::forward<const std::string_view &>(args)...);
 
     public:
         /**
          * @brief The resulting joined string as a `std::string_view`.
          */
-        constexpr static std::string_view value = {arr.data(), arr.size() - 1};
+        constexpr static std::string_view value{arr.begin(), arr.end()};
     };
 
     /**

@@ -570,7 +570,7 @@ namespace templa
     {
     private:
         using common_types = decltype(std::tuple_cat(
-            (std::conditional_t<exists<Ts, Us...>::value, std::tuple<Ts>, std::tuple<>>{})...));
+            (std::conditional_t<type_list_contains<Ts, Us...>::value, std::tuple<Ts>, std::tuple<>>{})...));
 
         template <typename... Tys>
         constexpr static internal::type_list<Tys...> to_type_list(std::tuple<Tys...>);
