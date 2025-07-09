@@ -427,10 +427,10 @@ namespace templa::algorithms
     /**
      * @brief Compile-time string concatenation of multiple `std::string_view` references.
      *
-     * Joins multiple string literals (passed as `std::string_view` references) into
+     * cxpr_streams multiple string literals (passed as `std::string_view` references) into
      * a single compile-time `std::string_view`.
      *
-     * @tparam Strs Parameter pack of `std::string_view` references to be joined.
+     * @tparam Strs Parameter pack of `std::string_view` references to be cxpr_streamed.
      *
      * @note This struct is useful for generating compile-time string identifiers or
      *       type names without runtime overhead.
@@ -443,7 +443,7 @@ namespace templa::algorithms
 
     private:
         /**
-         * @brief Internal compile-time character array holding the joined string.
+         * @brief Internal compile-time character array holding the cxpr_streamed string.
          *
          * Allocates an array of total character length (+1 for null terminator),
          * then inserts each character of every input string in sequence.
@@ -460,18 +460,18 @@ namespace templa::algorithms
 
     public:
         /**
-         * @brief The resulting joined string as a `std::string_view`.
+         * @brief The resulting cxpr_streamed string as a `std::string_view`.
          */
         constexpr static std::string_view value{arr.begin(), arr.end()};
     };
 
     /**
-     * @brief Shorthand variable template to extract joined string from `join`.
+     * @brief Shorthand variable template to extract cxpr_streamed string from `cxpr_stream`.
      *
-     * @tparam Strs Same parameter pack of string views as `join`.
+     * @tparam Strs Same parameter pack of string views as `cxpr_stream`.
      */
     template <std::string_view const &...Strs>
-    constexpr static std::string_view join_v = join<Strs...>::value;
+    constexpr static std::string_view cxpr_stream_v = cxpr_stream<Strs...>::value;
 
     /**
      * @brief Flattens a single-level `std::vector<T>` into another vector.
